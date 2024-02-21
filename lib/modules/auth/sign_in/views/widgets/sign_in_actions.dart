@@ -21,7 +21,11 @@ class _SignInActions extends StatelessWidget {
         SizedBox(height: 10.h),
         TextButton(
           onPressed: () {
-            AppRouter.pushReplacement(context: context, page: Pages.signUp);
+            AppRouter.pushReplacement(
+              context: context,
+              page: Pages.signUp,
+              data: {"name": "mohamed"},
+            );
           },
           child: Text(
             language.Create_Account,

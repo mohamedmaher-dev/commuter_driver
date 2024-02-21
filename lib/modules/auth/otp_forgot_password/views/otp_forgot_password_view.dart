@@ -1,6 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:commuter_driver/core/localization/generated/l10n.dart';
-import 'package:commuter_driver/core/routes/app_route.dart';
+import 'package:commuter_driver/core/routes/app_router.dart';
 import 'package:commuter_driver/core/widgets/pop_loading.dart';
 import 'package:commuter_driver/modules/auth/widgets/otp_view.dart';
 import 'package:flutter/material.dart';

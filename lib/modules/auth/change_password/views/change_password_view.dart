@@ -1,6 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:commuter_driver/core/di/di.dart';
-import 'package:commuter_driver/core/routes/app_route.dart';
+import 'package:commuter_driver/core/routes/app_router.dart';
 import 'package:commuter_driver/core/validation/form_validation.dart';
 import 'package:commuter_driver/core/widgets/pop_loading.dart';
 import 'package:commuter_driver/modules/auth/change_password/controllers/change_password_bloc/change_password_bloc.dart';
@@ -57,10 +57,7 @@ class _ChangePasswordView extends StatelessWidget {
               type: ContentType.success,
               context: context,
             );
-            AppRouter.pushReplacement(
-              context: context,
-              page: Pages.signIn,
-            );
+            AppRouter.pushReplacement(context: context, page: Pages.signIn);
           },
         );
       },

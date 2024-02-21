@@ -1,7 +1,7 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:commuter_driver/core/di/di.dart';
 import 'package:commuter_driver/core/localization/generated/l10n.dart';
-import 'package:commuter_driver/core/routes/app_route.dart';
+import 'package:commuter_driver/core/routes/app_router.dart';
 import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:commuter_driver/core/validation/form_validation.dart';
@@ -56,9 +56,7 @@ class _SignInView extends StatelessWidget {
           },
           successForgotPass: (data) {
             AppRouter.pushReplacement(
-              context: context,
-              page: Pages.otpForgotPassword,
-            );
+                context: context, page: Pages.otpForgotPassword);
           },
           userNotActive: (data) {
             AppSnackBar.show(

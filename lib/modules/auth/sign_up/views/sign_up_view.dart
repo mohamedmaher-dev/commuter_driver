@@ -13,26 +13,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
-import '../../../../core/routes/app_route.dart';
+import '../../../../core/routes/app_router.dart';
 import '../../../../core/widgets/app_snack_bar.dart';
 part 'widgets/sign_up_actions.dart';
 part 'widgets/sign_up_form.dart';
 part 'widgets/sign_up_intro_msg.dart';
 
 class SignUpView extends StatelessWidget {
-  const SignUpView({super.key});
+  const SignUpView({super.key, required this.data});
+  final Map<String, dynamic> data;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => di<SignUpBloc>(),
-      child: const _SignUpView(),
+      child: _SignUpView(data: data),
     );
   }
 }
 
 class _SignUpView extends StatelessWidget {
-  const _SignUpView();
+  const _SignUpView({required this.data});
+  final Map<String, dynamic> data;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +62,7 @@ class _SignUpView extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          title: Text(data['name']!),
           actions: const [LanguageBTN()],
         ),
         body: Padding(

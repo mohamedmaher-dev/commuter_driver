@@ -1,7 +1,7 @@
 import 'package:commuter_driver/core/bloc/main_bloc.dart';
 import 'package:commuter_driver/core/localization/controller/localization_bloc.dart';
 import 'package:commuter_driver/core/localization/generated/l10n.dart';
-import 'package:commuter_driver/core/routes/app_route.dart';
+import 'package:commuter_driver/core/routes/app_router.dart';
 import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/widgets/pop_loading.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,8 @@ class _Commuter extends StatelessWidget {
           builder: (context, state) {
             return BlocBuilder<MainBloc, MainState>(
               builder: (context, state) {
-                return MaterialApp(
+                return MaterialApp.router(
+                  routerConfig: AppRouter.router,
                   locale: localizationBloc.locale,
                   localizationsDelegates: const [
                     Language.delegate,
@@ -65,7 +66,6 @@ class _Commuter extends StatelessWidget {
                   darkTheme: appThemeBloc.appTheme.theme,
                   themeMode: appThemeBloc.themeMode,
                   builder: PopLoading.init(),
-                  home: Pages.initPage.view,
                 );
               },
             );
