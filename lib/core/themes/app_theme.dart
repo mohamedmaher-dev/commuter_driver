@@ -11,8 +11,33 @@ class _AppTheme {
         textButtonTheme: _textButtonThemeData,
         inputDecorationTheme: _inputDecorationTheme,
         pageTransitionsTheme: _pageTransitionsTheme,
+        iconButtonTheme: _iconButtonThemeData,
+        segmentedButtonTheme: _segmentedButtonTheme,
       );
-  final FilledButtonThemeData _filledButtonThemeData = FilledButtonThemeData(
+
+  final _segmentedButtonTheme = SegmentedButtonThemeData(
+    style: ButtonStyle(
+      shape: MaterialStatePropertyAll(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+      ),
+      padding: const MaterialStatePropertyAll(
+        EdgeInsets.all(0),
+      ),
+    ),
+  );
+  final _iconButtonThemeData = IconButtonThemeData(
+    style: ButtonStyle(
+      shape: MaterialStatePropertyAll(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+      ),
+    ),
+  );
+
+  final _filledButtonThemeData = FilledButtonThemeData(
     style: ButtonStyle(
       minimumSize: MaterialStatePropertyAll(
         Size(
@@ -35,8 +60,7 @@ class _AppTheme {
     ),
   );
 
-  final OutlinedButtonThemeData _outlinedButtonThemeData =
-      OutlinedButtonThemeData(
+  final _outlinedButtonThemeData = OutlinedButtonThemeData(
     style: ButtonStyle(
       minimumSize: MaterialStatePropertyAll(
         Size(
@@ -52,8 +76,7 @@ class _AppTheme {
     ),
   );
 
-  final ElevatedButtonThemeData _elevatedButtonThemeData =
-      ElevatedButtonThemeData(
+  final _elevatedButtonThemeData = ElevatedButtonThemeData(
     style: ButtonStyle(
       shape: MaterialStatePropertyAll(
         RoundedRectangleBorder(
@@ -62,7 +85,7 @@ class _AppTheme {
       ),
     ),
   );
-  final TextButtonThemeData _textButtonThemeData = TextButtonThemeData(
+  final _textButtonThemeData = TextButtonThemeData(
     style: ButtonStyle(
       shape: MaterialStatePropertyAll(
         RoundedRectangleBorder(
@@ -72,7 +95,7 @@ class _AppTheme {
     ),
   );
 
-  final InputDecorationTheme _inputDecorationTheme = InputDecorationTheme(
+  final _inputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10.r),
       borderSide: BorderSide.none,
@@ -80,7 +103,7 @@ class _AppTheme {
     filled: true,
   );
 
-  final PageTransitionsTheme _pageTransitionsTheme = const PageTransitionsTheme(
+  final _pageTransitionsTheme = const PageTransitionsTheme(
     builders: {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
     },

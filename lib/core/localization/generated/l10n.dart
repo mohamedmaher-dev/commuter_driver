@@ -439,6 +439,16 @@ class Language {
       args: [],
     );
   }
+
+  /// `Home`
+  String get Home {
+    return Intl.message(
+      'Home',
+      name: 'Home',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Failure": MessageLookupByLibrary.simpleMessage("خطأ"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور"),
+        "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "Language_Name": MessageLookupByLibrary.simpleMessage("العربية"),
         "Mail": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "Name": MessageLookupByLibrary.simpleMessage("الاسم"),
