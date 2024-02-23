@@ -1,3 +1,6 @@
+import 'package:commuter_driver/core/local_storage/local_storage_result.dart';
+import 'package:commuter_driver/core/local_storage/models/user_data_model.dart';
+import 'package:commuter_driver/core/local_storage/models/user_secret_data_model.dart';
 import 'package:commuter_driver/core/networking/api_error_model.dart';
 import 'package:commuter_driver/core/networking/api_result.dart';
 import 'package:commuter_driver/core/networking/api_service.dart';
@@ -5,12 +8,14 @@ import 'package:commuter_driver/modules/auth/sign_in/data/models/sign_in_request
 import 'package:commuter_driver/modules/auth/sign_in/data/models/sign_in_response_model.dart';
 import 'package:dio/dio.dart';
 
+import '../../../../../core/local_storage/local_storage_service.dart';
 import '../../../otp_forgot_password/data/models/forgot_pass_request_model.dart';
 import '../../../otp_forgot_password/data/models/forgot_pass_response_model.dart';
 
 class SignInRebo {
   final ApiService _apiService;
-  const SignInRebo(this._apiService);
+  final LocalStorageService _localStorageService;
+  const SignInRebo(this._apiService, this._localStorageService);
 
   Future<ApiResult<SignInResponseModel>> signIn({
     required SignInRequestModel signInRequestModel,
@@ -35,6 +40,22 @@ class SignInRebo {
       return ApiResult.failure(ApiErrorModel.fromDioException(dioException: e));
     } catch (e) {
       return ApiResult.failure(ApiErrorModel.fromUnknown(e: e));
+    }
+  }
+
+  Future<LocalStorageResult<UserSecretDataModel>> saveUserAuthInfo(
+      {required String email,
+      required String password,
+      required UserDataModel userDataModel}) async {
+    try {
+      await _localStorageService.saveUserSecretData(
+        userEmail: email,
+        userPassword: password,
+      );
+      await _localStorageService.saveUserData(userDataModel: userDataModel);
+      return const LocalStorageResult.success();
+    } catch (e) {
+      return LocalStorageResult.failure(error: e.toString());
     }
   }
 }

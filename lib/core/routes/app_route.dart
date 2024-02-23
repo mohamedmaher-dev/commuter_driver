@@ -1,6 +1,10 @@
+import 'package:commuter_driver/modules/add_commute/views/add_commute_view.dart';
+import 'package:commuter_driver/modules/add_round_trip/views/add_round_trip_view.dart';
 import 'package:commuter_driver/modules/auth/change_password/views/change_password_view.dart';
 import 'package:commuter_driver/modules/auth/otp_forgot_password/views/otp_forgot_password_view.dart';
 import 'package:commuter_driver/modules/home/views/home_view.dart';
+import 'package:commuter_driver/modules/profile/views/profile_view.dart';
+import 'package:commuter_driver/modules/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../modules/auth/sign_in/views/sign_in_view.dart';

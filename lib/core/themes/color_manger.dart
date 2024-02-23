@@ -3,6 +3,7 @@ part of 'controller/app_theme_bloc.dart';
 class ColorManger {
   static final AppThemeBloc _appThemeBloc = di<AppThemeBloc>();
   ColorManger._();
+  static Color transparent = Colors.transparent;
   static Color white = Colors.white;
   static Color black = Colors.black;
   static Color get primary => colorScheme.primary;

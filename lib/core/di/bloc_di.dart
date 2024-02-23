@@ -26,4 +26,7 @@ _blocDiInit() {
       di<SignUpRebo>(),
     ),
   );
+  di.registerFactory<SplashBloc>(
+    () => SplashBloc(di<SplashRebo>(), di<MainBloc>()),
+  );
 }

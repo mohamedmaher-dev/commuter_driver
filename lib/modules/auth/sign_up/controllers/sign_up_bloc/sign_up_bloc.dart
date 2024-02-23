@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:commuter_driver/core/local_storage/models/user_data_model.dart';
 import 'package:commuter_driver/modules/auth/sign_up/data/models/sign_up_request_model.dart';
 import 'package:commuter_driver/modules/auth/sign_up/data/models/sign_up_response_model.dart';
 import 'package:commuter_driver/modules/auth/sign_up/data/rebos/sign_up_rebo.dart';
@@ -20,7 +21,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   PhoneNumber phoneNumber = PhoneNumber();
   bool phoneNumberIsValid = false;
   bool isHide = true;
-  late SignUpResponseModel signUpResponseModel;
 
   SignUpBloc(this._signUpRebo) : super(const _Initial()) {
     on<SignUpEvent>(
@@ -49,21 +49,44 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
       emit(const SignUpState.pLoading());
       final signUpResult = await _signUpRebo.signUp(
         signUpRequestModel: SignUpRequestModel(
-            name: nameController.text,
-            email: emailController.text,
-            password: passwordController.text,
-            confirmPassword: confirmPasswordController.text,
-            phoneNumber: phoneNumber.phoneNumber!),
+          name: nameController.text,
+          email: emailController.text,
+          password: passwordController.text,
+          confirmPassword: confirmPasswordController.text,
+          phoneNumber: phoneNumber.phoneNumber!,
+        ),
       );
-      signUpResult.when(
-        success: (data) {
-          emit(const SignUpState.success());
-          signUpResponseModel = data;
+      await signUpResult.when(
+        success: (data) async {
+          await _saveUserDataMethod(data, emit);
         },
         failure: (apiErrorModel) {
           emit(SignUpState.failure(apiErrorModel.msg));
         },
       );
     }
+  }
+
+  Future<void> _saveUserDataMethod(
+      SignUpResponseModel data, Emitter<SignUpState> emit) async {
+    final saveUserDataResult = await _signUpRebo.saveUserAuthInfo(
+      email: emailController.text,
+      password: passwordController.text,
+      userDataModel: UserDataModel(
+        isLogin: true,
+        name: data.userData.name,
+        email: data.userData.email,
+        token: data.token,
+        userID: data.userData.id,
+      ),
+    );
+    saveUserDataResult.when(
+      success: (result) {
+        emit(const SignUpState.success());
+      },
+      failure: (error) {
+        emit(SignUpState.failure(error));
+      },
+    );
   }
 }

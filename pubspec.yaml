@@ -37,6 +37,8 @@ dependencies:
   flutter_easyloading: ^3.0.5
   awesome_snackbar_content: ^0.1.3
   badges: ^3.1.2
+  dotted_border: ^2.1.0
+  flutter_rating_bar: ^4.0.1
   # ===== State Mangement =====
   flutter_bloc: ^8.1.4
 
@@ -50,10 +52,16 @@ dependencies:
   # ===== Networking =====
   dio: ^5.4.0
 
+  # ===== Local Storage =====
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  flutter_secure_storage: ^9.0.0
+
   # ===== Code Gen =====
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
   retrofit: ^4.1.0
+  hive_generator: ^2.0.1
 
   # ===== Helpers =====
   pretty_dio_logger: ^1.3.1

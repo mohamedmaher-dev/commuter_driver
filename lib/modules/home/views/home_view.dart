@@ -1,5 +1,6 @@
 import 'package:commuter_driver/core/localization/generated/l10n.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:commuter_driver/core/routes/app_route.dart';
 import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:flutter/cupertino.dart';
@@ -40,8 +41,13 @@ class HomeView extends StatelessWidget {
               ),
             ),
             IconButton.outlined(
-              onPressed: () {},
-              icon: const Icon(Icons.settings),
+              onPressed: () {
+                AppRouter.push(context: context, page: Pages.profile);
+              },
+              icon: const Hero(
+                tag: 'TAG-1',
+                child: Icon(CupertinoIcons.profile_circled),
+              ),
             ),
             SizedBox(width: 10.w),
           ],
@@ -61,7 +67,9 @@ class HomeView extends StatelessWidget {
               Row(
                 children: [
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      AppRouter.push(context: context, page: Pages.addCommute);
+                    },
                     label: const Text('اضف كوميوت'),
                     icon: const Icon(
                       Icons.add,
@@ -187,6 +195,7 @@ class HomeView extends StatelessWidget {
                               showSelectedIcon: false,
                               emptySelectionAllowed: false,
                               multiSelectionEnabled: true,
+                              onSelectionChanged: (p0) {},
                               selected: weeks,
                             ),
                           )

@@ -13,7 +13,10 @@ class _AppTheme {
         pageTransitionsTheme: _pageTransitionsTheme,
         iconButtonTheme: _iconButtonThemeData,
         segmentedButtonTheme: _segmentedButtonTheme,
+        appBarTheme: _appBarTheme,
       );
+
+  final _appBarTheme = const AppBarTheme();
 
   final _segmentedButtonTheme = SegmentedButtonThemeData(
     style: ButtonStyle(
@@ -71,6 +74,13 @@ class _AppTheme {
       shape: MaterialStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.r),
+        ),
+      ),
+      textStyle: MaterialStatePropertyAll(
+        TextStyle(
+          fontSize: 15.sp,
+          fontWeight: FontWeight.bold,
+          fontFamily: _fontFamily,
         ),
       ),
     ),
