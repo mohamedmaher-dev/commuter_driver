@@ -5,7 +5,6 @@ import 'package:commuter_driver/modules/auth/sign_up/data/models/sign_up_respons
 import 'package:dio/dio.dart';
 
 import '../../../../../core/local_storage/local_storage_result.dart';
-import '../../../../../core/local_storage/models/user_data_model.dart';
 import '../../../../../core/local_storage/models/user_secret_data_model.dart';
 import '../../../../../core/networking/api_error_model.dart';
 import '../../../../../core/networking/api_result.dart';
@@ -28,17 +27,20 @@ class SignUpRebo {
     }
   }
 
-  Future<LocalStorageResult<UserSecretDataModel>> saveUserAuthInfo(
-      {required String email,
-      required String password,
-      required UserDataModel userDataModel}) async {
+  Future<LocalStorageResult<UserSecretDataModel>> saveUserAuthInfo({
+    required String email,
+    required String password,
+    required String id,
+    required String token,
+  }) async {
     try {
-      await _localStorageService.saveUserSecretData(
+      final userSecretDataModel = await _localStorageService.saveUserSecretData(
         userEmail: email,
         userPassword: password,
+        userId: id,
+        userToken: token,
       );
-      await _localStorageService.saveUserData(userDataModel: userDataModel);
-      return const LocalStorageResult.success();
+      return LocalStorageResult.success(result: userSecretDataModel);
     } catch (e) {
       return LocalStorageResult.failure(error: e.toString());
     }

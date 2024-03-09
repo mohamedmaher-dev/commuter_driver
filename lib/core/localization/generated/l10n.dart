@@ -449,6 +449,116 @@ class Language {
       args: [],
     );
   }
+
+  /// `Profile`
+  String get Profile {
+    return Intl.message(
+      'Profile',
+      name: 'Profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get Delete_Account {
+    return Intl.message(
+      'Delete Account',
+      name: 'Delete_Account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vehicle Type`
+  String get Vehicle_Type {
+    return Intl.message(
+      'Vehicle Type',
+      name: 'Vehicle_Type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Color`
+  String get Color {
+    return Intl.message(
+      'Color',
+      name: 'Color',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Females Only`
+  String get Females_Only {
+    return Intl.message(
+      'Females Only',
+      name: 'Females_Only',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Car Pooling`
+  String get Car_Pooling {
+    return Intl.message(
+      'Car Pooling',
+      name: 'Car_Pooling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Car No Of Seats`
+  String get Car_No_Of_Seats {
+    return Intl.message(
+      'Car No Of Seats',
+      name: 'Car_No_Of_Seats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Night Mode`
+  String get Night_Mode {
+    return Intl.message(
+      'Night Mode',
+      name: 'Night_Mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Language`
+  String get Current_Language {
+    return Intl.message(
+      'Current Language',
+      name: 'Current_Language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify Identity`
+  String get Verify_Identity {
+    return Intl.message(
+      'Verify Identity',
+      name: 'Verify_Identity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Profile`
+  String get Update_Profile {
+    return Intl.message(
+      'Update Profile',
+      name: 'Update_Profile',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

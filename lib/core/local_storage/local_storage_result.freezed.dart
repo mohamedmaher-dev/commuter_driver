@@ -109,7 +109,7 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl({this.result});
+  const _$SuccessImpl({required this.result});
 
   @override
   final T? result;
@@ -201,7 +201,7 @@ class _$SuccessImpl<T> implements Success<T> {
 }
 
 abstract class Success<T> implements LocalStorageResult<T> {
-  const factory Success({final T? result}) = _$SuccessImpl<T>;
+  const factory Success({required final T? result}) = _$SuccessImpl<T>;
 
   T? get result;
   @JsonKey(ignore: true)

@@ -28,6 +28,14 @@ class _AppTheme {
       padding: const MaterialStatePropertyAll(
         EdgeInsets.all(0),
       ),
+      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+        (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return ColorManger.primaryContainer;
+          }
+          return Colors.transparent;
+        },
+      ),
     ),
   );
   final _iconButtonThemeData = IconButtonThemeData(

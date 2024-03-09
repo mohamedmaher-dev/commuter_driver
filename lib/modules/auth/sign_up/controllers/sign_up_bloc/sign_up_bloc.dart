@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:commuter_driver/core/local_storage/models/user_data_model.dart';
 import 'package:commuter_driver/modules/auth/sign_up/data/models/sign_up_request_model.dart';
 import 'package:commuter_driver/modules/auth/sign_up/data/models/sign_up_response_model.dart';
 import 'package:commuter_driver/modules/auth/sign_up/data/rebos/sign_up_rebo.dart';
@@ -72,13 +71,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     final saveUserDataResult = await _signUpRebo.saveUserAuthInfo(
       email: emailController.text,
       password: passwordController.text,
-      userDataModel: UserDataModel(
-        isLogin: true,
-        name: data.userData.name,
-        email: data.userData.email,
-        token: data.token,
-        userID: data.userData.id,
-      ),
+      id: data.userData.id,
+      token: data.token,
     );
     saveUserDataResult.when(
       success: (result) {

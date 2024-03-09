@@ -18,8 +18,20 @@ class Commuter extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => di<LocalizationBloc>()),
-        BlocProvider(create: (context) => di<AppThemeBloc>()),
+        BlocProvider(
+          create: (context) => di<LocalizationBloc>()
+            ..add(
+              const LocalizationEvent.started(),
+            ),
+          lazy: false,
+        ),
+        BlocProvider(
+          create: (context) => di<AppThemeBloc>()
+            ..add(
+              const AppThemeEvent.started(),
+            ),
+          lazy: false,
+        ),
         BlocProvider(
           create: (context) => di<MainBloc>()
             ..add(

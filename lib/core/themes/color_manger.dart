@@ -49,9 +49,9 @@ class ColorManger {
             )
           : const ColorScheme(
               brightness: Brightness.dark,
-              primary: Color(0xff9fc9ff),
+              primary: Color(0xffcabe90),
               onPrimary: Color(0xff101314),
-              primaryContainer: Color(0xff00325b),
+              primaryContainer: Color(0xff001c51),
               onPrimaryContainer: Color(0xffdfe7ee),
               secondary: Color(0xffffb59d),
               onSecondary: Color(0xff141210),

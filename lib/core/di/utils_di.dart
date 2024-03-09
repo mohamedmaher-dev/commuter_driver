@@ -21,4 +21,16 @@ _utilsDiInit() async {
       di<FlutterSecureStorage>(),
     ),
   );
+  di.registerLazySingleton(
+    () => ImagePicker(),
+  );
+  di.registerLazySingleton(
+    () => LocationService(
+      di<Dio>(),
+      di<PolylinePoints>(),
+    ),
+  );
+  di.registerLazySingleton(
+    () => PolylinePoints(),
+  );
 }

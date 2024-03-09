@@ -29,4 +29,30 @@ _rebosDIInit() {
       di<ApiService>(),
     ),
   );
+  di.registerLazySingleton(
+    () => ProfileRebo(
+      di<ApiService>(),
+      di<MainBloc>().userSecretDataModel,
+      di<LocalStorageService>(),
+      di<ImagePicker>(),
+    ),
+  );
+  di.registerLazySingleton(
+    () => CommutesRebo(
+      di<ApiService>(),
+      di<LocationService>(),
+      di<MainBloc>().userSecretDataModel,
+    ),
+  );
+  di.registerLazySingleton(
+    () => PickLocationRebo(
+      di<LocationService>(),
+    ),
+  );
+  di.registerLazySingleton(
+    () => AddCommuteRebo(
+      di<ApiService>(),
+      di<MainBloc>().userSecretDataModel,
+    ),
+  );
 }

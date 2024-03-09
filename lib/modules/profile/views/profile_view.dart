@@ -1,21 +1,55 @@
+import 'dart:io';
+
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:commuter_driver/core/di/di.dart';
+import 'package:commuter_driver/core/localization/generated/l10n.dart';
+import 'package:commuter_driver/core/routes/app_route.dart';
 import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
+import 'package:commuter_driver/core/widgets/app_snack_bar.dart';
+import 'package:commuter_driver/core/widgets/circle_loading.dart';
+import 'package:commuter_driver/core/widgets/pop_loading.dart';
+import 'package:commuter_driver/modules/profile/controllers/profile_bloc/profile_bloc.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:image_picker/image_picker.dart';
+
+part 'widgets/account_body.dart';
+part 'widgets/verify_body.dart';
+part 'widgets/workspace_body.dart';
+part 'widgets/loading_body.dart';
+part 'widgets/success_body.dart';
+part 'widgets/failure_body.dart';
+part 'widgets/pick_image_sheet.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => di<ProfileBloc>()..add(const ProfileEvent.started()),
+      child: const _ProfileView(),
+    );
+  }
+}
+
+class _ProfileView extends StatelessWidget {
+  const _ProfileView();
+
+  @override
+  Widget build(BuildContext context) {
+    final language = Language.of(context);
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: const Text('الملف الشخصي'),
+        title: Text(language.Profile),
         actions: [
           IconButton.outlined(
             onPressed: () {},
@@ -26,225 +60,37 @@ class ProfileView extends StatelessWidget {
           SizedBox(width: 10.w),
         ],
       ),
-      body: ListView(
-        padding: EdgeInsets.all(10.w),
-        children: [
-          Card(
-            child: Padding(
-              padding: EdgeInsets.all(10.w),
-              child: Column(
-                children: [
-                  badges.Badge(
-                    badgeAnimation: const badges.BadgeAnimation.scale(),
-                    badgeStyle: badges.BadgeStyle(
-                      badgeColor: ColorManger.transparent,
-                    ),
-                    badgeContent: IconButton.filledTonal(
-                      icon: const Icon(Icons.edit),
-                      onPressed: () {},
-                    ),
-                    position: badges.BadgePosition.bottomStart(),
-                    child: CircleAvatar(
-                      maxRadius: MediaQuery.of(context).size.width / 6,
-                      minRadius: MediaQuery.of(context).size.width / 6,
-                      child: Hero(
-                        tag: 'TAG-1',
-                        child: Icon(
-                          CupertinoIcons.profile_circled,
-                          size: MediaQuery.of(context).size.width / 6,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10.h),
-                  RatingBar(
-                    textDirection: TextDirection.ltr,
-                    initialRating: 3.5,
-                    minRating: 1,
-                    direction: Axis.horizontal,
-                    allowHalfRating: true,
-                    itemCount: 5,
-                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    ratingWidget: RatingWidget(
-                      full: const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      half: const Directionality(
-                        textDirection: TextDirection.ltr,
-                        child: Icon(
-                          Icons.star_half,
-                          color: Colors.amber,
-                        ),
-                      ),
-                      empty: const Icon(
-                        Icons.star_border,
-                        color: Colors.amber,
-                      ),
-                    ),
-                    onRatingUpdate: (double value) {},
-                  ),
-                  SizedBox(height: 10.h),
-                  TextFormField(
-                    initialValue: 'Mohamed Maher',
-                    textAlign: TextAlign.center,
-                    readOnly: true,
-                    style: TextStyles.tsP12B,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.edit,
-                        ),
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('الوضع الليلي'),
-                    leading: const Icon(Icons.female_rounded),
-                    trailing: Switch(
-                      value: true,
-                      onChanged: (newValue) {},
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('اللغة'),
-                    leading: const Icon(Icons.language),
-                    trailing: TextButton(
-                      onPressed: () {},
-                      child: const Text('العربية'),
-                    ),
-                  ),
-                  ElevatedButton.icon(
-                    style: ButtonStyle(
-                      elevation: const MaterialStatePropertyAll(0),
-                      foregroundColor: MaterialStatePropertyAll(
-                        ColorManger.red,
-                      ),
-                    ),
-                    onPressed: () {},
-                    icon: const Icon(Icons.delete),
-                    label: const Text('حذف الحساب'),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Card(
-            child: Padding(
-              padding: EdgeInsets.all(10.w),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: const Text('نوع السيارة'),
-                    leading: const Icon(CupertinoIcons.car_detailed),
-                    trailing: IconButton.outlined(
-                      style: ButtonStyle(
-                        shape: MaterialStatePropertyAll(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.r),
-                          ),
-                        ),
-                      ),
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_drop_down_rounded,
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('لون السيارة'),
-                    leading: const Icon(Icons.color_lens),
-                    trailing: CircleAvatar(
-                      backgroundColor: ColorManger.white,
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('نساء فقط'),
-                    leading: const Icon(Icons.female_rounded),
-                    trailing: Switch(
-                      value: false,
-                      onChanged: (newValue) {},
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('مشاركة السيارة'),
-                    leading: const Icon(Icons.group),
-                    trailing: Switch(
-                      value: false,
-                      onChanged: (newValue) {},
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('عدد اماكن السيارة'),
-                    leading: const Icon(Icons.chair_alt_rounded),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            CupertinoIcons.plus,
-                          ),
-                        ),
-                        Text(
-                          '5',
-                          style: TextStyles.tsP20B,
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            CupertinoIcons.minus,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Card(
-            child: Padding(
-                padding: EdgeInsetsDirectional.all(10.w),
-                child: TextButton(
-                  onPressed: () {},
-                  child: DottedBorder(
-                    borderType: BorderType.RRect,
-                    radius: Radius.circular(10.r),
-                    dashPattern: const [10, 10],
-                    color: Colors.grey,
-                    strokeWidth: 2,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(10.w),
-                          child: Icon(
-                            size: 50.r,
-                            Icons.document_scanner_rounded,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(10.w),
-                          child: Text(
-                            'تأكيد الهوية',
-                            textAlign: TextAlign.center,
-                            style: TextStyles.tsP15B,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                )),
-          ),
-          SizedBox(height: 10.h),
-          FilledButton(
-            onPressed: () {},
-            child: const Text('تحديث الملف الشخصي'),
-          )
-        ],
+      body: BlocConsumer<ProfileBloc, ProfileState>(
+        listener: (context, state) {
+          PopLoading.dismiss();
+          state.whenOrNull(
+            failure: (msg) {
+              AppSnackBar.show(
+                title: language.Failure,
+                msg: msg,
+                type: ContentType.failure,
+                context: context,
+              );
+            },
+            deleteMeSuccess: () {
+              AppRouter.pushReplacement(context: context, page: Pages.splash);
+            },
+            loading: () {
+              PopLoading.show();
+            },
+            updateMeSuccess: () {
+              AppRouter.pushReplacement(context: context, page: Pages.profile);
+            },
+          );
+        },
+        builder: (context, state) {
+          return state.maybeWhen(
+            getMefailure: (msg) => const _FailureBody(),
+            getMeLoading: () => const _LoadingBody(),
+            initial: () => const _LoadingBody(),
+            orElse: () => const _SuccessBody(),
+          );
+        },
       ),
     );
   }
