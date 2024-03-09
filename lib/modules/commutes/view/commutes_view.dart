@@ -1,9 +1,5 @@
-import 'dart:math';
-
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:commuter_driver/core/di/di.dart';
-import 'package:commuter_driver/core/location_service/location_service.dart';
-import 'package:commuter_driver/core/location_service/models/get_routes_request_model.dart';
 import 'package:commuter_driver/core/routes/app_route.dart';
 import 'package:commuter_driver/core/widgets/app_snack_bar.dart';
 import 'package:commuter_driver/core/widgets/circle_loading.dart';
@@ -11,11 +7,7 @@ import 'package:commuter_driver/core/widgets/empty_view.dart';
 import 'package:commuter_driver/core/widgets/pop_loading.dart';
 import 'package:commuter_driver/core/widgets/segmented_week.dart';
 import 'package:commuter_driver/modules/commutes/controllers/commutes_bloc/commutes_bloc.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
