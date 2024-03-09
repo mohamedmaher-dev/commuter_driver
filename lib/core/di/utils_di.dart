@@ -15,4 +15,22 @@ _utilsDiInit() async {
       baseUrl: ApiConsts.baseUrl,
     ),
   );
+  di.registerLazySingleton(() => const FlutterSecureStorage());
+  di.registerLazySingleton(
+    () => LocalStorageService(
+      di<FlutterSecureStorage>(),
+    ),
+  );
+  di.registerLazySingleton(
+    () => ImagePicker(),
+  );
+  di.registerLazySingleton(
+    () => LocationService(
+      di<Dio>(),
+      di<PolylinePoints>(),
+    ),
+  );
+  di.registerLazySingleton(
+    () => PolylinePoints(),
+  );
 }

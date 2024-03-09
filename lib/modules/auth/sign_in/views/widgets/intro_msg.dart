@@ -11,7 +11,7 @@ class _SignInIntroMsg extends StatelessWidget {
         Text(
           language.App_Name,
           style: TextStyles.tsP30B.copyWith(
-            color: ColorManger.colorScheme.tertiary,
+            color: ColorManger.primary,
           ),
         ),
         SizedBox(height: 10.h),

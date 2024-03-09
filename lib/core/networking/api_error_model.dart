@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class ApiErrorModel {
   final String msg;
-  final int? code;
+  final int code;
   ApiErrorModel({required this.msg, required this.code});
 
   factory ApiErrorModel.fromUnknown({required Object e}) {

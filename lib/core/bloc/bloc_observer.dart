@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:commuter_driver/core/bloc/main_bloc.dart';
+import 'package:commuter_driver/modules/add_commute/controllers/landing/add_commute_landing_bloc.dart';
+import 'package:commuter_driver/modules/add_commute/controllers/pickup/add_commute_pickup_bloc.dart';
 import 'package:commuter_driver/modules/auth/sign_in/controllers/sign_in_bloc/sign_in_bloc.dart';
 import 'package:debug_print_flutter/debug_print_flutter.dart';
 
@@ -11,6 +13,8 @@ class MyBlocObserver extends BlocObserver {
   void onCreate(BlocBase bloc) {
     super.onCreate(bloc);
     if (bloc is SignInBloc) mainBloc.signInBloc = bloc;
+    if (bloc is AddCommutePickupBloc) mainBloc.pickupBloc = bloc;
+    if (bloc is AddCommuteLandingBloc) mainBloc.landingBloc = bloc;
     dPrint.white('onCreate -- ${bloc.runtimeType}');
   }
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:commuter_driver/core/widgets/circle_loading.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class PopLoading {
@@ -8,9 +8,7 @@ class PopLoading {
     EasyLoading.show(
       maskType: EasyLoadingMaskType.black,
       dismissOnTap: false,
-      indicator: const CircularProgressIndicator(
-        strokeWidth: 2,
-      ),
+      indicator: const CircleLoading(),
     );
   }
 

@@ -25,23 +25,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "Already_Have_An_Account":
             MessageLookupByLibrary.simpleMessage("Already Have An Account"),
         "App_Name": MessageLookupByLibrary.simpleMessage("Commuter"),
+        "Car_No_Of_Seats":
+            MessageLookupByLibrary.simpleMessage("Car No Of Seats"),
+        "Car_Pooling": MessageLookupByLibrary.simpleMessage("Car Pooling"),
         "Change_Password":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "Color": MessageLookupByLibrary.simpleMessage("Color"),
         "Confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "Confrim_Password":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "Create_Account":
             MessageLookupByLibrary.simpleMessage("Create Account"),
+        "Current_Language":
+            MessageLookupByLibrary.simpleMessage("Current Language"),
+        "Delete_Account":
+            MessageLookupByLibrary.simpleMessage("Delete Account"),
         "Enter_OTP_Code_Here":
             MessageLookupByLibrary.simpleMessage("Enter OTP Code Here"),
         "Failure": MessageLookupByLibrary.simpleMessage("Failure"),
+        "Females_Only": MessageLookupByLibrary.simpleMessage("Females Only"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "Home": MessageLookupByLibrary.simpleMessage("Home"),
         "Language_Name": MessageLookupByLibrary.simpleMessage("English"),
         "Mail": MessageLookupByLibrary.simpleMessage("Mail"),
         "Name": MessageLookupByLibrary.simpleMessage("Name"),
         "Name_Field_Must_Not_Be_Empty": MessageLookupByLibrary.simpleMessage(
             "Name Field Must Not Be Empty"),
+        "Night_Mode": MessageLookupByLibrary.simpleMessage("Night Mode"),
         "Ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "Password": MessageLookupByLibrary.simpleMessage("Password"),
         "Passwords_Must_Match":
@@ -59,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Please_Write_Your_Email_Correctly":
             MessageLookupByLibrary.simpleMessage(
                 "Please Write Your Email Correctly"),
+        "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "Resend_OTP_Code":
             MessageLookupByLibrary.simpleMessage("Resend OTP Code"),
         "Search": MessageLookupByLibrary.simpleMessage("Search"),
@@ -78,7 +90,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "This_Account_Not_Active":
             MessageLookupByLibrary.simpleMessage("This Account Not Active"),
         "Timeout": MessageLookupByLibrary.simpleMessage("Timeout"),
+        "Update_Profile":
+            MessageLookupByLibrary.simpleMessage("Update Profile"),
+        "Vehicle_Type": MessageLookupByLibrary.simpleMessage("Vehicle Type"),
         "Verify_Code": MessageLookupByLibrary.simpleMessage("Verify Code"),
+        "Verify_Identity":
+            MessageLookupByLibrary.simpleMessage("Verify Identity"),
         "Warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "Welcom_To_Commuter":
             MessageLookupByLibrary.simpleMessage("Welcom To Commuter"),
