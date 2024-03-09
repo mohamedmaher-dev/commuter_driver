@@ -25,22 +25,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "Already_Have_An_Account":
             MessageLookupByLibrary.simpleMessage("لدي حساب بالفعل"),
         "App_Name": MessageLookupByLibrary.simpleMessage("كوميوتر"),
+        "Car_No_Of_Seats":
+            MessageLookupByLibrary.simpleMessage("عدد اماكن السيارة"),
+        "Car_Pooling": MessageLookupByLibrary.simpleMessage("مشاركة السيارة"),
         "Change_Password":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "Color": MessageLookupByLibrary.simpleMessage("اللون"),
         "Confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "Confrim_Password":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "Create_Account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "Current_Language":
+            MessageLookupByLibrary.simpleMessage("اللغة الحالية"),
+        "Delete_Account": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "Enter_OTP_Code_Here":
             MessageLookupByLibrary.simpleMessage("أدخل رمز OTP هنا"),
         "Failure": MessageLookupByLibrary.simpleMessage("خطأ"),
+        "Females_Only": MessageLookupByLibrary.simpleMessage("نساء فقط"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور"),
+        "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "Language_Name": MessageLookupByLibrary.simpleMessage("العربية"),
         "Mail": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "Name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "Name_Field_Must_Not_Be_Empty": MessageLookupByLibrary.simpleMessage(
             "حقل الاسم لا يجب ان يكون فارغ"),
+        "Night_Mode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "Ok": MessageLookupByLibrary.simpleMessage("حسنا"),
         "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "Passwords_Must_Match":
@@ -58,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Please_Write_Your_Email_Correctly":
             MessageLookupByLibrary.simpleMessage(
                 "برجاء كتابة البريد الاكتروني بطريقه صحيحة"),
+        "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "Resend_OTP_Code":
             MessageLookupByLibrary.simpleMessage("إعادة إرسال رمز OTP"),
         "Search": MessageLookupByLibrary.simpleMessage("بحث"),
@@ -77,7 +88,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هذا الحساب غير مفعل"),
         "Timeout":
             MessageLookupByLibrary.simpleMessage("انتهاء المدة المسموح بها"),
+        "Update_Profile":
+            MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي"),
+        "Vehicle_Type": MessageLookupByLibrary.simpleMessage("نوع السيارة"),
         "Verify_Code": MessageLookupByLibrary.simpleMessage("تاكيد الرمز"),
+        "Verify_Identity":
+            MessageLookupByLibrary.simpleMessage("التحققمن الهوية"),
         "Warning": MessageLookupByLibrary.simpleMessage("تحذير"),
         "Welcom_To_Commuter":
             MessageLookupByLibrary.simpleMessage("أهلاً بك في Commuter"),

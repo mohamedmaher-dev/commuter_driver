@@ -11,8 +11,44 @@ class _AppTheme {
         textButtonTheme: _textButtonThemeData,
         inputDecorationTheme: _inputDecorationTheme,
         pageTransitionsTheme: _pageTransitionsTheme,
+        iconButtonTheme: _iconButtonThemeData,
+        segmentedButtonTheme: _segmentedButtonTheme,
+        appBarTheme: _appBarTheme,
       );
-  final FilledButtonThemeData _filledButtonThemeData = FilledButtonThemeData(
+
+  final _appBarTheme = const AppBarTheme();
+
+  final _segmentedButtonTheme = SegmentedButtonThemeData(
+    style: ButtonStyle(
+      shape: MaterialStatePropertyAll(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+      ),
+      padding: const MaterialStatePropertyAll(
+        EdgeInsets.all(0),
+      ),
+      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+        (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return ColorManger.primaryContainer;
+          }
+          return Colors.transparent;
+        },
+      ),
+    ),
+  );
+  final _iconButtonThemeData = IconButtonThemeData(
+    style: ButtonStyle(
+      shape: MaterialStatePropertyAll(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+      ),
+    ),
+  );
+
+  final _filledButtonThemeData = FilledButtonThemeData(
     style: ButtonStyle(
       minimumSize: MaterialStatePropertyAll(
         Size(
@@ -35,8 +71,7 @@ class _AppTheme {
     ),
   );
 
-  final OutlinedButtonThemeData _outlinedButtonThemeData =
-      OutlinedButtonThemeData(
+  final _outlinedButtonThemeData = OutlinedButtonThemeData(
     style: ButtonStyle(
       minimumSize: MaterialStatePropertyAll(
         Size(
@@ -49,11 +84,17 @@ class _AppTheme {
           borderRadius: BorderRadius.circular(10.r),
         ),
       ),
+      textStyle: MaterialStatePropertyAll(
+        TextStyle(
+          fontSize: 15.sp,
+          fontWeight: FontWeight.bold,
+          fontFamily: _fontFamily,
+        ),
+      ),
     ),
   );
 
-  final ElevatedButtonThemeData _elevatedButtonThemeData =
-      ElevatedButtonThemeData(
+  final _elevatedButtonThemeData = ElevatedButtonThemeData(
     style: ButtonStyle(
       shape: MaterialStatePropertyAll(
         RoundedRectangleBorder(
@@ -62,7 +103,7 @@ class _AppTheme {
       ),
     ),
   );
-  final TextButtonThemeData _textButtonThemeData = TextButtonThemeData(
+  final _textButtonThemeData = TextButtonThemeData(
     style: ButtonStyle(
       shape: MaterialStatePropertyAll(
         RoundedRectangleBorder(
@@ -72,7 +113,7 @@ class _AppTheme {
     ),
   );
 
-  final InputDecorationTheme _inputDecorationTheme = InputDecorationTheme(
+  final _inputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10.r),
       borderSide: BorderSide.none,
@@ -80,7 +121,7 @@ class _AppTheme {
     filled: true,
   );
 
-  final PageTransitionsTheme _pageTransitionsTheme = const PageTransitionsTheme(
+  final _pageTransitionsTheme = const PageTransitionsTheme(
     builders: {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
     },

@@ -17,7 +17,7 @@ class _SignInActions extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10.h),
-        GoogleBTN(onPressed: () {}, language: language),
+        GoogleBTN(onPressed: () async {}, language: language),
         SizedBox(height: 10.h),
         TextButton(
           onPressed: () {

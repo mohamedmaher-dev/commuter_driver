@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../otp_forgot_password/data/models/forgot_pass_request_model.dart';
-import '../../../otp_forgot_password/data/models/forgot_pass_response_model.dart';
 import '../../data/models/sign_in_response_model.dart';
 
 part 'sign_in_event.dart';
@@ -19,8 +18,6 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final formKey = GlobalKey<FormState>();
   final formKeyForgotPass = GlobalKey<FormState>();
   bool passIsHide = true;
-  late SignInResponseModel signInResponseModel;
-  late ForgotPassResponseModel forgotPassResponseModel;
   final SignInRebo _signInRebo;
   SignInBloc(this._signInRebo) : super(const _Initial()) {
     on<SignInEvent>(
@@ -51,7 +48,6 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       forgetPasswordResult.when(
         success: (data) {
           emit(SignInState.successForgotPass(data));
-          forgotPassResponseModel = data;
         },
         failure: (apiErrorModel) {
           emit(SignInState.failure(apiErrorModel.msg));
@@ -74,11 +70,10 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           password: passwordController.text,
         ),
       );
-      signInResult.when(
-        success: (data) {
-          signInResponseModel = data;
+      await signInResult.when(
+        success: (data) async {
           if (data.userData.active) {
-            emit(SignInState.successSignIn(data));
+            await _saveUserMethod(data, emit);
           } else {
             emit(SignInState.userNotActive(data));
           }
@@ -88,5 +83,23 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         },
       );
     }
+  }
+
+  Future<void> _saveUserMethod(
+      SignInResponseModel data, Emitter<SignInState<dynamic>> emit) async {
+    final saveUserAuthInfo = await _signInRebo.saveUserAuthInfo(
+      email: emailController.text,
+      password: passwordController.text,
+      id: data.userData.id,
+      token: data.token,
+    );
+    saveUserAuthInfo.when(
+      success: (result) {
+        emit(SignInState.successSignIn(data));
+      },
+      failure: (error) {
+        emit(SignInState.failure(error));
+      },
+    );
   }
 }

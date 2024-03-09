@@ -52,7 +52,7 @@ class _SignInView extends StatelessWidget {
             );
           },
           successSignIn: (data) {
-            AppRouter.pushReplacement(context: context, page: Pages.home);
+            AppRouter.pushReplacement(context: context, page: Pages.splash);
           },
           successForgotPass: (data) {
             AppRouter.pushReplacement(

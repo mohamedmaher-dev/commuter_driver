@@ -54,7 +54,7 @@ class _SignUpView extends StatelessWidget {
             );
           },
           success: () {
-            AppRouter.pushReplacement(context: context, page: Pages.home);
+            AppRouter.pushReplacement(context: context, page: Pages.splash);
           },
         );
       },
