@@ -9,8 +9,11 @@ import 'package:commuter_driver/modules/requests/views/requests_view.dart';
 import 'package:commuter_driver/modules/shedule/views/shedule_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../core/themes/text_styles.dart';
 part 'widgets/home_app_bar.dart';
 part 'widgets/home_tap_bar.dart';
 

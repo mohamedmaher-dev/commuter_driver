@@ -114,8 +114,9 @@ class _OneCommuteState extends State<OneCommute> {
                             badgeContent: const Text('2'),
                             child: IconButton.outlined(
                               onPressed: () {},
-                              icon: const Icon(
+                              icon: Icon(
                                 CupertinoIcons.chat_bubble_2_fill,
+                                color: ColorManger.primary,
                               ),
                             ),
                           ),
@@ -127,8 +128,9 @@ class _OneCommuteState extends State<OneCommute> {
                             badgeContent: const Text('5'),
                             child: IconButton.outlined(
                               onPressed: () {},
-                              icon: const Icon(
+                              icon: Icon(
                                 CupertinoIcons.bell_fill,
+                                color: ColorManger.primary,
                               ),
                             ),
                           ),
@@ -146,8 +148,9 @@ class _OneCommuteState extends State<OneCommute> {
                         child: Align(
                           child: IconButton.outlined(
                             onPressed: () {},
-                            icon: const Icon(
+                            icon: Icon(
                               CupertinoIcons.list_bullet,
+                              color: ColorManger.primary,
                             ),
                           ),
                         ),
@@ -156,8 +159,9 @@ class _OneCommuteState extends State<OneCommute> {
                         child: Align(
                           child: IconButton.outlined(
                             onPressed: () {},
-                            icon: const Icon(
+                            icon: Icon(
                               CupertinoIcons.person_fill,
+                              color: ColorManger.primary,
                             ),
                           ),
                         ),
@@ -217,6 +221,13 @@ class _OneCommuteState extends State<OneCommute> {
                           subtitle: const Text(
                             'النطاق',
                           ),
+                          trailing: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.edit,
+                              color: ColorManger.primary,
+                            ),
+                          ),
                         ),
                       ),
                       Card(
@@ -228,6 +239,13 @@ class _OneCommuteState extends State<OneCommute> {
                           ),
                           subtitle: const Text(
                             'النافذه الزمنية',
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.edit,
+                              color: ColorManger.primary,
+                            ),
                           ),
                         ),
                       ),

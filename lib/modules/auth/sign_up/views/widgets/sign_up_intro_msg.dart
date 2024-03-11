@@ -10,6 +10,10 @@ class _SignUpIntroMsg extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Image.asset(
+          AssetsManger.appIconTrans,
+          width: MediaQuery.of(context).size.width / 2,
+        ),
         Text(
           language.Create_Account,
           style: TextStyles.tsP30B,

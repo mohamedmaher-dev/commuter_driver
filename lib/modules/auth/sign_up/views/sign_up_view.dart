@@ -2,6 +2,7 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:commuter_driver/core/di/di.dart';
 import 'package:commuter_driver/core/localization/controller/localization_bloc.dart';
 import 'package:commuter_driver/core/localization/generated/l10n.dart';
+import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:commuter_driver/core/validation/form_validation.dart';
 import 'package:commuter_driver/core/widgets/language_btn.dart';
@@ -14,6 +15,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../../../core/routes/app_route.dart';
+import '../../../../core/utils/assets_manger.dart';
 import '../../../../core/widgets/app_snack_bar.dart';
 part 'widgets/sign_up_actions.dart';
 part 'widgets/sign_up_form.dart';
@@ -59,7 +61,9 @@ class _SignUpView extends StatelessWidget {
         );
       },
       child: Scaffold(
+        backgroundColor: ColorManger.primaryContainer,
         appBar: AppBar(
+          backgroundColor: ColorManger.primaryContainer,
           actions: const [LanguageBTN()],
         ),
         body: Padding(

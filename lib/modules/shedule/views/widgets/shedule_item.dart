@@ -52,7 +52,7 @@ class _SheduleItem extends StatelessWidget {
                   padding: EdgeInsets.all(5.w),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
-                    color: ColorManger.primaryContainer,
+                    color: ColorManger.textFormbBackground,
                   ),
                   child: Text(
                     pick,
@@ -72,7 +72,7 @@ class _SheduleItem extends StatelessWidget {
                   padding: EdgeInsets.all(5.w),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
-                    color: ColorManger.primaryContainer,
+                    color: ColorManger.textFormbBackground,
                   ),
                   child: Text(
                     land,
@@ -84,7 +84,10 @@ class _SheduleItem extends StatelessWidget {
           ),
           Divider(height: 25.h),
           ListTile(
-            leading: const Icon(Icons.calendar_month),
+            leading: Icon(
+              Icons.calendar_month,
+              color: ColorManger.primary,
+            ),
             title: Text(
               Jiffy.parseFromDateTime(date).yMMMMEEEEd,
               style: TextStyles.tsP12B,
@@ -92,7 +95,10 @@ class _SheduleItem extends StatelessWidget {
             subtitle: const Text('تاريخ الرحلة'),
           ),
           ListTile(
-            leading: const Icon(Icons.access_time),
+            leading: Icon(
+              Icons.access_time,
+              color: ColorManger.primary,
+            ),
             title: Text(
               Jiffy.parseFromDateTime(time).Hm,
               style: TextStyles.tsP12B,

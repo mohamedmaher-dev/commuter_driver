@@ -11,6 +11,7 @@ import 'package:commuter_driver/core/widgets/pop_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/utils/assets_manger.dart';
 import '../../widgets/google_btn.dart';
 import '../controllers/sign_in_bloc/sign_in_bloc.dart';
 part 'widgets/intro_msg.dart';
@@ -71,6 +72,7 @@ class _SignInView extends StatelessWidget {
         );
       },
       child: Scaffold(
+        backgroundColor: ColorManger.primaryContainer,
         appBar: AppBar(
           forceMaterialTransparency: true,
           actions: const [

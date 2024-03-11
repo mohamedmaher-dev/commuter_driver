@@ -93,11 +93,6 @@ class SignUpForm extends StatelessWidget {
               errorMessage: language.Phone_Number_Not_Valid,
               autoValidateMode: AutovalidateMode.onUserInteraction,
               inputDecoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.r),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
                 hintText: language.Phone,
               ),
               selectorConfig: SelectorConfig(
@@ -112,6 +107,7 @@ class SignUpForm extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.r),
                   borderSide: BorderSide.none,
                 ),
+                filled: true,
                 hintText: language.Search,
               ),
               spaceBetweenSelectorAndTextField: 0,

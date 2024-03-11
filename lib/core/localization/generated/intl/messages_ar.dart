@@ -93,7 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Vehicle_Type": MessageLookupByLibrary.simpleMessage("نوع السيارة"),
         "Verify_Code": MessageLookupByLibrary.simpleMessage("تاكيد الرمز"),
         "Verify_Identity":
-            MessageLookupByLibrary.simpleMessage("التحققمن الهوية"),
+            MessageLookupByLibrary.simpleMessage("التحقق من الهوية"),
         "Warning": MessageLookupByLibrary.simpleMessage("تحذير"),
         "Welcom_To_Commuter":
             MessageLookupByLibrary.simpleMessage("أهلاً بك في Commuter"),

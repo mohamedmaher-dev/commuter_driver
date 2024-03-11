@@ -86,9 +86,14 @@ class OneChatView extends StatelessWidget {
                                 topEnd: Radius.circular(100.r),
                                 topStart: Radius.circular(100.r),
                               ),
-                              color: ColorManger.secondaryContainer,
+                              color: ColorManger.primary,
                             ),
-                            child: Text(data[index]['msg']),
+                            child: Text(
+                              data[index]['msg'],
+                              style: TextStyle(
+                                color: ColorManger.black,
+                              ),
+                            ),
                           ),
                         ),
                         Align(

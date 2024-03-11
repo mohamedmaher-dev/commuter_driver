@@ -11,6 +11,7 @@ class _HomeAppBar extends StatelessWidget implements PreferredSize {
         return AppBar(
           forceMaterialTransparency: true,
           leading: Icon(
+            color: ColorManger.primary,
             homeBloc.currentPage == 0
                 ? Icons.route_rounded
                 : homeBloc.currentPage == 1
@@ -20,6 +21,7 @@ class _HomeAppBar extends StatelessWidget implements PreferredSize {
                         : Icons.close,
           ),
           title: Text(
+            style: TextStyles.tsP12B,
             homeBloc.currentPage == 0
                 ? 'ملف التنقل'
                 : homeBloc.currentPage == 1
@@ -37,7 +39,10 @@ class _HomeAppBar extends StatelessWidget implements PreferredSize {
                 onPressed: () {
                   AppRouter.push(context: context, page: Pages.chats);
                 },
-                icon: const Icon(CupertinoIcons.chat_bubble_text_fill),
+                icon: Icon(
+                  CupertinoIcons.chat_bubble_text_fill,
+                  color: ColorManger.primary,
+                ),
               ),
             ),
             badges.Badge(
@@ -48,16 +53,22 @@ class _HomeAppBar extends StatelessWidget implements PreferredSize {
                 onPressed: () {
                   AppRouter.push(context: context, page: Pages.notifi);
                 },
-                icon: const Icon(CupertinoIcons.bell_solid),
+                icon: Icon(
+                  CupertinoIcons.bell_solid,
+                  color: ColorManger.primary,
+                ),
               ),
             ),
             IconButton.outlined(
               onPressed: () {
                 AppRouter.push(context: context, page: Pages.profile);
               },
-              icon: const Hero(
+              icon: Hero(
                 tag: 'TAG-1',
-                child: Icon(CupertinoIcons.profile_circled),
+                child: Icon(
+                  CupertinoIcons.profile_circled,
+                  color: ColorManger.primary,
+                ),
               ),
             ),
             IconButton.outlined(
@@ -65,8 +76,9 @@ class _HomeAppBar extends StatelessWidget implements PreferredSize {
                 AppRouter.pushReplacement(
                     context: context, page: Pages.settings);
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.settings,
+                color: ColorManger.primary,
               ),
             ),
             SizedBox(width: 10.w),
