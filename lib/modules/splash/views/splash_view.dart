@@ -35,7 +35,7 @@ class _SplashView extends StatelessWidget {
               splashBloc.add(const SplashEvent.login());
             },
             loginSuccess: () {
-              AppRouter.pushReplacement(context: context, page: Pages.signIn);
+              AppRouter.pushReplacement(context: context, page: Pages.home);
             },
             notLogin: () {
               AppRouter.pushReplacement(context: context, page: Pages.signIn);
