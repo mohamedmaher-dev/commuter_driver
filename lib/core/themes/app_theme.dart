@@ -14,12 +14,24 @@ class _AppTheme {
         iconButtonTheme: _iconButtonThemeData,
         segmentedButtonTheme: _segmentedButtonTheme,
         appBarTheme: _appBarTheme,
+        floatingActionButtonTheme: _floatingActionButtonTheme,
       );
 
   final _appBarTheme = const AppBarTheme();
+  final _floatingActionButtonTheme = FloatingActionButtonThemeData(
+    foregroundColor: ColorManger.primary,
+  );
 
   final _segmentedButtonTheme = SegmentedButtonThemeData(
     style: ButtonStyle(
+      foregroundColor: MaterialStateProperty.resolveWith<Color>(
+        (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return ColorManger.black;
+          }
+          return Colors.white;
+        },
+      ),
       shape: MaterialStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.r),
@@ -31,7 +43,7 @@ class _AppTheme {
       backgroundColor: MaterialStateProperty.resolveWith<Color>(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.selected)) {
-            return ColorManger.primaryContainer;
+            return ColorManger.primary;
           }
           return Colors.transparent;
         },
@@ -116,9 +128,8 @@ class _AppTheme {
   final _inputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10.r),
-      borderSide: BorderSide.none,
     ),
-    filled: true,
+    filled: false,
   );
 
   final _pageTransitionsTheme = const PageTransitionsTheme(

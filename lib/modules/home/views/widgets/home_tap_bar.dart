@@ -20,10 +20,19 @@ class _HomeTabBar extends StatelessWidget {
                 ),
               );
             },
-            children: const {
-              0: Text('تنقلاتي'),
-              1: Text('رحلاتي المجدولة'),
-              2: Text('طلباتي'),
+            children: {
+              0: Text(
+                'تنقلاتي',
+                style: TextStyles.tsP10B,
+              ),
+              1: Text(
+                'رحلاتي المجدولة',
+                style: TextStyles.tsP10B,
+              ),
+              2: Text(
+                'طلباتي',
+                style: TextStyles.tsP10B,
+              ),
             },
           ),
         );

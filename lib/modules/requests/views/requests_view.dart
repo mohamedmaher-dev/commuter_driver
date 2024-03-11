@@ -1,3 +1,4 @@
+import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,8 @@ class RequestsView extends StatelessWidget {
           shrinkWrap: true,
           itemCount: _list.length,
           itemBuilder: (context, index) => _RequestItem(
-            msg: _list[index],
+            msg: _list[index]['msg'],
+            name: _list[index]['name'],
           ),
         )
       ],
@@ -27,7 +29,16 @@ class RequestsView extends StatelessWidget {
 }
 
 List _list = [
-  'ارسل محمد ماهر طلب انضمام الي تنقل العمل',
-  'ارسل علي ابراهيم طلب انضمام الي رحلتي المجدولة القاهرة',
-  'ارسل حسام اشرف طلب انشاء رحلة خاصة',
+  {
+    'msg': 'ارسل طلب انضمام الي تنقل العمل',
+    'name': 'محمد ماهر',
+  },
+  {
+    'msg': 'ارسل طلب انضمام الي رحلتي المجدولة القاهرة',
+    'name': 'علي ابراهيم',
+  },
+  {
+    'msg': 'ارسل  طلب انشاء رحلة خاصة',
+    'name': 'حسام اشرف',
+  },
 ];

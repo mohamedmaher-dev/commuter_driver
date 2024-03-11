@@ -27,7 +27,7 @@ class _SplashView extends StatelessWidget {
     final language = Language.of(context);
     final splashBloc = BlocProvider.of<SplashBloc>(context);
     return Scaffold(
-      backgroundColor: ColorManger.black,
+      backgroundColor: ColorManger.primaryContainer,
       body: BlocListener<SplashBloc, SplashState>(
         listener: (context, state) {
           state.whenOrNull(
@@ -35,7 +35,7 @@ class _SplashView extends StatelessWidget {
               splashBloc.add(const SplashEvent.login());
             },
             loginSuccess: () {
-              AppRouter.pushReplacement(context: context, page: Pages.home);
+              AppRouter.pushReplacement(context: context, page: Pages.signIn);
             },
             notLogin: () {
               AppRouter.pushReplacement(context: context, page: Pages.signIn);
@@ -76,7 +76,7 @@ class _SplashView extends StatelessWidget {
           children: [
             const Spacer(),
             Image.asset(
-              AssetsManger.appIcon,
+              AssetsManger.appIconEnSq,
               fit: BoxFit.fitHeight,
               width: MediaQuery.of(context).size.width / 3,
               height: MediaQuery.of(context).size.width / 3,

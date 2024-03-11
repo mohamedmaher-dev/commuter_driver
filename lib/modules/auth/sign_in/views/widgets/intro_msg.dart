@@ -8,13 +8,10 @@ class _SignInIntroMsg extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          language.App_Name,
-          style: TextStyles.tsP30B.copyWith(
-            color: ColorManger.primary,
-          ),
+        Image.asset(
+          AssetsManger.appIconTrans,
+          width: MediaQuery.of(context).size.width / 2,
         ),
-        SizedBox(height: 10.h),
         Text(
           language.Welcome_Back,
           style: TextStyles.tsP25B,

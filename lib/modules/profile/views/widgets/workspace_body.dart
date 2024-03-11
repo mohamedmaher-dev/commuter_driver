@@ -15,7 +15,7 @@ class _WorkspaceBody extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  title: Text(language.Vehicle_Type),
+                  title: const Text('السيارة'),
                   leading: const Icon(CupertinoIcons.car_detailed),
                   trailing: IconButton.outlined(
                     style: ButtonStyle(
@@ -31,13 +31,13 @@ class _WorkspaceBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                ListTile(
-                  title: Text(language.Color),
-                  leading: const Icon(Icons.color_lens),
-                  trailing: CircleAvatar(
-                    backgroundColor: ColorManger.white,
-                  ),
-                ),
+                // ListTile(
+                //   title: Text(language.Color),
+                //   leading: const Icon(Icons.color_lens),
+                //   trailing: CircleAvatar(
+                //     backgroundColor: ColorManger.white,
+                //   ),
+                // ),
                 ListTile(
                   title: Text(language.Females_Only),
                   leading: const Icon(Icons.female_rounded),
@@ -47,8 +47,8 @@ class _WorkspaceBody extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: Text(language.Car_Pooling),
-                  leading: const Icon(Icons.group),
+                  title: const Text('مشاركة الرحلة'),
+                  leading: const Icon(Icons.info_outline),
                   trailing: Switch(
                     value: false,
                     onChanged: (newValue) {},

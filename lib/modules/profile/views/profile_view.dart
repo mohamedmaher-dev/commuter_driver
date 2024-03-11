@@ -14,6 +14,7 @@ import 'package:commuter_driver/modules/profile/controllers/profile_bloc/profile
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,8 +49,12 @@ class _ProfileView extends StatelessWidget {
     final language = Language.of(context);
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: ColorManger.primary),
         forceMaterialTransparency: true,
-        title: Text(language.Profile),
+        title: Text(
+          language.Profile,
+          style: TextStyles.tsP12B,
+        ),
         actions: [
           IconButton.outlined(
             onPressed: () {},

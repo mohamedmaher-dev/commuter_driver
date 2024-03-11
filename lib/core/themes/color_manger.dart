@@ -11,6 +11,7 @@ class ColorManger {
   static Color get secondary => colorScheme.secondary;
   static Color get secondaryContainer => colorScheme.secondaryContainer;
   static Color get red => colorScheme.error;
+  static Color get textFormbBackground => colorScheme.surfaceVariant;
 
   static ColorScheme get colorScheme =>
       _appThemeBloc.themeMode == ThemeMode.light

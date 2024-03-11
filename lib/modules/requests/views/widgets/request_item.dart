@@ -1,14 +1,25 @@
 part of '../requests_view.dart';
 
 class _RequestItem extends StatelessWidget {
-  const _RequestItem({required this.msg});
+  const _RequestItem({required this.msg, required this.name});
   final String msg;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: Column(
         children: [
+          ListTile(
+            leading: Icon(
+              CupertinoIcons.person_fill,
+              color: ColorManger.primary,
+            ),
+            title: Text(
+              name,
+              style: TextStyles.tsP12B,
+            ),
+          ),
           Padding(
             padding: EdgeInsets.all(10.w),
             child: Text(

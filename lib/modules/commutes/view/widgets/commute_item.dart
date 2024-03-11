@@ -50,7 +50,7 @@ class _CommuteItem extends StatelessWidget {
                     ),
                   ),
                   child: Icon(
-                    color: ColorManger.primaryContainer,
+                    color: ColorManger.black,
                     index == 1
                         ? Icons.swap_horiz_rounded
                         : Icons.arrow_forward_rounded,
@@ -107,7 +107,7 @@ class _CommuteItem extends StatelessWidget {
                   margin: EdgeInsets.all(5.w),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
-                    color: ColorManger.primaryContainer,
+                    color: ColorManger.textFormbBackground,
                   ),
                   child: Text(
                     textAlign: TextAlign.center,
@@ -122,7 +122,7 @@ class _CommuteItem extends StatelessWidget {
                   padding: EdgeInsets.all(5.w),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
-                    color: ColorManger.primaryContainer,
+                    color: ColorManger.textFormbBackground,
                   ),
                   child: Text(
                     textAlign: TextAlign.center,
