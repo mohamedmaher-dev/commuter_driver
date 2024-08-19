@@ -1,6 +1,7 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:commuter_driver/core/di/di.dart';
 import 'package:commuter_driver/core/routes/app_route.dart';
+import 'package:commuter_driver/core/themes/color_manger.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:commuter_driver/core/widgets/app_snack_bar.dart';
 import 'package:commuter_driver/core/widgets/pop_loading.dart';
@@ -60,7 +61,7 @@ class _AddCommuteView extends StatelessWidget {
           },
           failure: (error, id) {
             AppSnackBar.show(
-              title: 'تحذير',
+              title: 'Warning',
               msg: error,
               type: ContentType.failure,
               context: context,
@@ -73,8 +74,15 @@ class _AddCommuteView extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          leading: Hero(
+            tag: 'add-commute',
+            child: Icon(
+              Icons.add,
+              color: ColorManger.primary,
+            ),
+          ),
           title: Text(
-            'اضف تنقل',
+            'Add Commute',
             style: TextStyles.tsP15B,
           ),
         ),
@@ -88,7 +96,7 @@ class _AddCommuteView extends StatelessWidget {
                   SizedBox(height: 10.h),
                   ExpansionTile(
                     title: Text(
-                      'استقبال الركاب',
+                      'Landing',
                       style: TextStyles.tsP15B,
                       textAlign: TextAlign.start,
                     ),
@@ -99,7 +107,7 @@ class _AddCommuteView extends StatelessWidget {
                   ),
                   ExpansionTile(
                     title: Text(
-                      'انزال الركاب',
+                      'Drop off',
                       style: TextStyles.tsP15B,
                       textAlign: TextAlign.start,
                     ),
@@ -111,7 +119,7 @@ class _AddCommuteView extends StatelessWidget {
                   SizedBox(height: 10.h),
                   CheckboxListTile(
                     title: const Text(
-                      'تعيين ذهاب و عودة',
+                      'Round Trip',
                     ),
                     value: false,
                     onChanged: (value) {
@@ -136,7 +144,7 @@ class _AddCommuteView extends StatelessWidget {
                 },
                 icon: const Icon(Icons.add),
                 label: const Text(
-                  'اضف تنقل',
+                  'Add Commute',
                 ),
               ),
             )

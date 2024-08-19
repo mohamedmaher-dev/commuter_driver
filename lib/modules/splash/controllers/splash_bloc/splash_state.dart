@@ -6,6 +6,7 @@ class SplashState with _$SplashState {
   const factory SplashState.isLogin() = IsLogin;
   const factory SplashState.notLogin() = NotLogin;
   const factory SplashState.loginSuccess() = LoginSuccess;
+  const factory SplashState.noPermission() = NoPermission;
   const factory SplashState.failure(
       {required String error, required int code}) = Failure;
 }

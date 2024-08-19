@@ -1,5 +1,4 @@
 import 'package:commuter_driver/core/themes/text_styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,10 +14,10 @@ class AddSheduleView extends StatelessWidget {
         ListTile(
           leading: const Icon(Icons.location_pin),
           title: Text(
-            "لم يتم التحديد",
+            "Not Selected",
             style: TextStyles.tsP12B,
           ),
-          subtitle: const Text('وجهة الرحلة'),
+          subtitle: const Text('Location of the trip'),
           trailing: IconButton(
             onPressed: () {},
             icon: const Icon(
@@ -30,10 +29,10 @@ class AddSheduleView extends StatelessWidget {
         ListTile(
           leading: const Icon(Icons.calendar_month),
           title: Text(
-            "لم يتم التحديد",
+            "Not Selected",
             style: TextStyles.tsP12B,
           ),
-          subtitle: const Text('تاريج و توقيت الرحلة'),
+          subtitle: const Text('Date of the trip'),
           trailing: IconButton(
             onPressed: () {},
             icon: const Icon(
@@ -44,7 +43,7 @@ class AddSheduleView extends StatelessWidget {
         FilledButton.icon(
           onPressed: () {},
           icon: const Icon(Icons.add),
-          label: const Text('اضف رحلة'),
+          label: const Text('Add Schedule Trip'),
         )
       ],
     );

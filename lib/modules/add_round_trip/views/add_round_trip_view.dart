@@ -12,17 +12,17 @@ class AddRoundTripView extends StatelessWidget {
       appBar: AppBar(
         title: ListTile(
           title: Text(
-            'تعيين ذهاب و عودة',
+            'Set Round Trip',
             style: TextStyles.tsP15B,
           ),
-          subtitle: const Text('العمل'),
+          subtitle: const Text('Work'),
         ),
       ),
       body: ListView(
         padding: EdgeInsets.all(10.w),
         children: [
           Text(
-            'استقبال الركاب',
+            'Pick Up',
             style: TextStyles.tsP15B,
           ),
           SizedBox(height: 5.h),
@@ -35,7 +35,7 @@ class AddRoundTripView extends StatelessWidget {
                     initialValue: 'Alex',
                     readOnly: true,
                     decoration: const InputDecoration(
-                      hintText: 'موقع البداية',
+                      hintText: 'Start Time',
                       prefixIcon: Icon(
                         Icons.location_on,
                       ),
@@ -51,20 +51,20 @@ class AddRoundTripView extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
-                          'النافذه الزمنية',
+                          'Landing Time',
                           style: TextStyles.tsP12B,
                         ),
                       ),
                       TextButton.icon(
                         onPressed: () {},
                         icon: const Icon(CupertinoIcons.time),
-                        label: const Text('البداية'),
+                        label: const Text('Start Time'),
                       ),
                       const Icon(Icons.arrow_forward_rounded),
                       TextButton.icon(
                         onPressed: () {},
                         icon: const Icon(CupertinoIcons.time),
-                        label: const Text('النهاية'),
+                        label: const Text('End Time'),
                       )
                     ],
                   ),
@@ -74,7 +74,7 @@ class AddRoundTripView extends StatelessWidget {
           ),
           Divider(height: 25.h),
           Text(
-            'انزال الركاب',
+            'Drop Off',
             style: TextStyles.tsP15B,
           ),
           SizedBox(height: 5.h),
@@ -87,7 +87,7 @@ class AddRoundTripView extends StatelessWidget {
                     initialValue: 'Cairo',
                     readOnly: true,
                     decoration: const InputDecoration(
-                      hintText: 'موقع النهاية',
+                      hintText: 'Start Time',
                       prefixIcon: Icon(
                         Icons.location_on,
                       ),
@@ -103,20 +103,20 @@ class AddRoundTripView extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
-                          'النافذه الزمنية',
+                          'Time Window',
                           style: TextStyles.tsP12B,
                         ),
                       ),
                       TextButton.icon(
                         onPressed: () {},
                         icon: const Icon(CupertinoIcons.time),
-                        label: const Text('البداية'),
+                        label: const Text('Strart Time'),
                       ),
                       const Icon(Icons.arrow_forward_rounded),
                       TextButton.icon(
                         onPressed: () {},
                         icon: const Icon(CupertinoIcons.time),
-                        label: const Text('النهاية'),
+                        label: const Text('End Time'),
                       )
                     ],
                   ),
@@ -129,7 +129,7 @@ class AddRoundTripView extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(Icons.add),
             label: const Text(
-              'تعيين ذهاب و عودة',
+              'Set Round Trip',
             ),
           )
         ],

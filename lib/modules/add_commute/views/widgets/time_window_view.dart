@@ -27,7 +27,7 @@ class TimeWindowView extends StatelessWidget {
               icon: const Icon(CupertinoIcons.info_circle_fill),
             ),
             title: const Text(
-              'النافذه الزمنية',
+              'Time Window',
             ),
             subtitle: Row(
               children: [
@@ -45,7 +45,7 @@ class TimeWindowView extends StatelessWidget {
                     label: Text(
                       startTime != null
                           ? Jiffy.parseFromDateTime(startTime!).Hm
-                          : 'البداية',
+                          : 'Start Time',
                     ),
                   ),
                 ),
@@ -64,7 +64,7 @@ class TimeWindowView extends StatelessWidget {
                     label: Text(
                       endTime != null
                           ? Jiffy.parseFromDateTime(endTime!).Hm
-                          : 'النهاية',
+                          : 'End Time',
                     ),
                   ),
                 )

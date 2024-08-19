@@ -370,10 +370,10 @@ class __$$OnMapTapImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latLng = freezed,
+    Object? latLng = null,
   }) {
     return _then(_$OnMapTapImpl(
-      freezed == latLng
+      null == latLng
           ? _value.latLng
           : latLng // ignore: cast_nullable_to_non_nullable
               as LatLng,
@@ -399,12 +399,11 @@ class _$OnMapTapImpl implements OnMapTap {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OnMapTapImpl &&
-            const DeepCollectionEquality().equals(other.latLng, latLng));
+            (identical(other.latLng, latLng) || other.latLng == latLng));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(latLng));
+  int get hashCode => Object.hash(runtimeType, latLng);
 
   @JsonKey(ignore: true)
   @override

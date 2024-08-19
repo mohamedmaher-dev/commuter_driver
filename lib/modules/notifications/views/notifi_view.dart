@@ -1,9 +1,10 @@
-import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jiffy/jiffy.dart';
+
+import '../../../core/themes/color_manger.dart';
 
 class NotifiView extends StatelessWidget {
   const NotifiView({super.key});
@@ -12,7 +13,7 @@ class NotifiView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الاشعارات'),
+        title: const Text('Notifications'),
       ),
       body: Padding(
         padding: EdgeInsets.all(10.0.w),
@@ -29,7 +30,7 @@ class NotifiView extends StatelessWidget {
                 onPressed: () {},
                 icon: const Icon(Icons.delete),
                 label: const Text(
-                  'حذف الكل',
+                  'Delete All',
                 ),
               ),
             ),
@@ -63,18 +64,18 @@ class NotifiView extends StatelessWidget {
 
 List _list = [
   {
-    'title': 'طلب للأنضمام الي تنقل',
-    'msg': 'ارسل احمد علي طلب انضمام الي تنقل العمل',
+    'title': 'Request To Join Your Work Commute',
+    'msg': 'Ahmed Mohamed has requested to join your work commute',
     'dateTime': DateTime.now().add(const Duration(minutes: 3))
   },
   {
-    'title': 'طلب للأنضمام الي رحلة محدولة',
-    'msg': 'ارسل محمد ماهر طلب انضمام الي رحلتك المجدولة القاهرة',
+    'title': 'Request To Join Your Trip',
+    'msg': 'Mohamed Maher has requested to join your trip',
     'dateTime': DateTime.now().add(const Duration(hours: 5))
   },
   {
-    'title': 'ملفي الشخصي',
-    'msg': 'قام حسام ابراهيم بتقييمك 4 نجوم',
+    'title': 'My Profile',
+    'msg': 'Hossam Ibrahim rated you 4.5 stars',
     'dateTime': DateTime.now().add(const Duration(days: 2))
   },
 ];

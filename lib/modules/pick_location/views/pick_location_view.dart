@@ -1,6 +1,7 @@
 import 'package:commuter_driver/core/di/di.dart';
 import 'package:commuter_driver/core/routes/app_route.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
+import 'package:commuter_driver/core/widgets/app_map_view.dart';
 import 'package:commuter_driver/core/widgets/circle_loading.dart';
 import 'package:commuter_driver/core/widgets/pop_loading.dart';
 import 'package:commuter_driver/modules/pick_location/controllers/pick_location_bloc/pick_location_bloc.dart';
@@ -95,11 +96,8 @@ class _PickLocationView extends StatelessWidget {
                       )
                     ],
                   ),
-                  body: GoogleMap(
-                    initialCameraPosition: pickLocationBloc.cameraPosition,
-                    myLocationButtonEnabled: false,
-                    myLocationEnabled: true,
-                    zoomControlsEnabled: false,
+                  body: AppMapView(
+                    target: pickLocationBloc.cameraPosition.target,
                     markers: pickLocationBloc.marker,
                     onMapCreated: (controller) {
                       pickLocationBloc.add(

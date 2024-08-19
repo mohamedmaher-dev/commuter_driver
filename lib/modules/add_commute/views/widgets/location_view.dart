@@ -12,7 +12,7 @@ class LocationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: const Icon(Icons.location_on),
-      title: const Text('الموقع'),
+      title: const Text('Location'),
       subtitle: ElevatedButton(
         style: const ButtonStyle(
           elevation: MaterialStatePropertyAll(0),
@@ -21,7 +21,7 @@ class LocationView extends StatelessWidget {
         child: location == null
             ? const Icon(Icons.add)
             : Text(
-                location ?? "لم يتم التحديد",
+                location ?? "Not Selected",
               ),
       ),
     );

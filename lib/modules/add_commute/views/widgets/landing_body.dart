@@ -9,7 +9,7 @@ class _LandingBody extends StatelessWidget {
     return BlocBuilder<AddCommuteLandingBloc, AddCommuteLandingState>(
       builder: (context, state) {
         return _StageView(
-          location: landingBloc.landingLocationName ?? "لم يتم التحديد",
+          location: landingBloc.landingLocationName ?? "Not Selected",
           onPickLocation: () {
             showDialog(
               context: context,

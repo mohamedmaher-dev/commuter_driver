@@ -4,8 +4,7 @@ import 'package:commuter_driver/core/localization/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-
-import '../../../core/themes/controller/app_theme_bloc.dart';
+import '../../../core/themes/color_manger.dart';
 import '../../../core/themes/text_styles.dart';
 
 class OtpView extends StatefulWidget {
@@ -101,7 +100,7 @@ class _OtpViewState extends State<OtpView> {
                   ),
                   height: 50.h,
                   width: 50.w,
-                  textStyle: TextStyles.tsW20B,
+                  textStyle: TextStyles.ts20B,
                 ),
                 focusedPinTheme: PinTheme(
                   decoration: BoxDecoration(
@@ -112,7 +111,7 @@ class _OtpViewState extends State<OtpView> {
                   ),
                   height: 50.h,
                   width: 50.w,
-                  textStyle: TextStyles.tsW20B,
+                  textStyle: TextStyles.ts20B,
                 ),
                 onCompleted: widget.onCompleted,
               ),

@@ -4,6 +4,7 @@ import 'package:commuter_driver/core/local_storage/models/user_secret_data_model
 import 'package:commuter_driver/core/networking/api_service.dart';
 import 'package:dio/dio.dart';
 
+import '../../../../core/location_service/location_permission.dart';
 import '../../../../core/networking/api_error_model.dart';
 import '../../../../core/networking/api_result.dart';
 import '../../../auth/sign_in/data/models/sign_in_request_model.dart';
@@ -56,5 +57,9 @@ class SplashRebo {
     } catch (e) {
       return LocalStorageResult.failure(error: e.toString());
     }
+  }
+
+  Future<bool> checkLocationPermission() async {
+    return await checkPermission();
   }
 }

@@ -1,9 +1,9 @@
-import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jiffy/jiffy.dart';
 
+import '../../../core/themes/color_manger.dart';
 import '../../add_shedule/views/add_shedule_view.dart';
 part 'widgets/shedule_item.dart';
 
@@ -24,7 +24,7 @@ class _SheduleViewState extends State<SheduleView> {
             builder: (context) => const AddSheduleView(),
           );
         },
-        label: const Text('اضف رحلة مجدولة'),
+        label: const Text('Add Shedule'),
         icon: const Icon(Icons.add),
       ),
       body: ListView.builder(
@@ -46,14 +46,14 @@ class _SheduleViewState extends State<SheduleView> {
 
 List _list = [
   {
-    'name': 'الاسكندرية',
+    'name': 'Alex',
     'pick': 'Cairo',
     'land': "Alex",
     'date': DateTime.now().add(const Duration(days: 11)),
     'time': DateTime.now().add(const Duration(hours: 11, minutes: 11)),
   },
   {
-    'name': 'بنها',
+    'name': 'Banha',
     'pick': 'Mansoura',
     'land': "Banha",
     'date': DateTime.now().add(const Duration(days: 15)),

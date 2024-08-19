@@ -1,8 +1,9 @@
-import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../core/themes/color_manger.dart';
 part 'widgets/action_btns.dart';
 part 'widgets/request_item.dart';
 
@@ -30,15 +31,15 @@ class RequestsView extends StatelessWidget {
 
 List _list = [
   {
-    'msg': 'ارسل طلب انضمام الي تنقل العمل',
-    'name': 'محمد ماهر',
+    'msg': 'Send You Requst To Join Work Commute',
+    'name': 'Mohamed Maher',
   },
   {
-    'msg': 'ارسل طلب انضمام الي رحلتي المجدولة القاهرة',
-    'name': 'علي ابراهيم',
+    'msg': 'Send You Request To Join Your Cairo Trip',
+    'name': 'Ali Ibrahim',
   },
   {
-    'msg': 'ارسل  طلب انشاء رحلة خاصة',
-    'name': 'حسام اشرف',
+    'msg': 'Send You Request To Create Private Trip',
+    'name': 'Hossam Ashraf',
   },
 ];

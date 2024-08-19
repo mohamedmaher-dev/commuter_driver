@@ -12,5 +12,9 @@ class PopLoading {
     );
   }
 
+  static showProgress(double value) {
+    EasyLoading.showProgress(value);
+  }
+
   static dismiss() => EasyLoading.dismiss();
 }

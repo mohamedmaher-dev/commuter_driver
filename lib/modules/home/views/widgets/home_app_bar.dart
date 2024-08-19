@@ -23,12 +23,12 @@ class _HomeAppBar extends StatelessWidget implements PreferredSize {
           title: Text(
             style: TextStyles.tsP12B,
             homeBloc.currentPage == 0
-                ? 'ملف التنقل'
+                ? 'Commuter Profile'
                 : homeBloc.currentPage == 1
-                    ? 'رحلاتي المجدولة'
+                    ? 'My Scheduled Trips'
                     : homeBloc.currentPage == 2
-                        ? 'طلباتي'
-                        : 'غير معروف',
+                        ? 'My Requests'
+                        : 'Unknown',
           ),
           actions: [
             badges.Badge(

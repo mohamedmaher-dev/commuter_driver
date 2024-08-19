@@ -11,7 +11,7 @@ class _SignUpIntroMsg extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(
-          AssetsManger.appIconTrans,
+          AssetsManger.logo,
           width: MediaQuery.of(context).size.width / 2,
         ),
         Text(

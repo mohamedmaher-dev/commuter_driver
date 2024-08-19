@@ -5,16 +5,19 @@ import 'package:commuter_driver/modules/add_commute/controllers/pickup/add_commu
 import 'package:commuter_driver/modules/auth/sign_in/controllers/sign_in_bloc/sign_in_bloc.dart';
 import 'package:debug_print_flutter/debug_print_flutter.dart';
 
+import '../../modules/nearby_rides/controllers/nearby_rides_bloc/nearby_rides_bloc.dart';
+
 class MyBlocObserver extends BlocObserver {
   final MainBloc mainBloc;
-  final DebugPrint dPrint;
-  MyBlocObserver({required this.dPrint, required this.mainBloc});
+  final DebugPrint dPrint = const DebugPrint();
+  MyBlocObserver({required this.mainBloc});
   @override
   void onCreate(BlocBase bloc) {
     super.onCreate(bloc);
     if (bloc is SignInBloc) mainBloc.signInBloc = bloc;
     if (bloc is AddCommutePickupBloc) mainBloc.pickupBloc = bloc;
     if (bloc is AddCommuteLandingBloc) mainBloc.landingBloc = bloc;
+    if (bloc is NearbyRidesBloc) mainBloc.nearbyRidesBloc = bloc;
     dPrint.white('onCreate -- ${bloc.runtimeType}');
   }
 

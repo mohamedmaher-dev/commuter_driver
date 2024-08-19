@@ -1,4 +1,4 @@
-import 'package:commuter_driver/core/localization/controller/localization_bloc.dart';
+import 'package:commuter_driver/core/bloc/main_bloc.dart';
 import 'package:commuter_driver/core/localization/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,12 +8,11 @@ class LanguageBTN extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LocalizationBloc localizationBloc =
-        BlocProvider.of<LocalizationBloc>(context);
+    final mainBloc = BlocProvider.of<MainBloc>(context);
     final Language language = Language.of(context);
     return TextButton(
       onPressed: () {
-        localizationBloc.add(const LocalizationEvent.changeLanguage());
+        mainBloc.add(const MainEvent.changeLanguage());
       },
       child: Text(
         language.Language_Name,

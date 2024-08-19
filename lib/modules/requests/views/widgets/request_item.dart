@@ -47,7 +47,7 @@ class _RequestItem extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(Icons.done),
                   label: const Text(
-                    'قبول',
+                    'Accept',
                   ),
                 ),
               ),
@@ -65,7 +65,7 @@ class _RequestItem extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(Icons.close),
                   label: const Text(
-                    'رفض',
+                    'Reject',
                   ),
                 ),
               ),
@@ -85,7 +85,7 @@ class _RequestItem extends StatelessWidget {
               ),
               onPressed: () {},
               icon: const Icon(CupertinoIcons.chat_bubble_2_fill),
-              label: const Text('مراسلة'),
+              label: const Text('Chat'),
             ),
           ),
           SizedBox(height: 10.h),

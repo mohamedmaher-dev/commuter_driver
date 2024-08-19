@@ -15,7 +15,7 @@ class _ActionBTNS extends StatelessWidget {
           ),
           onPressed: () {},
           child: const Text(
-            'قبول الكل',
+            'Accept all',
           ),
         ),
         SizedBox(width: 10.w),
@@ -27,7 +27,7 @@ class _ActionBTNS extends StatelessWidget {
           ),
           onPressed: () {},
           child: const Text(
-            'رفض الكل',
+            'Reject all',
           ),
         ),
         const Spacer(),

@@ -69,7 +69,7 @@ class _CommuteItem extends StatelessWidget {
                                 context: context, page: Pages.addCommute);
                           },
                           icon: const Icon(Icons.edit),
-                          label: const Text('تعديل'),
+                          label: const Text('Edit'),
                         ),
                       ),
                     ),
@@ -90,7 +90,7 @@ class _CommuteItem extends StatelessWidget {
                             );
                           },
                           icon: const Icon(Icons.delete),
-                          label: const Text('حذف'),
+                          label: const Text('Delete'),
                         ),
                       ),
                     ),
@@ -113,7 +113,7 @@ class _CommuteItem extends StatelessWidget {
                     textAlign: TextAlign.center,
                     maxLines: 1,
                     startLocation,
-                    style: TextStyles.tsW10B,
+                    style: TextStyles.ts10B,
                   ),
                 ),
                 Container(
@@ -128,7 +128,7 @@ class _CommuteItem extends StatelessWidget {
                     textAlign: TextAlign.center,
                     maxLines: 1,
                     endLocation,
-                    style: TextStyles.tsW10B,
+                    style: TextStyles.ts10B,
                   ),
                 )
               ],

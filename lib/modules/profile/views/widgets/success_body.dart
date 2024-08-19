@@ -30,7 +30,7 @@ class _SuccessBody extends StatelessWidget {
           padding: EdgeInsets.all(10.w),
           child: FilledButton(
             onPressed: () async {
-              profileBloc.add(const ProfileEvent.updateMe());
+              // profileBloc.add(const ProfileEvent.updateMe());
             },
             child: Text(language.Update_Profile),
           ),

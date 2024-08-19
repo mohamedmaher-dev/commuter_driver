@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/themes/controller/app_theme_bloc.dart';
+import '../../../core/themes/color_manger.dart';
 import '../../../core/themes/text_styles.dart';
 part 'widgets/commute_item.dart';
 
@@ -41,67 +41,72 @@ class _CommutesView extends StatelessWidget {
         onPressed: () {
           AppRouter.push(context: context, page: Pages.addCommute);
         },
-        label: const Text('اضف تنقل'),
+        label: const Text('Add Commute'),
         icon: const Icon(Icons.add),
       ),
-      body: BlocConsumer<CommutesBloc, CommutesState>(
-        listener: (context, state) {
-          PopLoading.dismiss();
-          state.whenOrNull(
-            deleteCommuteLoading: () {
-              PopLoading.show();
-            },
-            deleteFailure: (error) {
-              AppSnackBar.show(
-                title: 'Failure',
-                msg: error,
-                type: ContentType.failure,
-                context: context,
-              );
-            },
-            deleteSuccess: () {
-              AppSnackBar.show(
-                title: 'Success',
-                msg: 'Delete Commute Success',
-                type: ContentType.success,
-                context: context,
-              );
-            },
-          );
+      body: RefreshIndicator(
+        onRefresh: () async {
+          commutesBloc.add(const CommutesEvent.started());
         },
-        builder: (context, state) {
-          return state.maybeWhen(
-            initial: () => const Center(
-              child: CircleLoading(),
-            ),
-            getCommuteLoading: () => const Center(
-              child: CircleLoading(),
-            ),
-            getCommutsFailure: (error) => Center(
-              child: Text(error),
-            ),
-            empty: () =>
-                const EmptyView(msg: 'No commutes found please add one'),
-            orElse: () {
-              return ListView.builder(
-                itemBuilder: (context, index) => GestureDetector(
-                  child: _CommuteItem(
-                    index: index,
-                    title: commutesBloc.commutes[index].commuteName,
-                    startLocation: commutesBloc.locations[index].pickup,
-                    endLocation: commutesBloc.locations[index].landing,
-                    isRoundTrip: commutesBloc.commutes[index].isRoundTrip,
-                    days: commutesBloc.commutes[index].days.toSet(),
+        child: BlocConsumer<CommutesBloc, CommutesState>(
+          listener: (context, state) {
+            PopLoading.dismiss();
+            state.whenOrNull(
+              deleteCommuteLoading: () {
+                PopLoading.show();
+              },
+              deleteFailure: (error) {
+                AppSnackBar.show(
+                  title: 'Failure',
+                  msg: error,
+                  type: ContentType.failure,
+                  context: context,
+                );
+              },
+              deleteSuccess: () {
+                AppSnackBar.show(
+                  title: 'Success',
+                  msg: 'Delete Commute Success',
+                  type: ContentType.success,
+                  context: context,
+                );
+              },
+            );
+          },
+          builder: (context, state) {
+            return state.maybeWhen(
+              initial: () => const Center(
+                child: CircleLoading(),
+              ),
+              getCommuteLoading: () => const Center(
+                child: CircleLoading(),
+              ),
+              getCommutsFailure: (error) => Center(
+                child: Text(error),
+              ),
+              empty: () =>
+                  const EmptyView(text: 'No commutes found please add one'),
+              orElse: () {
+                return ListView.builder(
+                  itemBuilder: (context, index) => GestureDetector(
+                    child: _CommuteItem(
+                      index: index,
+                      title: commutesBloc.commutes[index].commuteName,
+                      startLocation: commutesBloc.locations[index].pickup,
+                      endLocation: commutesBloc.locations[index].landing,
+                      isRoundTrip: commutesBloc.commutes[index].isRoundTrip,
+                      days: commutesBloc.commutes[index].days.toSet(),
+                    ),
+                    onTap: () async {
+                      AppRouter.push(context: context, page: Pages.oneCommute);
+                    },
                   ),
-                  onTap: () async {
-                    AppRouter.push(context: context, page: Pages.oneCommute);
-                  },
-                ),
-                itemCount: commutesBloc.commutes.length,
-              );
-            },
-          );
-        },
+                  itemCount: commutesBloc.commutes.length,
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

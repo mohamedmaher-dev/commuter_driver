@@ -6,8 +6,7 @@ class SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Language language = Language.of(context);
-    LocalizationBloc localizationBloc =
-        BlocProvider.of<LocalizationBloc>(context);
+
     SignUpBloc signUpBloc = BlocProvider.of<SignUpBloc>(context);
 
     return Form(
@@ -86,7 +85,6 @@ class SignUpForm extends StatelessWidget {
           Directionality(
             textDirection: TextDirection.ltr,
             child: InternationalPhoneNumberInput(
-              locale: localizationBloc.locale.languageCode,
               onInputValidated: (value) {
                 signUpBloc.add(SignUpEvent.phoneValidChanged(value));
               },

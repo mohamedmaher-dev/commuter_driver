@@ -286,6 +286,7 @@ mixin _$SplashState {
     required TResult Function() isLogin,
     required TResult Function() notLogin,
     required TResult Function() loginSuccess,
+    required TResult Function() noPermission,
     required TResult Function(String error, int code) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -295,6 +296,7 @@ mixin _$SplashState {
     TResult? Function()? isLogin,
     TResult? Function()? notLogin,
     TResult? Function()? loginSuccess,
+    TResult? Function()? noPermission,
     TResult? Function(String error, int code)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -304,6 +306,7 @@ mixin _$SplashState {
     TResult Function()? isLogin,
     TResult Function()? notLogin,
     TResult Function()? loginSuccess,
+    TResult Function()? noPermission,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) =>
@@ -314,6 +317,7 @@ mixin _$SplashState {
     required TResult Function(IsLogin value) isLogin,
     required TResult Function(NotLogin value) notLogin,
     required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(NoPermission value) noPermission,
     required TResult Function(Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -323,6 +327,7 @@ mixin _$SplashState {
     TResult? Function(IsLogin value)? isLogin,
     TResult? Function(NotLogin value)? notLogin,
     TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(NoPermission value)? noPermission,
     TResult? Function(Failure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -332,6 +337,7 @@ mixin _$SplashState {
     TResult Function(IsLogin value)? isLogin,
     TResult Function(NotLogin value)? notLogin,
     TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(NoPermission value)? noPermission,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) =>
@@ -398,6 +404,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() isLogin,
     required TResult Function() notLogin,
     required TResult Function() loginSuccess,
+    required TResult Function() noPermission,
     required TResult Function(String error, int code) failure,
   }) {
     return initial();
@@ -410,6 +417,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? isLogin,
     TResult? Function()? notLogin,
     TResult? Function()? loginSuccess,
+    TResult? Function()? noPermission,
     TResult? Function(String error, int code)? failure,
   }) {
     return initial?.call();
@@ -422,6 +430,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? isLogin,
     TResult Function()? notLogin,
     TResult Function()? loginSuccess,
+    TResult Function()? noPermission,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
@@ -438,6 +447,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(IsLogin value) isLogin,
     required TResult Function(NotLogin value) notLogin,
     required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(NoPermission value) noPermission,
     required TResult Function(Failure value) failure,
   }) {
     return initial(this);
@@ -450,6 +460,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(IsLogin value)? isLogin,
     TResult? Function(NotLogin value)? notLogin,
     TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(NoPermission value)? noPermission,
     TResult? Function(Failure value)? failure,
   }) {
     return initial?.call(this);
@@ -462,6 +473,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(IsLogin value)? isLogin,
     TResult Function(NotLogin value)? notLogin,
     TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(NoPermission value)? noPermission,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -518,6 +530,7 @@ class _$IsLoginImpl implements IsLogin {
     required TResult Function() isLogin,
     required TResult Function() notLogin,
     required TResult Function() loginSuccess,
+    required TResult Function() noPermission,
     required TResult Function(String error, int code) failure,
   }) {
     return isLogin();
@@ -530,6 +543,7 @@ class _$IsLoginImpl implements IsLogin {
     TResult? Function()? isLogin,
     TResult? Function()? notLogin,
     TResult? Function()? loginSuccess,
+    TResult? Function()? noPermission,
     TResult? Function(String error, int code)? failure,
   }) {
     return isLogin?.call();
@@ -542,6 +556,7 @@ class _$IsLoginImpl implements IsLogin {
     TResult Function()? isLogin,
     TResult Function()? notLogin,
     TResult Function()? loginSuccess,
+    TResult Function()? noPermission,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
@@ -558,6 +573,7 @@ class _$IsLoginImpl implements IsLogin {
     required TResult Function(IsLogin value) isLogin,
     required TResult Function(NotLogin value) notLogin,
     required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(NoPermission value) noPermission,
     required TResult Function(Failure value) failure,
   }) {
     return isLogin(this);
@@ -570,6 +586,7 @@ class _$IsLoginImpl implements IsLogin {
     TResult? Function(IsLogin value)? isLogin,
     TResult? Function(NotLogin value)? notLogin,
     TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(NoPermission value)? noPermission,
     TResult? Function(Failure value)? failure,
   }) {
     return isLogin?.call(this);
@@ -582,6 +599,7 @@ class _$IsLoginImpl implements IsLogin {
     TResult Function(IsLogin value)? isLogin,
     TResult Function(NotLogin value)? notLogin,
     TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(NoPermission value)? noPermission,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -638,6 +656,7 @@ class _$NotLoginImpl implements NotLogin {
     required TResult Function() isLogin,
     required TResult Function() notLogin,
     required TResult Function() loginSuccess,
+    required TResult Function() noPermission,
     required TResult Function(String error, int code) failure,
   }) {
     return notLogin();
@@ -650,6 +669,7 @@ class _$NotLoginImpl implements NotLogin {
     TResult? Function()? isLogin,
     TResult? Function()? notLogin,
     TResult? Function()? loginSuccess,
+    TResult? Function()? noPermission,
     TResult? Function(String error, int code)? failure,
   }) {
     return notLogin?.call();
@@ -662,6 +682,7 @@ class _$NotLoginImpl implements NotLogin {
     TResult Function()? isLogin,
     TResult Function()? notLogin,
     TResult Function()? loginSuccess,
+    TResult Function()? noPermission,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
@@ -678,6 +699,7 @@ class _$NotLoginImpl implements NotLogin {
     required TResult Function(IsLogin value) isLogin,
     required TResult Function(NotLogin value) notLogin,
     required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(NoPermission value) noPermission,
     required TResult Function(Failure value) failure,
   }) {
     return notLogin(this);
@@ -690,6 +712,7 @@ class _$NotLoginImpl implements NotLogin {
     TResult? Function(IsLogin value)? isLogin,
     TResult? Function(NotLogin value)? notLogin,
     TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(NoPermission value)? noPermission,
     TResult? Function(Failure value)? failure,
   }) {
     return notLogin?.call(this);
@@ -702,6 +725,7 @@ class _$NotLoginImpl implements NotLogin {
     TResult Function(IsLogin value)? isLogin,
     TResult Function(NotLogin value)? notLogin,
     TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(NoPermission value)? noPermission,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -758,6 +782,7 @@ class _$LoginSuccessImpl implements LoginSuccess {
     required TResult Function() isLogin,
     required TResult Function() notLogin,
     required TResult Function() loginSuccess,
+    required TResult Function() noPermission,
     required TResult Function(String error, int code) failure,
   }) {
     return loginSuccess();
@@ -770,6 +795,7 @@ class _$LoginSuccessImpl implements LoginSuccess {
     TResult? Function()? isLogin,
     TResult? Function()? notLogin,
     TResult? Function()? loginSuccess,
+    TResult? Function()? noPermission,
     TResult? Function(String error, int code)? failure,
   }) {
     return loginSuccess?.call();
@@ -782,6 +808,7 @@ class _$LoginSuccessImpl implements LoginSuccess {
     TResult Function()? isLogin,
     TResult Function()? notLogin,
     TResult Function()? loginSuccess,
+    TResult Function()? noPermission,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
@@ -798,6 +825,7 @@ class _$LoginSuccessImpl implements LoginSuccess {
     required TResult Function(IsLogin value) isLogin,
     required TResult Function(NotLogin value) notLogin,
     required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(NoPermission value) noPermission,
     required TResult Function(Failure value) failure,
   }) {
     return loginSuccess(this);
@@ -810,6 +838,7 @@ class _$LoginSuccessImpl implements LoginSuccess {
     TResult? Function(IsLogin value)? isLogin,
     TResult? Function(NotLogin value)? notLogin,
     TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(NoPermission value)? noPermission,
     TResult? Function(Failure value)? failure,
   }) {
     return loginSuccess?.call(this);
@@ -822,6 +851,7 @@ class _$LoginSuccessImpl implements LoginSuccess {
     TResult Function(IsLogin value)? isLogin,
     TResult Function(NotLogin value)? notLogin,
     TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(NoPermission value)? noPermission,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -834,6 +864,132 @@ class _$LoginSuccessImpl implements LoginSuccess {
 
 abstract class LoginSuccess implements SplashState {
   const factory LoginSuccess() = _$LoginSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$NoPermissionImplCopyWith<$Res> {
+  factory _$$NoPermissionImplCopyWith(
+          _$NoPermissionImpl value, $Res Function(_$NoPermissionImpl) then) =
+      __$$NoPermissionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoPermissionImplCopyWithImpl<$Res>
+    extends _$SplashStateCopyWithImpl<$Res, _$NoPermissionImpl>
+    implements _$$NoPermissionImplCopyWith<$Res> {
+  __$$NoPermissionImplCopyWithImpl(
+      _$NoPermissionImpl _value, $Res Function(_$NoPermissionImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoPermissionImpl implements NoPermission {
+  const _$NoPermissionImpl();
+
+  @override
+  String toString() {
+    return 'SplashState.noPermission()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoPermissionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() isLogin,
+    required TResult Function() notLogin,
+    required TResult Function() loginSuccess,
+    required TResult Function() noPermission,
+    required TResult Function(String error, int code) failure,
+  }) {
+    return noPermission();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? isLogin,
+    TResult? Function()? notLogin,
+    TResult? Function()? loginSuccess,
+    TResult? Function()? noPermission,
+    TResult? Function(String error, int code)? failure,
+  }) {
+    return noPermission?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? isLogin,
+    TResult Function()? notLogin,
+    TResult Function()? loginSuccess,
+    TResult Function()? noPermission,
+    TResult Function(String error, int code)? failure,
+    required TResult orElse(),
+  }) {
+    if (noPermission != null) {
+      return noPermission();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(IsLogin value) isLogin,
+    required TResult Function(NotLogin value) notLogin,
+    required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(NoPermission value) noPermission,
+    required TResult Function(Failure value) failure,
+  }) {
+    return noPermission(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(IsLogin value)? isLogin,
+    TResult? Function(NotLogin value)? notLogin,
+    TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(NoPermission value)? noPermission,
+    TResult? Function(Failure value)? failure,
+  }) {
+    return noPermission?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(IsLogin value)? isLogin,
+    TResult Function(NotLogin value)? notLogin,
+    TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(NoPermission value)? noPermission,
+    TResult Function(Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (noPermission != null) {
+      return noPermission(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoPermission implements SplashState {
+  const factory NoPermission() = _$NoPermissionImpl;
 }
 
 /// @nodoc
@@ -912,6 +1068,7 @@ class _$FailureImpl implements Failure {
     required TResult Function() isLogin,
     required TResult Function() notLogin,
     required TResult Function() loginSuccess,
+    required TResult Function() noPermission,
     required TResult Function(String error, int code) failure,
   }) {
     return failure(error, code);
@@ -924,6 +1081,7 @@ class _$FailureImpl implements Failure {
     TResult? Function()? isLogin,
     TResult? Function()? notLogin,
     TResult? Function()? loginSuccess,
+    TResult? Function()? noPermission,
     TResult? Function(String error, int code)? failure,
   }) {
     return failure?.call(error, code);
@@ -936,6 +1094,7 @@ class _$FailureImpl implements Failure {
     TResult Function()? isLogin,
     TResult Function()? notLogin,
     TResult Function()? loginSuccess,
+    TResult Function()? noPermission,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
@@ -952,6 +1111,7 @@ class _$FailureImpl implements Failure {
     required TResult Function(IsLogin value) isLogin,
     required TResult Function(NotLogin value) notLogin,
     required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(NoPermission value) noPermission,
     required TResult Function(Failure value) failure,
   }) {
     return failure(this);
@@ -964,6 +1124,7 @@ class _$FailureImpl implements Failure {
     TResult? Function(IsLogin value)? isLogin,
     TResult? Function(NotLogin value)? notLogin,
     TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(NoPermission value)? noPermission,
     TResult? Function(Failure value)? failure,
   }) {
     return failure?.call(this);
@@ -976,6 +1137,7 @@ class _$FailureImpl implements Failure {
     TResult Function(IsLogin value)? isLogin,
     TResult Function(NotLogin value)? notLogin,
     TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(NoPermission value)? noPermission,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {

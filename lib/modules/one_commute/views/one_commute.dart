@@ -1,7 +1,7 @@
 import 'package:commuter_driver/core/di/di.dart';
 import 'package:commuter_driver/core/location_service/location_service.dart';
-import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
+import 'package:commuter_driver/core/widgets/app_map_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:badges/badges.dart' as badges;
 
 import '../../../core/location_service/models/get_routes_request_model.dart';
+import '../../../core/themes/color_manger.dart';
 
 class OneCommute extends StatefulWidget {
   const OneCommute({super.key});
@@ -71,23 +72,17 @@ class _OneCommuteState extends State<OneCommute> {
       body: Column(
         children: [
           Expanded(
-            child: GoogleMap(
+            child: AppMapView(
               polylines: polylines,
-              initialCameraPosition: const CameraPosition(
-                target: LatLng(
-                  30.707178831450133,
-                  31.263731044174325,
-                ),
-                zoom: 17,
+              target: const LatLng(
+                30.707178831450133,
+                31.263731044174325,
               ),
-              myLocationButtonEnabled: false,
-              myLocationEnabled: true,
-              zoomControlsEnabled: false,
               circles: {
                 Circle(
                   circleId: const CircleId('1'),
-                  center: const LatLng(30.707178831450133, 31.263731044174325),
-                  radius: 1 * 100,
+                  center: const LatLng(24.633436174673463, 46.564253869786015),
+                  radius: 4000,
                   fillColor: ColorManger.primaryContainer.withAlpha(100),
                   strokeWidth: 0,
                 ),
@@ -176,11 +171,11 @@ class _OneCommuteState extends State<OneCommute> {
                         child: ListTile(
                           leading: const Icon(Icons.route),
                           title: Text(
-                            'العمل',
+                            'Work',
                             style: TextStyles.tsP15B,
                           ),
                           subtitle: const Text(
-                            'اسم التنقل',
+                            'Commute Name',
                           ),
                         ),
                       ),
@@ -194,7 +189,7 @@ class _OneCommuteState extends State<OneCommute> {
                                 maxLines: 1,
                               ),
                               subtitle: const Text(
-                                'موقع البداية',
+                                'Start Location',
                               ),
                             ),
                             const Divider(),
@@ -205,7 +200,7 @@ class _OneCommuteState extends State<OneCommute> {
                                 maxLines: 1,
                               ),
                               subtitle: const Text(
-                                'موقع النهاية',
+                                'End Location',
                               ),
                             ),
                           ],
@@ -219,7 +214,7 @@ class _OneCommuteState extends State<OneCommute> {
                             style: TextStyles.tsP15B,
                           ),
                           subtitle: const Text(
-                            'النطاق',
+                            'Range',
                           ),
                           trailing: IconButton(
                             onPressed: () {},
@@ -238,7 +233,7 @@ class _OneCommuteState extends State<OneCommute> {
                             style: TextStyles.tsP15B,
                           ),
                           subtitle: const Text(
-                            'النافذه الزمنية',
+                            'Time Window',
                           ),
                           trailing: IconButton(
                             onPressed: () {},

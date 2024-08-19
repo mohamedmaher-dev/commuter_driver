@@ -1,13 +1,17 @@
 part of 'di.dart';
 
 _utilsDiInit() async {
-  di.registerLazySingleton(() => const DebugPrint());
-  di.registerLazySingleton(
-    () => MyBlocObserver(
-      dPrint: di<DebugPrint>(),
-      mainBloc: di<MainBloc>(),
+  di.registerLazySingleton<LocalizationController>(
+    () => LocalizationController(
+      di<LocalStorageService>(),
     ),
   );
+  di.registerLazySingleton<AppThemeController>(
+    () => AppThemeController(
+      di<LocalStorageService>(),
+    ),
+  );
+
   di.registerLazySingleton<Dio>(() => DioFactory.getDio());
   di.registerLazySingleton(
     () => ApiService(
@@ -33,4 +37,5 @@ _utilsDiInit() async {
   di.registerLazySingleton(
     () => PolylinePoints(),
   );
+  di.registerLazySingleton(() => ApiChatService(di<Dio>()));
 }

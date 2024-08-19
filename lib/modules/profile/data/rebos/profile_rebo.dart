@@ -1,5 +1,8 @@
+// ignore_for_file: void_checks
+
 import 'dart:io';
 
+import 'package:commuter_driver/core/di/di.dart';
 import 'package:commuter_driver/core/local_storage/local_storage_service.dart';
 import 'package:commuter_driver/core/local_storage/models/user_secret_data_model.dart';
 import 'package:commuter_driver/core/networking/api_result.dart';
@@ -58,13 +61,26 @@ class ProfileRebo {
     required File image,
   }) async {
     try {
-      final response = await _apiService.updateMe(
-        "Bearer ${_userSecretDataModel.userToken}",
-        _userSecretDataModel.userId,
-        await MultipartFile.fromFile(image.path),
-        name,
-        email,
-        phone,
+      var headers = {
+        'Authorization': 'Bearer ${_userSecretDataModel.userToken}',
+      };
+      var data = FormData.fromMap({
+        'files': [
+          await MultipartFile.fromFile(image.path, filename: image.path)
+        ],
+        'name': name,
+        'email': email,
+        'phone': phone
+      });
+
+      final dio = di<Dio>();
+      final response = await dio.request(
+        'https://commuter.onrender.com/api/v1/drivers/${_userSecretDataModel.userId}',
+        options: Options(
+          method: 'PUT',
+          headers: headers,
+        ),
+        data: data,
       );
       return ApiResult.success(response);
     } on DioException catch (e) {

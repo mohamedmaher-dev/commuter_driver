@@ -21,15 +21,15 @@ class SegmentedRange extends StatelessWidget {
           ),
           ButtonSegment(
             value: 2,
-            label: Text('3 KM'),
+            label: Text('2 KM'),
+          ),
+          ButtonSegment(
+            value: 4,
+            label: Text('4 KM'),
           ),
           ButtonSegment(
             value: 5,
             label: Text('5 KM'),
-          ),
-          ButtonSegment(
-            value: 10,
-            label: Text('10 KM'),
           ),
         ],
         selected: selected,

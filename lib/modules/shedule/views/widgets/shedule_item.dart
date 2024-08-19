@@ -56,7 +56,7 @@ class _SheduleItem extends StatelessWidget {
                   ),
                   child: Text(
                     pick,
-                    style: TextStyles.tsW10B,
+                    style: TextStyles.ts10B,
                   ),
                 ),
               ),
@@ -76,7 +76,7 @@ class _SheduleItem extends StatelessWidget {
                   ),
                   child: Text(
                     land,
-                    style: TextStyles.tsW10B,
+                    style: TextStyles.ts10B,
                   ),
                 ),
               )
@@ -92,7 +92,7 @@ class _SheduleItem extends StatelessWidget {
               Jiffy.parseFromDateTime(date).yMMMMEEEEd,
               style: TextStyles.tsP12B,
             ),
-            subtitle: const Text('تاريخ الرحلة'),
+            subtitle: const Text('Date of the trip'),
           ),
           ListTile(
             leading: Icon(
@@ -103,7 +103,7 @@ class _SheduleItem extends StatelessWidget {
               Jiffy.parseFromDateTime(time).Hm,
               style: TextStyles.tsP12B,
             ),
-            subtitle: const Text('وقت الرحلة'),
+            subtitle: const Text('Time of the trip'),
           ),
         ],
       ),

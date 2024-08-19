@@ -26,7 +26,7 @@ class RangeView extends StatelessWidget {
                 title: Padding(
                   padding: EdgeInsets.all(5.w),
                   child: const Text(
-                    'النطاق',
+                    'Range',
                   ),
                 ),
                 subtitle: SegmentedRange(

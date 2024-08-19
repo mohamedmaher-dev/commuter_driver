@@ -10,7 +10,7 @@ class _GeneralView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          'اساسي',
+          'General',
           style: TextStyles.tsP15B,
           textAlign: TextAlign.start,
         ),
@@ -22,7 +22,7 @@ class _GeneralView extends StatelessWidget {
               children: [
                 TextFormField(
                   controller: addCommuteBloc.commuteName,
-                  decoration: const InputDecoration(hintText: 'اسم التنقل'),
+                  decoration: const InputDecoration(hintText: 'Commute Name'),
                 ),
                 SizedBox(height: 10.h),
                 BlocBuilder<AddCommuteBloc, AddCommuteState>(

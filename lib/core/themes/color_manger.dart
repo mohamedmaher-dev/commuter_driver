@@ -1,7 +1,9 @@
-part of 'controller/app_theme_bloc.dart';
+import 'package:commuter_driver/core/di/di.dart';
+import 'package:commuter_driver/core/themes/app_theme_controller.dart';
+import 'package:flutter/material.dart';
 
 class ColorManger {
-  static final AppThemeBloc _appThemeBloc = di<AppThemeBloc>();
+  static final AppThemeController _appThemeBloc = di<AppThemeController>();
   ColorManger._();
   static Color transparent = Colors.transparent;
   static Color white = Colors.white;
@@ -11,7 +13,10 @@ class ColorManger {
   static Color get secondary => colorScheme.secondary;
   static Color get secondaryContainer => colorScheme.secondaryContainer;
   static Color get red => colorScheme.error;
-  static Color get textFormbBackground => colorScheme.surfaceVariant;
+  static Color get textFormbBackground => colorScheme.surfaceContainerHighest;
+  static Color get background => _appThemeBloc.themeMode == ThemeMode.light
+      ? const Color(0xfff8f9fb)
+      : const Color(0xff181a1d);
 
   static ColorScheme get colorScheme =>
       _appThemeBloc.themeMode == ThemeMode.light
@@ -33,11 +38,9 @@ class ColorManger {
               onError: Color(0xffffffff),
               errorContainer: Color(0xfffcd8df),
               onErrorContainer: Color(0xff141213),
-              background: Color(0xfff8f9fb),
-              onBackground: Color(0xff090909),
               surface: Color(0xfff8f9fb),
               onSurface: Color(0xff090909),
-              surfaceVariant: Color(0xffe0e4e8),
+              surfaceContainerHighest: Color(0xffe0e4e8),
               onSurfaceVariant: Color(0xff111112),
               outline: Color(0xff7c7c7c),
               outlineVariant: Color(0xffc8c8c8),
@@ -66,11 +69,9 @@ class ColorManger {
               onError: Color(0xff140c0d),
               errorContainer: Color(0xffb1384e),
               onErrorContainer: Color(0xfffbe8ec),
-              background: Color(0xff181a1d),
-              onBackground: Color(0xffeceded),
               surface: Color(0xff181a1d),
               onSurface: Color(0xffeceded),
-              surfaceVariant: Color(0xff3d4146),
+              surfaceContainerHighest: Color(0xff3d4146),
               onSurfaceVariant: Color(0xffe0e1e1),
               outline: Color(0xff767d7d),
               outlineVariant: Color(0xff2c2e2e),

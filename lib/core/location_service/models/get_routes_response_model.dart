@@ -12,7 +12,7 @@ class GetRoutesResponseModel {
 
 @JsonSerializable(createToJson: false)
 class _Route {
-  final int distanceMeters;
+  final int? distanceMeters;
   final String duration;
   final _Polyline polyline;
 

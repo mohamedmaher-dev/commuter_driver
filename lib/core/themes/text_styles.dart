@@ -1,79 +1,76 @@
-import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'color_manger.dart';
 
 class TextStyles {
   const TextStyles._();
-  static TextStyle get tsW50B => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts50B => TextStyle(
         fontSize: 50.sp,
         fontWeight: FontWeight.bold,
       );
-  static TextStyle get tsW35B => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts35B => TextStyle(
         fontSize: 35.sp,
         fontWeight: FontWeight.bold,
       );
-  static TextStyle get tsW25B => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts25B => TextStyle(
         fontSize: 25.sp,
         fontWeight: FontWeight.bold,
       );
-  static TextStyle get tsW25N => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts25N => TextStyle(
         fontSize: 25.sp,
         fontWeight: FontWeight.normal,
       );
   static TextStyle get tsW20N => TextStyle(
-        color: ColorManger.white,
         fontSize: 20.sp,
         fontWeight: FontWeight.normal,
       );
 
-  static TextStyle get tsW15N => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts15N => TextStyle(
         fontSize: 15.sp,
         fontWeight: FontWeight.normal,
       );
 
-  static TextStyle get tsW12N => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts12N => TextStyle(
         fontSize: 12.sp,
         fontWeight: FontWeight.normal,
       );
-  static TextStyle get tsW10N => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts10N => TextStyle(
         fontSize: 10.sp,
         fontWeight: FontWeight.normal,
       );
 
-  static TextStyle get tsW15B => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts15B => TextStyle(
         fontSize: 15.sp,
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle get tsW18B => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts18B => TextStyle(
         fontSize: 18.sp,
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle get tsW20B => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts20B => TextStyle(
         fontSize: 20.sp,
         fontWeight: FontWeight.bold,
       );
-  static TextStyle get tsW12B => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts12B => TextStyle(
         fontSize: 12.sp,
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle get tsW10B => TextStyle(
-        color: ColorManger.white,
+  static TextStyle get ts10B => TextStyle(
         fontSize: 10.sp,
         fontWeight: FontWeight.bold,
+      );
+  static TextStyle get tsW10N => TextStyle(
+        fontSize: 10.sp,
+        fontWeight: FontWeight.normal,
+        color: ColorManger.white,
+      );
+  static TextStyle get tsB10N => TextStyle(
+        fontSize: 10.sp,
+        fontWeight: FontWeight.normal,
+        color: ColorManger.black,
       );
   static TextStyle get tsP30B => TextStyle(
         color: ColorManger.primary,

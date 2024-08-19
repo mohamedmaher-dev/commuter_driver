@@ -13,4 +13,12 @@ class ApiConsts {
   static const String deleteCommute = 'drivers/deleteCommute/{id}/{commuteId}';
   static const String updateCommute = 'drivers/updateCommute/{id}/{commuteId}';
   static const String addCommute = 'drivers/addCommute/{id}';
+  static const String updateLoaction = 'rideRequests/update/location';
+  static const String getNearbyRides = 'rideRequests/nearby/rides/{driverId}';
+  static const String acceptRide = 'rideRequests/accept/ride';
+  static const String startRide = 'rideRequests/rides/{rideId}/start';
+  static const String completeRide = 'rideRequests/complete/ride';
+  static const String chatBaseUrl =
+      'https://commuter-server-socket-io.onrender.com/';
+  static const String rooms = 'msg/rooms/{id}/driver';
 }

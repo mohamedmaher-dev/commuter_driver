@@ -10,7 +10,6 @@ class LocalStorageService {
   LocalStorageService(this._flutterSecureStorage) {
     Hive.registerAdapter(AppSettingsModelAdapter());
   }
-
   Future<UserSecretDataModel?> get getUserSecretData async {
     Map<String, String> userSecretData = await _flutterSecureStorage.readAll();
     if (userSecretData.isEmpty) {
@@ -20,34 +19,24 @@ class LocalStorageService {
     }
   }
 
-  Future<UserSecretDataModel> saveUserSecretData({
-    required String userEmail,
-    required String userPassword,
-    required String userId,
-    required String userToken,
-  }) async {
+  Future<UserSecretDataModel> saveUserSecretData(
+      {required String userEmail,
+      required String userPassword,
+      required String userId,
+      required String userToken}) async {
     await _flutterSecureStorage.write(
-      key: LocalStorageConsts.userEmailKey,
-      value: userEmail,
-    );
+        key: LocalStorageConsts.userEmailKey, value: userEmail);
     await _flutterSecureStorage.write(
-      key: LocalStorageConsts.userPasswordKey,
-      value: userPassword,
-    );
+        key: LocalStorageConsts.userPasswordKey, value: userPassword);
     await _flutterSecureStorage.write(
-      key: LocalStorageConsts.userIdKey,
-      value: userId,
-    );
+        key: LocalStorageConsts.userIdKey, value: userId);
     await _flutterSecureStorage.write(
-      key: LocalStorageConsts.userTokenKey,
-      value: userToken,
-    );
+        key: LocalStorageConsts.userTokenKey, value: userToken);
     return UserSecretDataModel(
-      userId: userId,
-      userToken: userToken,
-      email: userEmail,
-      password: userPassword,
-    );
+        userId: userId,
+        userToken: userToken,
+        email: userEmail,
+        password: userPassword);
   }
 
   Future<void> deleteUserSecretData() async {
@@ -63,25 +52,13 @@ class LocalStorageService {
     return _appSettingsBox.get(0)!;
   }
 
-  Future<void> saveAppLocale({
-    required String locale,
-  }) async {
+  Future<void> saveAppSettings(
+      {required AppSettingsModel appSettingsModel}) async {
     _appSettingsBox =
         await Hive.openBox<AppSettingsModel>(LocalStorageConsts.appSettingsBox);
     if (_appSettingsBox.get(0) == null) {
       await _appSettingsBox.put(0, AppSettingsModel.init());
     }
-    _appSettingsBox.put(0, _appSettingsBox.get(0)!.copyWith(locale: locale));
-  }
-
-  Future<void> saveAppThemeMode({
-    required bool isDark,
-  }) async {
-    _appSettingsBox =
-        await Hive.openBox<AppSettingsModel>(LocalStorageConsts.appSettingsBox);
-    if (_appSettingsBox.get(0) == null) {
-      await _appSettingsBox.put(0, AppSettingsModel.init());
-    }
-    _appSettingsBox.put(0, _appSettingsBox.get(0)!.copyWith(isDark: isDark));
+    _appSettingsBox.put(0, appSettingsModel);
   }
 }

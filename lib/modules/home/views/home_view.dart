@@ -2,17 +2,16 @@ import 'package:commuter_driver/core/di/di.dart';
 import 'package:commuter_driver/core/localization/generated/l10n.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:commuter_driver/core/routes/app_route.dart';
-import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/modules/commutes/view/commutes_view.dart';
 import 'package:commuter_driver/modules/home/controllers/home_bloc/home_bloc.dart';
 import 'package:commuter_driver/modules/requests/views/requests_view.dart';
 import 'package:commuter_driver/modules/shedule/views/shedule_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/themes/color_manger.dart';
 import '../../../core/themes/text_styles.dart';
 part 'widgets/home_app_bar.dart';
 part 'widgets/home_tap_bar.dart';
@@ -50,6 +49,11 @@ class _HomeView extends StatelessWidget {
                       contentPadding: const EdgeInsets.symmetric(vertical: 0),
                       prefixIcon: const Icon(CupertinoIcons.search),
                       hintText: language.Search,
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
                   ),
                   SizedBox(height: 10.h),

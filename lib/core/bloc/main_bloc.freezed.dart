@@ -19,32 +19,50 @@ mixin _$MainEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() changeLanguage,
+    required TResult Function() changeTheme,
+    required TResult Function(bool isConnected) changeConnectivity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? changeLanguage,
+    TResult? Function()? changeTheme,
+    TResult? Function(bool isConnected)? changeConnectivity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? changeLanguage,
+    TResult Function()? changeTheme,
+    TResult Function(bool isConnected)? changeConnectivity,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(ChangeLanguage value) changeLanguage,
+    required TResult Function(ChangeTheme value) changeTheme,
+    required TResult Function(ChangeConnectivity value) changeConnectivity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(ChangeLanguage value)? changeLanguage,
+    TResult? Function(ChangeTheme value)? changeTheme,
+    TResult? Function(ChangeConnectivity value)? changeConnectivity,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(ChangeLanguage value)? changeLanguage,
+    TResult Function(ChangeTheme value)? changeTheme,
+    TResult Function(ChangeConnectivity value)? changeConnectivity,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +124,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() changeLanguage,
+    required TResult Function() changeTheme,
+    required TResult Function(bool isConnected) changeConnectivity,
   }) {
     return started();
   }
@@ -114,6 +135,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? changeLanguage,
+    TResult? Function()? changeTheme,
+    TResult? Function(bool isConnected)? changeConnectivity,
   }) {
     return started?.call();
   }
@@ -122,6 +146,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? changeLanguage,
+    TResult Function()? changeTheme,
+    TResult Function(bool isConnected)? changeConnectivity,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -134,6 +161,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(ChangeLanguage value) changeLanguage,
+    required TResult Function(ChangeTheme value) changeTheme,
+    required TResult Function(ChangeConnectivity value) changeConnectivity,
   }) {
     return started(this);
   }
@@ -142,6 +172,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(ChangeLanguage value)? changeLanguage,
+    TResult? Function(ChangeTheme value)? changeTheme,
+    TResult? Function(ChangeConnectivity value)? changeConnectivity,
   }) {
     return started?.call(this);
   }
@@ -150,6 +183,9 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(ChangeLanguage value)? changeLanguage,
+    TResult Function(ChangeTheme value)? changeTheme,
+    TResult Function(ChangeConnectivity value)? changeConnectivity,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -164,23 +200,402 @@ abstract class _Started implements MainEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangeLanguageImplCopyWith<$Res> {
+  factory _$$ChangeLanguageImplCopyWith(_$ChangeLanguageImpl value,
+          $Res Function(_$ChangeLanguageImpl) then) =
+      __$$ChangeLanguageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeLanguageImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$ChangeLanguageImpl>
+    implements _$$ChangeLanguageImplCopyWith<$Res> {
+  __$$ChangeLanguageImplCopyWithImpl(
+      _$ChangeLanguageImpl _value, $Res Function(_$ChangeLanguageImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeLanguageImpl implements ChangeLanguage {
+  const _$ChangeLanguageImpl();
+
+  @override
+  String toString() {
+    return 'MainEvent.changeLanguage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeLanguageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() changeLanguage,
+    required TResult Function() changeTheme,
+    required TResult Function(bool isConnected) changeConnectivity,
+  }) {
+    return changeLanguage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? changeLanguage,
+    TResult? Function()? changeTheme,
+    TResult? Function(bool isConnected)? changeConnectivity,
+  }) {
+    return changeLanguage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? changeLanguage,
+    TResult Function()? changeTheme,
+    TResult Function(bool isConnected)? changeConnectivity,
+    required TResult orElse(),
+  }) {
+    if (changeLanguage != null) {
+      return changeLanguage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(ChangeLanguage value) changeLanguage,
+    required TResult Function(ChangeTheme value) changeTheme,
+    required TResult Function(ChangeConnectivity value) changeConnectivity,
+  }) {
+    return changeLanguage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(ChangeLanguage value)? changeLanguage,
+    TResult? Function(ChangeTheme value)? changeTheme,
+    TResult? Function(ChangeConnectivity value)? changeConnectivity,
+  }) {
+    return changeLanguage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(ChangeLanguage value)? changeLanguage,
+    TResult Function(ChangeTheme value)? changeTheme,
+    TResult Function(ChangeConnectivity value)? changeConnectivity,
+    required TResult orElse(),
+  }) {
+    if (changeLanguage != null) {
+      return changeLanguage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeLanguage implements MainEvent {
+  const factory ChangeLanguage() = _$ChangeLanguageImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeThemeImplCopyWith<$Res> {
+  factory _$$ChangeThemeImplCopyWith(
+          _$ChangeThemeImpl value, $Res Function(_$ChangeThemeImpl) then) =
+      __$$ChangeThemeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeThemeImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$ChangeThemeImpl>
+    implements _$$ChangeThemeImplCopyWith<$Res> {
+  __$$ChangeThemeImplCopyWithImpl(
+      _$ChangeThemeImpl _value, $Res Function(_$ChangeThemeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeThemeImpl implements ChangeTheme {
+  const _$ChangeThemeImpl();
+
+  @override
+  String toString() {
+    return 'MainEvent.changeTheme()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeThemeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() changeLanguage,
+    required TResult Function() changeTheme,
+    required TResult Function(bool isConnected) changeConnectivity,
+  }) {
+    return changeTheme();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? changeLanguage,
+    TResult? Function()? changeTheme,
+    TResult? Function(bool isConnected)? changeConnectivity,
+  }) {
+    return changeTheme?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? changeLanguage,
+    TResult Function()? changeTheme,
+    TResult Function(bool isConnected)? changeConnectivity,
+    required TResult orElse(),
+  }) {
+    if (changeTheme != null) {
+      return changeTheme();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(ChangeLanguage value) changeLanguage,
+    required TResult Function(ChangeTheme value) changeTheme,
+    required TResult Function(ChangeConnectivity value) changeConnectivity,
+  }) {
+    return changeTheme(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(ChangeLanguage value)? changeLanguage,
+    TResult? Function(ChangeTheme value)? changeTheme,
+    TResult? Function(ChangeConnectivity value)? changeConnectivity,
+  }) {
+    return changeTheme?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(ChangeLanguage value)? changeLanguage,
+    TResult Function(ChangeTheme value)? changeTheme,
+    TResult Function(ChangeConnectivity value)? changeConnectivity,
+    required TResult orElse(),
+  }) {
+    if (changeTheme != null) {
+      return changeTheme(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeTheme implements MainEvent {
+  const factory ChangeTheme() = _$ChangeThemeImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeConnectivityImplCopyWith<$Res> {
+  factory _$$ChangeConnectivityImplCopyWith(_$ChangeConnectivityImpl value,
+          $Res Function(_$ChangeConnectivityImpl) then) =
+      __$$ChangeConnectivityImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isConnected});
+}
+
+/// @nodoc
+class __$$ChangeConnectivityImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$ChangeConnectivityImpl>
+    implements _$$ChangeConnectivityImplCopyWith<$Res> {
+  __$$ChangeConnectivityImplCopyWithImpl(_$ChangeConnectivityImpl _value,
+      $Res Function(_$ChangeConnectivityImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isConnected = null,
+  }) {
+    return _then(_$ChangeConnectivityImpl(
+      null == isConnected
+          ? _value.isConnected
+          : isConnected // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeConnectivityImpl implements ChangeConnectivity {
+  const _$ChangeConnectivityImpl(this.isConnected);
+
+  @override
+  final bool isConnected;
+
+  @override
+  String toString() {
+    return 'MainEvent.changeConnectivity(isConnected: $isConnected)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeConnectivityImpl &&
+            (identical(other.isConnected, isConnected) ||
+                other.isConnected == isConnected));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isConnected);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeConnectivityImplCopyWith<_$ChangeConnectivityImpl> get copyWith =>
+      __$$ChangeConnectivityImplCopyWithImpl<_$ChangeConnectivityImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() changeLanguage,
+    required TResult Function() changeTheme,
+    required TResult Function(bool isConnected) changeConnectivity,
+  }) {
+    return changeConnectivity(isConnected);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? changeLanguage,
+    TResult? Function()? changeTheme,
+    TResult? Function(bool isConnected)? changeConnectivity,
+  }) {
+    return changeConnectivity?.call(isConnected);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? changeLanguage,
+    TResult Function()? changeTheme,
+    TResult Function(bool isConnected)? changeConnectivity,
+    required TResult orElse(),
+  }) {
+    if (changeConnectivity != null) {
+      return changeConnectivity(isConnected);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(ChangeLanguage value) changeLanguage,
+    required TResult Function(ChangeTheme value) changeTheme,
+    required TResult Function(ChangeConnectivity value) changeConnectivity,
+  }) {
+    return changeConnectivity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(ChangeLanguage value)? changeLanguage,
+    TResult? Function(ChangeTheme value)? changeTheme,
+    TResult? Function(ChangeConnectivity value)? changeConnectivity,
+  }) {
+    return changeConnectivity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(ChangeLanguage value)? changeLanguage,
+    TResult Function(ChangeTheme value)? changeTheme,
+    TResult Function(ChangeConnectivity value)? changeConnectivity,
+    required TResult orElse(),
+  }) {
+    if (changeConnectivity != null) {
+      return changeConnectivity(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeConnectivity implements MainEvent {
+  const factory ChangeConnectivity(final bool isConnected) =
+      _$ChangeConnectivityImpl;
+
+  bool get isConnected;
+  @JsonKey(ignore: true)
+  _$$ChangeConnectivityImplCopyWith<_$ChangeConnectivityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MainState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(int id) refresh,
+    required TResult Function(bool isConnected) newConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(int id)? refresh,
+    TResult? Function(bool isConnected)? newConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(int id)? refresh,
+    TResult Function(bool isConnected)? newConnection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -188,18 +603,21 @@ mixin _$MainState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Refresh value) refresh,
+    required TResult Function(NewConnection value) newConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Refresh value)? refresh,
+    TResult? Function(NewConnection value)? newConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Refresh value)? refresh,
+    TResult Function(NewConnection value)? newConnection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -262,6 +680,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(int id) refresh,
+    required TResult Function(bool isConnected) newConnection,
   }) {
     return initial();
   }
@@ -271,6 +690,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(int id)? refresh,
+    TResult? Function(bool isConnected)? newConnection,
   }) {
     return initial?.call();
   }
@@ -280,6 +700,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(int id)? refresh,
+    TResult Function(bool isConnected)? newConnection,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -293,6 +714,7 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Refresh value) refresh,
+    required TResult Function(NewConnection value) newConnection,
   }) {
     return initial(this);
   }
@@ -302,6 +724,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Refresh value)? refresh,
+    TResult? Function(NewConnection value)? newConnection,
   }) {
     return initial?.call(this);
   }
@@ -311,6 +734,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Refresh value)? refresh,
+    TResult Function(NewConnection value)? newConnection,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -347,7 +771,7 @@ class __$$RefreshImplCopyWithImpl<$Res>
     Object? id = null,
   }) {
     return _then(_$RefreshImpl(
-      id: null == id
+      null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
@@ -358,7 +782,7 @@ class __$$RefreshImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RefreshImpl implements Refresh {
-  const _$RefreshImpl({required this.id});
+  const _$RefreshImpl(this.id);
 
   @override
   final int id;
@@ -390,6 +814,7 @@ class _$RefreshImpl implements Refresh {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(int id) refresh,
+    required TResult Function(bool isConnected) newConnection,
   }) {
     return refresh(id);
   }
@@ -399,6 +824,7 @@ class _$RefreshImpl implements Refresh {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(int id)? refresh,
+    TResult? Function(bool isConnected)? newConnection,
   }) {
     return refresh?.call(id);
   }
@@ -408,6 +834,7 @@ class _$RefreshImpl implements Refresh {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(int id)? refresh,
+    TResult Function(bool isConnected)? newConnection,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -421,6 +848,7 @@ class _$RefreshImpl implements Refresh {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(Refresh value) refresh,
+    required TResult Function(NewConnection value) newConnection,
   }) {
     return refresh(this);
   }
@@ -430,6 +858,7 @@ class _$RefreshImpl implements Refresh {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(Refresh value)? refresh,
+    TResult? Function(NewConnection value)? newConnection,
   }) {
     return refresh?.call(this);
   }
@@ -439,6 +868,7 @@ class _$RefreshImpl implements Refresh {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(Refresh value)? refresh,
+    TResult Function(NewConnection value)? newConnection,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -449,10 +879,150 @@ class _$RefreshImpl implements Refresh {
 }
 
 abstract class Refresh implements MainState {
-  const factory Refresh({required final int id}) = _$RefreshImpl;
+  const factory Refresh(final int id) = _$RefreshImpl;
 
   int get id;
   @JsonKey(ignore: true)
   _$$RefreshImplCopyWith<_$RefreshImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NewConnectionImplCopyWith<$Res> {
+  factory _$$NewConnectionImplCopyWith(
+          _$NewConnectionImpl value, $Res Function(_$NewConnectionImpl) then) =
+      __$$NewConnectionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isConnected});
+}
+
+/// @nodoc
+class __$$NewConnectionImplCopyWithImpl<$Res>
+    extends _$MainStateCopyWithImpl<$Res, _$NewConnectionImpl>
+    implements _$$NewConnectionImplCopyWith<$Res> {
+  __$$NewConnectionImplCopyWithImpl(
+      _$NewConnectionImpl _value, $Res Function(_$NewConnectionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isConnected = null,
+  }) {
+    return _then(_$NewConnectionImpl(
+      null == isConnected
+          ? _value.isConnected
+          : isConnected // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NewConnectionImpl implements NewConnection {
+  const _$NewConnectionImpl(this.isConnected);
+
+  @override
+  final bool isConnected;
+
+  @override
+  String toString() {
+    return 'MainState.newConnection(isConnected: $isConnected)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NewConnectionImpl &&
+            (identical(other.isConnected, isConnected) ||
+                other.isConnected == isConnected));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isConnected);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NewConnectionImplCopyWith<_$NewConnectionImpl> get copyWith =>
+      __$$NewConnectionImplCopyWithImpl<_$NewConnectionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(int id) refresh,
+    required TResult Function(bool isConnected) newConnection,
+  }) {
+    return newConnection(isConnected);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(int id)? refresh,
+    TResult? Function(bool isConnected)? newConnection,
+  }) {
+    return newConnection?.call(isConnected);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(int id)? refresh,
+    TResult Function(bool isConnected)? newConnection,
+    required TResult orElse(),
+  }) {
+    if (newConnection != null) {
+      return newConnection(isConnected);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Refresh value) refresh,
+    required TResult Function(NewConnection value) newConnection,
+  }) {
+    return newConnection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Refresh value)? refresh,
+    TResult? Function(NewConnection value)? newConnection,
+  }) {
+    return newConnection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Refresh value)? refresh,
+    TResult Function(NewConnection value)? newConnection,
+    required TResult orElse(),
+  }) {
+    if (newConnection != null) {
+      return newConnection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NewConnection implements MainState {
+  const factory NewConnection(final bool isConnected) = _$NewConnectionImpl;
+
+  bool get isConnected;
+  @JsonKey(ignore: true)
+  _$$NewConnectionImplCopyWith<_$NewConnectionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/localization/generated/l10n.dart';
 import '../../../core/routes/app_route.dart';
-import '../../../core/themes/controller/app_theme_bloc.dart';
+import '../../../core/themes/color_manger.dart';
 import '../../../core/widgets/language_btn.dart';
 import '../../../core/widgets/theme_mode_btn.dart';
 
@@ -17,10 +17,10 @@ class SettingsView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الاعدادات'),
+        title: const Text('Settings'),
         leading: IconButton(
           onPressed: () {
-            AppRouter.pushReplacement(context: context, page: Pages.home);
+            AppRouter.pushReplacement(context: context, page: Pages.navPage);
           },
           icon: const Icon(
             Icons.arrow_back,
@@ -32,7 +32,7 @@ class SettingsView extends StatelessWidget {
         children: [
           ListTile(
             title: Text(
-              'اساسي',
+              'General',
               style: TextStyles.tsP15B,
             ),
           ),
@@ -57,7 +57,7 @@ class SettingsView extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-              'الحساب الشخصي',
+              'Profile',
               style: TextStyles.tsP15B,
             ),
           ),
@@ -67,7 +67,7 @@ class SettingsView extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    title: const Text('حذف الحساب الشخصي'),
+                    title: const Text('Delete Account'),
                     leading: const Icon(Icons.delete),
                     trailing: ElevatedButton.icon(
                       style: ButtonStyle(

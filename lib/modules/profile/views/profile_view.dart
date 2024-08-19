@@ -1,11 +1,9 @@
 import 'dart:io';
-
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:commuter_driver/core/di/di.dart';
 import 'package:commuter_driver/core/localization/generated/l10n.dart';
 import 'package:commuter_driver/core/routes/app_route.dart';
-import 'package:commuter_driver/core/themes/controller/app_theme_bloc.dart';
 import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:commuter_driver/core/widgets/app_snack_bar.dart';
 import 'package:commuter_driver/core/widgets/circle_loading.dart';
@@ -14,13 +12,12 @@ import 'package:commuter_driver/modules/profile/controllers/profile_bloc/profile
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:image_picker/image_picker.dart';
-
+import '../../../core/themes/color_manger.dart';
 part 'widgets/account_body.dart';
 part 'widgets/verify_body.dart';
 part 'widgets/workspace_body.dart';

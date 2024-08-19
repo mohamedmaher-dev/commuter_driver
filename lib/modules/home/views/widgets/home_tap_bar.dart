@@ -22,15 +22,15 @@ class _HomeTabBar extends StatelessWidget {
             },
             children: {
               0: Text(
-                'تنقلاتي',
+                'My Commutes',
                 style: TextStyles.tsP10B,
               ),
               1: Text(
-                'رحلاتي المجدولة',
+                'My Sheduled Trips',
                 style: TextStyles.tsP10B,
               ),
               2: Text(
-                'طلباتي',
+                'My Requests',
                 style: TextStyles.tsP10B,
               ),
             },

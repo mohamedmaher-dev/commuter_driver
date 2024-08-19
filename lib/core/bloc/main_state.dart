@@ -3,5 +3,6 @@ part of 'main_bloc.dart';
 @freezed
 class MainState with _$MainState {
   const factory MainState.initial() = _Initial;
-  const factory MainState.refresh({required int id}) = Refresh;
+  const factory MainState.refresh(int id) = Refresh;
+  const factory MainState.newConnection(bool isConnected) = NewConnection;
 }

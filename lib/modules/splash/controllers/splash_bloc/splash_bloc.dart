@@ -12,13 +12,19 @@ part 'splash_bloc.freezed.dart';
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   final MainBloc _mainBloc;
   final SplashRebo _splashRebo;
+  late bool permissionIsGranted;
   UserSecretDataModel? _userSecretDataModel;
   SplashBloc(this._splashRebo, this._mainBloc) : super(const _Initial()) {
     on<SplashEvent>(
       (event, emit) async {
         await event.when(
           started: () async {
-            await _checkIsLoginMethod(emit);
+            permissionIsGranted = await _splashRebo.checkLocationPermission();
+            if (permissionIsGranted) {
+              await _checkIsLoginMethod(emit);
+            } else {
+              emit(const SplashState.noPermission());
+            }
           },
           login: () async {
             await _signInMethod(emit);
@@ -28,7 +34,9 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     );
   }
 
-  Future<void> _signInMethod(Emitter<SplashState> emit) async {
+  Future<void> _signInMethod(
+    Emitter<SplashState> emit,
+  ) async {
     final loginResult = await _splashRebo.signIn();
     await loginResult.when(
       success: (data) async {
