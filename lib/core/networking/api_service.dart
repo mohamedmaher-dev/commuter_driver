@@ -7,22 +7,26 @@ import 'package:commuter_driver/modules/auth/sign_in/data/models/sign_in_request
 import 'package:commuter_driver/modules/auth/sign_in/data/models/sign_in_response_model.dart';
 import 'package:commuter_driver/modules/auth/sign_up/data/models/sign_up_request_model.dart';
 import 'package:commuter_driver/modules/auth/sign_up/data/models/sign_up_response_model.dart';
-import 'package:commuter_driver/modules/commutes/data/models/get_commutes_response_model.dart';
-import 'package:commuter_driver/modules/one_nearby_ride/data/models/complete_ride_request_model.dart';
-import 'package:commuter_driver/modules/update_commute/data/models/update_commute_request_model.dart';
+import 'package:commuter_driver/trash/one_nearby_ride/data/models/complete_ride_request_model.dart';
+import 'package:commuter_driver/modules/commutes/one_commute/data/models/get_requests_response_model.dart';
+import 'package:commuter_driver/core/models/get_user_data_resposne_model.dart';
+import 'package:commuter_driver/modules/commutes/update_commute/data/models/update_commute_request_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 
-import '../../modules/add_commute/data/models/add_commute_request_model.dart';
+import '../../modules/commutes/add_commute/data/models/add_commute_request_model.dart';
+import '../../modules/commutes/one_commute/data/models/aproved_join_response_model.dart';
 import '../../modules/auth/otp_forgot_password/data/models/forgot_pass_request_model.dart';
 import '../../modules/auth/otp_forgot_password/data/models/forgot_pass_response_model.dart';
-import '../../modules/nearby_rides/data/models/accept_ride_request_model.dart';
-import '../../modules/nearby_rides/data/models/nearby_rides_response_model.dart';
-import '../../modules/nearby_rides/data/models/update_location_request_model.dart';
-import '../../modules/profile/data/models/get_me_response_model.dart';
+import '../../modules/commutes/my_commutes/data/models/get_commutes_response_model.dart';
+import '../../modules/my_profile/data/models/get_me_response_model.dart';
+import '../../trash/nearby_rides/data/models/accept_ride_request_model.dart';
+import '../../trash/nearby_rides/data/models/nearby_rides_response_model.dart';
+import '../../trash/nearby_rides/data/models/update_location_request_model.dart';
+import '../../modules/commutes/one_commute/data/models/set_commute_online_request_model.dart';
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: ApiConsts.baseUrl)
+@RestApi()
 abstract class ApiService {
   factory ApiService(Dio dio, {required String baseUrl}) = _ApiService;
   @POST(ApiConsts.signIn)
@@ -46,49 +50,18 @@ abstract class ApiService {
   Future<ChangePassResponseModel> changePassword(
     @Body() ChangePassRequestModel changePassRequestModel,
   );
-  @GET(ApiConsts.getMe)
-  Future<GetMeResponseModel> getMe(
-    @Header('Authorization') String token,
-    @Path() String id,
-  );
-  @DELETE(ApiConsts.deleteMe)
-  Future<void> deleteMe(
-    @Header('Authorization') String token,
-    @Path() String id,
-  );
-
-  @PUT(ApiConsts.updateMe)
-  @MultiPart()
-  Future<void> updateMe(
-    @Header('Authorization') String token,
-    @Path("id") String id,
-    @Part(name: "files") List<MultipartFile> files,
-    @Field("name") String name,
-    @Field("email") String email,
-    @Field("phone") String phone,
-  );
-
-  @POST(ApiConsts.addCommute)
-  Future<void> addCommute(
-    @Header('Authorization') String token,
-    @Path() String id,
-    @Body() AddCommuteRequestModel addCommuteRequestModel,
-  );
   @GET(ApiConsts.getCommutes)
   Future<GetCommutesResponseModel> getCommutes(
-    @Header('Authorization') String token,
     @Path() String id,
   );
 
   @DELETE(ApiConsts.deleteCommute)
   Future<void> deleteCommute(
-    @Header('Authorization') String token,
     @Path() String id,
     @Path() String commuteId,
   );
   @PUT(ApiConsts.updateCommute)
   Future<void> updateCommute(
-    @Header('Authorization') String token,
     @Path() String id,
     @Path() String commuteId,
     @Body() UpdateCommuteRequestModel updateCommuteRequestModel,
@@ -96,7 +69,6 @@ abstract class ApiService {
 
   @GET(ApiConsts.getNearbyRides)
   Future<List<NearbyRidesModel>> getNearbyRequests(
-    @Header('Authorization') String token,
     @Path() String driverId,
   );
 
@@ -116,5 +88,63 @@ abstract class ApiService {
   @POST(ApiConsts.completeRide)
   Future<void> completeRide(
     @Body() CompleteRideRequestModel completeRideRequestModel,
+  );
+
+  @GET(ApiConsts.getRequests)
+  Future<GetRequestsResponseModel> getRequests(
+    @Path() String id,
+  );
+
+  @PATCH(ApiConsts.acceptRequest)
+  Future<void> acceptRequest(
+    @Path() String requestId,
+  );
+  @PATCH(ApiConsts.rejectRequest)
+  Future<void> rejectRequest(
+    @Path() String requestId,
+  );
+
+  @GET(ApiConsts.getUser)
+  Future<GetUserDataResponseModel> getUser(
+    @Path() String id,
+  );
+
+  @GET(ApiConsts.aprovedJoin)
+  Future<GetAprovedJoinResponseModel> getAprovedJoin(
+    @Path() String id,
+  );
+
+  @POST(ApiConsts.setCommuteOnline)
+  Future<void> setCommuteOnline(
+    @Path() String driverId,
+    @Path() String commuteId,
+    @Body() SetCommuteOnlineRequestModel setCommuteOnlineRequestModel,
+  );
+  @POST(ApiConsts.addCommute)
+  Future<void> addCommute(
+    @Path() String id,
+    @Body() AddCommuteRequestModel addCommuteRequestModel,
+  );
+  @GET(ApiConsts.getDriver)
+  Future<GetMeResponseModel> getMe(
+    @Path() String id,
+  );
+  @DELETE(ApiConsts.getDriver)
+  Future<void> deleteMe(
+    @Path() String id,
+  );
+
+  @PUT(ApiConsts.getDriver)
+  @MultiPart()
+  Future<void> updateMe(
+    @Path() String id,
+    @Part(name: "image") List<MultipartFile> files,
+    @Part(name: "name") String name,
+    @Part(name: "email") String email,
+    @Part(name: "phone") String? phone,
+  );
+  @GET(ApiConsts.getDriver)
+  Future<GetMeResponseModel> geDriver(
+    @Path() String id,
   );
 }

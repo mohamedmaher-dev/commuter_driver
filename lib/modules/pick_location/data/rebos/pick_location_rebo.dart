@@ -1,14 +1,14 @@
-import 'package:commuter_driver/core/location_service/location_service.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
+
+import '../../../../core/location/location_service.dart';
 
 class PickLocationRebo {
   final LocationService _locationService;
   const PickLocationRebo(this._locationService);
 
-  Future<LatLng> getCurrentPosition() {
-    return _locationService.getCurrentPosition();
+  Future<LatLng> getCurrentPosition() async {
+    return await _locationService.getCurrentPosition() ?? const LatLng(0, 0);
   }
 
   Future<Placemark> getLocationName({required LatLng latLng}) {

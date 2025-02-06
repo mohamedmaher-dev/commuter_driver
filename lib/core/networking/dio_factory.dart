@@ -1,3 +1,5 @@
+import 'package:commuter_driver/core/di/di.dart';
+import 'package:commuter_driver/core/local_storage/local_storage_service.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -13,16 +15,23 @@ class DioFactory {
         ..options.connectTimeout = timout
         ..options.sendTimeout = timout
         ..options.receiveTimeout = timout
+        ..options.headers['Authorization'] =
+            'Bearer ${LocalStorageService.userSecretDataModel.userToken}'
         ..interceptors.add(
           PrettyDioLogger(
             request: true,
             requestBody: true,
             responseBody: true,
+            requestHeader: true,
           ),
         );
       return _dio!;
     } else {
       return _dio!;
     }
+  }
+
+  static void setToken(String token) {
+    di<Dio>().options.headers['Authorization'] = 'Bearer $token';
   }
 }

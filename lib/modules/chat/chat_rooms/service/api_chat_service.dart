@@ -4,9 +4,9 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 part 'api_chat_service.g.dart';
 
-@RestApi(baseUrl: ApiConsts.chatBaseUrl)
+@RestApi()
 abstract class ApiChatService {
-  factory ApiChatService(Dio dio) = _ApiChatService;
+  factory ApiChatService(Dio dio, {required String baseUrl}) = _ApiChatService;
   @GET(ApiConsts.rooms)
   Future<List<ChatRoomModel>> getRooms(
     @Path('id') String id,

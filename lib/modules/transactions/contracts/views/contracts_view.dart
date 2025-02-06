@@ -1,10 +1,8 @@
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/themes/color_manger.dart';
-import '../../../../core/themes/text_styles.dart';
+import '../../../../core/themes/app_theme_controller.dart';
 
 class ContractsView extends StatelessWidget {
   const ContractsView({super.key});
@@ -148,7 +146,28 @@ class _ContarctItem extends StatelessWidget {
                   title: '250 SAR',
                 ),
               ],
-            )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton.icon(
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStatePropertyAll(
+                      ColorManger.red,
+                    ),
+                  ),
+                  onPressed: () {},
+                  icon: const Icon(Icons.close),
+                  label: const Text('Cancel Contract'),
+                ),
+                ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(Icons.edit),
+                  label: const Text('Edit Contract'),
+                ),
+              ],
+            ),
+            SizedBox(height: 10.h)
           ],
         ),
       ),

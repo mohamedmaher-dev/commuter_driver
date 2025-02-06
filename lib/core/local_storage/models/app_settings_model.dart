@@ -1,8 +1,10 @@
 import 'package:hive/hive.dart';
 
+import '../hive_adapter_type.dart';
+
 part 'app_settings_model.g.dart';
 
-@HiveType(typeId: 1)
+@HiveType(typeId: HiveAdapterType.appSettingsModel)
 class AppSettingsModel {
   @HiveField(0)
   final String? locale;
@@ -11,7 +13,7 @@ class AppSettingsModel {
   AppSettingsModel({required this.locale, required this.isDark});
 
   factory AppSettingsModel.init() {
-    return AppSettingsModel(locale: 'ar', isDark: true);
+    return AppSettingsModel(locale: 'en', isDark: true);
   }
 
   AppSettingsModel copyWith({String? locale, bool? isDark}) {

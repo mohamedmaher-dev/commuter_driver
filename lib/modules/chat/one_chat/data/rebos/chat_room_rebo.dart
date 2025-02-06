@@ -1,4 +1,5 @@
-import 'package:commuter_driver/core/local_storage/models/user_secret_data_model.dart';
+// ignore_for_file: library_prefixes
+
 import 'package:commuter_driver/core/models/user_type_enum.dart';
 import 'package:commuter_driver/core/networking/socket_io_consts.dart';
 import 'package:commuter_driver/modules/chat/one_chat/data/models/emit_msg_model.dart';
@@ -6,15 +7,11 @@ import 'package:commuter_driver/modules/chat/one_chat/data/models/join_room_mode
 import 'package:socket_io_client/socket_io_client.dart' as socketIo;
 
 class OneChatRoomRebo {
-  final UserSecretDataModel _secretDataModel;
-
-  OneChatRoomRebo({
-    required UserSecretDataModel secretDataModel,
-  }) : _secretDataModel = secretDataModel;
-  void joinRoom(String friendId, socketIo.Socket socket) {
+  OneChatRoomRebo();
+  void joinRoom(String friendId, String userId, socketIo.Socket socket) async {
     final joinRoomModel = JoinRoomModel(
-      userId: friendId,
-      driverId: _secretDataModel.userId,
+      userId: userId,
+      driverId: friendId,
     );
     socket.emit(SocketIoConsts.joinRoomEvent, joinRoomModel.toJson());
   }
@@ -22,10 +19,11 @@ class OneChatRoomRebo {
   void sendMessage({
     required String message,
     required String friendId,
+    required String userId,
     required socketIo.Socket socket,
-  }) {
+  }) async {
     final emitMsgModel = EmitMsgModel(
-      senderId: _secretDataModel.userId,
+      senderId: userId,
       senderType: UserType.driver.name,
       receiverId: friendId,
       receiverType: UserType.user.name,

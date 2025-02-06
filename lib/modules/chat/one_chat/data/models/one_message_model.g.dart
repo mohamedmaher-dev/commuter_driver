@@ -14,12 +14,3 @@ OneMessageModel _$OneMessageModelFromJson(Map<String, dynamic> json) =>
       message: json['message'] as String,
       timestamp: DateTime.parse(json['timestamp'] as String),
     );
-
-Map<String, dynamic> _$OneMessageModelToJson(OneMessageModel instance) =>
-    <String, dynamic>{
-      '_id': instance.messageId,
-      'senderId': instance.senderId,
-      'receiverId': instance.receiverId,
-      'message': instance.message,
-      'timestamp': instance.timestamp.toIso8601String(),
-    };

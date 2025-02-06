@@ -1,9 +1,8 @@
 import 'package:commuter_driver/core/di/di.dart';
-import 'package:commuter_driver/core/themes/text_styles.dart';
 import 'package:commuter_driver/core/widgets/empty_view.dart';
 import 'package:commuter_driver/core/widgets/error_view.dart';
 import 'package:commuter_driver/core/widgets/loading_view.dart';
-import 'package:commuter_driver/core/widgets/profile_image.dart';
+import 'package:commuter_driver/core/widgets/profile_avatar.dart';
 import 'package:commuter_driver/modules/chat/chat_rooms/controllers/bloc/chat_rooms_bloc.dart';
 import 'package:commuter_driver/modules/chat/chat_rooms/data/models/chat_room_model.dart';
 import 'package:commuter_driver/modules/chat/one_chat/data/models/chat_room_args_model.dart';
@@ -12,8 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/localization/generated/l10n.dart';
 import '../../../../core/routes/app_route.dart';
-import '../../../../core/themes/color_manger.dart';
+import '../../../../core/themes/app_theme_controller.dart';
 
 part 'widgets/room_item_view.dart';
 part 'widgets/search_form_field.dart';
@@ -39,7 +39,9 @@ class _ChatRooms extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final chatRoomsBloc = BlocProvider.of<ChatRoomsBloc>(context);
+    final language = Language.of(context);
     return Scaffold(
+      appBar: AppBar(title: Text(language.chats)),
       body: Padding(
         padding: EdgeInsets.all(10.0.w),
         child: BlocBuilder<ChatRoomsBloc, ChatRoomsState>(
@@ -63,7 +65,10 @@ class _ChatRooms extends StatelessWidget {
                   ],
                 );
               },
-              empty: () => const EmptyView(),
+              empty: () => EmptyView(
+                text: language.no_chats_found,
+                icon: Icons.speaker_notes_off_rounded,
+              ),
               error: () => ErrorView(
                 onPressed: () {
                   chatRoomsBloc.add(const ChatRoomsEvent.started());

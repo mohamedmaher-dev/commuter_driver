@@ -1,7 +1,8 @@
-import 'package:commuter_driver/core/routes/app_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../routes/app_route.dart';
 
 class PickTime extends StatelessWidget {
   const PickTime({

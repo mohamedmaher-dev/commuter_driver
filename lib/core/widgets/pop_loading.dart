@@ -1,5 +1,7 @@
-import 'package:commuter_driver/core/widgets/circle_loading.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+
+import '../themes/app_theme_controller.dart';
 
 class PopLoading {
   PopLoading._();
@@ -8,12 +10,11 @@ class PopLoading {
     EasyLoading.show(
       maskType: EasyLoadingMaskType.black,
       dismissOnTap: false,
-      indicator: const CircleLoading(),
+      indicator: const CircularProgressIndicator(
+        strokeWidth: 2,
+        color: ColorManger.myGold,
+      ),
     );
-  }
-
-  static showProgress(double value) {
-    EasyLoading.showProgress(value);
   }
 
   static dismiss() => EasyLoading.dismiss();

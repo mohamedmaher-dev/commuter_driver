@@ -1,8 +1,8 @@
 part of 'di.dart';
 
 _utilsDiInit() async {
-  di.registerLazySingleton<LocalizationController>(
-    () => LocalizationController(
+  di.registerLazySingleton<AppLocalizationController>(
+    () => AppLocalizationController(
       di<LocalStorageService>(),
     ),
   );
@@ -16,7 +16,7 @@ _utilsDiInit() async {
   di.registerLazySingleton(
     () => ApiService(
       di<Dio>(),
-      baseUrl: ApiConsts.baseUrl,
+      baseUrl: Env.apiBaseUrl,
     ),
   );
   di.registerLazySingleton(() => const FlutterSecureStorage());
@@ -31,11 +31,34 @@ _utilsDiInit() async {
   di.registerLazySingleton(
     () => LocationService(
       di<Dio>(),
-      di<PolylinePoints>(),
+      di<Location>(),
+      di<CheckLocationPermission>(),
     ),
   );
   di.registerLazySingleton(
     () => PolylinePoints(),
   );
-  di.registerLazySingleton(() => ApiChatService(di<Dio>()));
+  di.registerLazySingleton(
+      () => ApiChatService(di<Dio>(), baseUrl: Env.apiChatBaseUrl));
+
+  di.registerLazySingleton<Location>(() => Location());
+  di.registerLazySingleton<CheckLocationPermission>(
+      () => CheckLocationPermission(di<Location>()));
+  di.registerLazySingleton<NotifiApiService>(
+      () => NotifiApiService(di<Dio>(), baseUrl: Env.apiNotifiBaseUrl));
+  di.registerLazySingleton<NotifiService>(
+    () => NotifiService(
+      di<FirebaseMessaging>(),
+      di<CheckNotifiPermission>(),
+    ),
+  );
+  di.registerLazySingleton<FirebaseMessaging>(() => FirebaseMessaging.instance);
+  di.registerLazySingleton<CheckNotifiPermission>(() => CheckNotifiPermission(
+        di<FirebaseMessaging>(),
+      ));
+  di.registerLazySingleton<MyBlocObserver>(
+    () => MyBlocObserver(
+      mainBloc: di<MainBloc>(),
+    ),
+  );
 }

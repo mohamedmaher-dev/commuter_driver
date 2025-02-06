@@ -1,119 +1,71 @@
-import 'package:commuter_driver/core/themes/text_styles.dart';
+import 'package:commuter_driver/core/bloc/main_bloc.dart';
+import 'package:commuter_driver/core/di/di.dart';
+import 'package:commuter_driver/core/localization/app_localization_controller.dart';
+import 'package:commuter_driver/core/localization/models/app_language_model.dart';
+import 'package:commuter_driver/core/widgets/pop_loading.dart';
+import 'package:commuter_driver/modules/settings/controllers/settings_delete_profile/settings_delete_profile_cubit.dart';
+import 'package:country_flags/country_flags.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../core/localization/generated/l10n.dart';
 import '../../../core/routes/app_route.dart';
-import '../../../core/themes/color_manger.dart';
-import '../../../core/widgets/language_btn.dart';
-import '../../../core/widgets/theme_mode_btn.dart';
+import '../../../core/themes/app_theme_controller.dart';
+part 'widgets/settings_general_body_view.dart';
+part 'widgets/settings_my_ptofile_body_view.dart';
+part 'widgets/settings_support_body_view.dart';
+part 'widgets/language_bottom_sheet_body.dart';
+part 'widgets/map_settings_body.dart';
+part 'widgets/verify_body.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final language = Language.of(context);
+    return BlocProvider(
+      create: (context) => di<SettingsDeleteProfileCubit>(),
+      child: const _SettingsBody(),
+    );
+  }
+}
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-        leading: IconButton(
-          onPressed: () {
-            AppRouter.pushReplacement(context: context, page: Pages.navPage);
+class _SettingsBody extends StatefulWidget {
+  const _SettingsBody();
+
+  @override
+  State<_SettingsBody> createState() => _SettingsBodyState();
+}
+
+class _SettingsBodyState extends State<_SettingsBody> {
+  @override
+  Widget build(BuildContext context) {
+    final mainBloc = BlocProvider.of<MainBloc>(context);
+    final language = Language.of(context);
+    return BlocBuilder<MainBloc, MainState>(
+      builder: (context, state) {
+        return PopScope(
+          canPop: false,
+          onPopInvoked: (didPop) {
+            AppRouter.pushAndRemoveUntil(context: context, page: Pages.home);
           },
-          icon: const Icon(
-            Icons.arrow_back,
-          ),
-        ),
-      ),
-      body: ListView(
-        padding: EdgeInsets.all(10.w),
-        children: [
-          ListTile(
-            title: Text(
-              'General',
-              style: TextStyles.tsP15B,
+          child: Scaffold(
+            appBar: AppBar(
+              title: Text(language.settings),
             ),
-          ),
-          Card(
-            child: Padding(
+            body: ListView(
               padding: EdgeInsets.all(10.w),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(language.Night_Mode),
-                    leading: const Icon(Icons.dark_mode),
-                    trailing: const ThemeModeBTN(),
-                  ),
-                  ListTile(
-                    title: Text(language.Current_Language),
-                    leading: const Icon(Icons.language),
-                    trailing: const LanguageBTN(),
-                  ),
-                ],
-              ),
+              children: [
+                _SettingsGeneralBodyView(mainBloc: mainBloc),
+                // const _MapSettingBody(),
+                _SettingMyProfileBodyView(mainBloc: mainBloc),
+                // _SettingsSupportBody_view(mainBloc: mainBloc),
+              ],
             ),
           ),
-          ListTile(
-            title: Text(
-              'Profile',
-              style: TextStyles.tsP15B,
-            ),
-          ),
-          Card(
-            child: Padding(
-              padding: EdgeInsets.all(10.w),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: const Text('Delete Account'),
-                    leading: const Icon(Icons.delete),
-                    trailing: ElevatedButton.icon(
-                      style: ButtonStyle(
-                        elevation: const MaterialStatePropertyAll(0),
-                        foregroundColor: MaterialStatePropertyAll(
-                          ColorManger.red,
-                        ),
-                      ),
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (contextDialog) => AlertDialog(
-                            title: Text(language.Delete_Account),
-                            content: const Text(
-                              'Are you sure you want to delete the account?',
-                            ),
-                            actions: [
-                              ElevatedButton.icon(
-                                style: ButtonStyle(
-                                  elevation: const MaterialStatePropertyAll(0),
-                                  foregroundColor: MaterialStatePropertyAll(
-                                    ColorManger.red,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  AppRouter.pop(context: contextDialog);
-                                },
-                                icon: const Icon(Icons.delete),
-                                label: Text(
-                                  language.Confirm,
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                      icon: const Icon(Icons.delete),
-                      label: Text(language.Delete_Account),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

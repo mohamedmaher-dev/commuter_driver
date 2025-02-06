@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'color_manger.dart';
+part of 'app_theme_controller.dart';
 
 class TextStyles {
   const TextStyles._();
@@ -62,6 +60,7 @@ class TextStyles {
         fontSize: 10.sp,
         fontWeight: FontWeight.bold,
       );
+
   static TextStyle get tsW10N => TextStyle(
         fontSize: 10.sp,
         fontWeight: FontWeight.normal,

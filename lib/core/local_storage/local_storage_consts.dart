@@ -5,4 +5,6 @@ class LocalStorageConsts {
   static const userTokenKey = 'userToken';
   static const userIdKey = 'userId';
   static const appSettingsBox = 'appSettingsBox';
+  static const localCommuteBox = 'localCommuteBox';
+  static const localScheduleBox = 'localScheduleBox';
 }

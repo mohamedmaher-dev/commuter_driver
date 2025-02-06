@@ -1,36 +1,33 @@
-import 'dart:io';
 import 'package:commuter_driver/core/bloc/main_bloc.dart';
 import 'package:commuter_driver/core/di/di.dart';
-import 'package:commuter_driver/core/localization/controller/localization_controller.dart';
+import 'package:commuter_driver/core/local_storage/local_storage_service.dart';
+import 'package:commuter_driver/core/localization/app_localization_controller.dart';
 import 'package:commuter_driver/core/themes/app_theme_controller.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'commuter.dart';
-import 'core/location_service/location_service.dart';
+import 'core/bloc/bloc_observer.dart';
+import 'core/location/location_service.dart';
+import 'core/notifications/notifi_service.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await diInit();
-  await Hive.initFlutter();
-  await di<LocalizationController>().init();
+  await di<LocalStorageService>().init();
+  await di<AppLocalizationController>().init();
   await di<AppThemeController>().init();
+  await di<NotifiService>().init();
   await di<LocationService>().locationServiceInit();
-  await ScreenUtil.ensureScreenSize();
+  Bloc.observer = di<MyBlocObserver>();
   runApp(
     BlocProvider(
       create: (context) => di<MainBloc>()..add(const MainEvent.started()),
       child: const Commuter(),
     ),
   );
-}
-
-class MyHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext? context) {
-    return super.createHttpClient(context)
-      ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
-  }
 }

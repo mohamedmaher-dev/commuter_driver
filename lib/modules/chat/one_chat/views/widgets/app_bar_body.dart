@@ -10,12 +10,18 @@ class _AppBarBody extends StatelessWidget implements PreferredSize {
     return AppBar(
       title: ListTile(
         onTap: () {},
-        leading: ClipRRect(
-            borderRadius: BorderRadius.circular(100.r),
-            child: ProfileImage(size: 35.w, url: args.friendImageUrl)),
+        leading: Hero(
+          tag: args.friendId,
+          child: ProfileAvatar(
+            name: args.friendName,
+            radius: 30,
+            imageUrl: args.friendImageUrl,
+          ),
+        ),
         title: Text(
+          maxLines: 1,
           args.friendName,
-          style: TextStyles.tsP15B,
+          style: TextStyles.ts15B,
         ),
         trailing: IconButton(
           onPressed: () {},

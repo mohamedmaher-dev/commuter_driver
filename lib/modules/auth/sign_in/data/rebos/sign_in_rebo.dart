@@ -3,10 +3,10 @@ import 'package:commuter_driver/core/local_storage/models/user_secret_data_model
 import 'package:commuter_driver/core/networking/api_error_model.dart';
 import 'package:commuter_driver/core/networking/api_result.dart';
 import 'package:commuter_driver/core/networking/api_service.dart';
+import 'package:commuter_driver/core/networking/dio_factory.dart';
 import 'package:commuter_driver/modules/auth/sign_in/data/models/sign_in_request_model.dart';
 import 'package:commuter_driver/modules/auth/sign_in/data/models/sign_in_response_model.dart';
 import 'package:dio/dio.dart';
-
 import '../../../../../core/local_storage/local_storage_service.dart';
 import '../../../otp_forgot_password/data/models/forgot_pass_request_model.dart';
 import '../../../otp_forgot_password/data/models/forgot_pass_response_model.dart';
@@ -21,6 +21,7 @@ class SignInRebo {
   }) async {
     try {
       final response = await _apiService.signIn(signInRequestModel);
+      DioFactory.setToken(response.token);
       return ApiResult.success(response);
     } on DioException catch (e) {
       return ApiResult.failure(ApiErrorModel.fromDioException(dioException: e));
@@ -50,8 +51,6 @@ class SignInRebo {
   }) async {
     try {
       final userSecretDataModel = await _localStorageService.saveUserSecretData(
-        userEmail: email,
-        userPassword: password,
         userId: id,
         userToken: token,
       );

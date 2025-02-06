@@ -4,8 +4,8 @@ import 'package:commuter_driver/core/localization/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-import '../../../core/themes/color_manger.dart';
-import '../../../core/themes/text_styles.dart';
+
+import '../../../core/themes/app_theme_controller.dart';
 
 class OtpView extends StatefulWidget {
   const OtpView({
@@ -131,12 +131,12 @@ class _OtpViewState extends State<OtpView> {
               Align(
                 alignment: Alignment.center,
                 child: Text(
-                  widget.language.Seconds_Left,
+                  widget.language.seconds_left,
                 ),
               ),
               TextButton(
                 onPressed: widget.onResendCode,
-                child: Text(widget.language.Resend_OTP_Code),
+                child: Text(widget.language.resend_otp_code),
               )
             ],
           )

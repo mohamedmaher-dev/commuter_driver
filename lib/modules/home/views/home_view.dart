@@ -1,90 +1,65 @@
 import 'package:commuter_driver/core/di/di.dart';
-import 'package:commuter_driver/core/localization/generated/l10n.dart';
-import 'package:badges/badges.dart' as badges;
-import 'package:commuter_driver/core/routes/app_route.dart';
-import 'package:commuter_driver/modules/commutes/view/commutes_view.dart';
-import 'package:commuter_driver/modules/home/controllers/home_bloc/home_bloc.dart';
-import 'package:commuter_driver/modules/requests/views/requests_view.dart';
-import 'package:commuter_driver/modules/shedule/views/shedule_view.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:commuter_driver/modules/home/controllers/home_cubit/home_cubit.dart';
+import 'package:commuter_driver/modules/home/controllers/home_slide_panel/home_slide_panel_cubit.dart';
+import 'package:commuter_driver/modules/home/controllers/home_slide_tabs/home_slide_tabs_cubit.dart';
+import 'package:commuter_driver/modules/home/views/widgets/home_drawer_view.dart';
+import 'package:commuter_driver/modules/home/views/widgets/home_slide_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/themes/color_manger.dart';
-import '../../../core/themes/text_styles.dart';
-part 'widgets/home_app_bar.dart';
-part 'widgets/home_tap_bar.dart';
+import '../../commutes/my_commutes/controllers/commutes_bloc/commutes_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di<HomeBloc>(),
-      child: const _HomeView(),
-    );
-  }
+  Widget build(BuildContext context) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => di<HomeCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => di<HomeSlideTabsCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => di<HomeSlidePanelCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => di<CommutesBloc>()
+              ..add(
+                const CommutesEvent.started(),
+              ),
+          ),
+        ],
+        child: const _HomeViewBody(),
+      );
 }
 
-class _HomeView extends StatelessWidget {
-  const _HomeView();
+class _HomeViewBody extends StatefulWidget {
+  const _HomeViewBody();
 
   @override
+  State<_HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<_HomeViewBody> {
+  @override
   Widget build(BuildContext context) {
-    final language = Language.of(context);
-    final homeBloc = BlocProvider.of<HomeBloc>(context);
-    return BlocBuilder<HomeBloc, HomeState>(
-      builder: (context, state) {
-        return SafeArea(
-          child: Scaffold(
-            appBar: const _HomeAppBar(),
-            body: Padding(
-              padding: EdgeInsets.all(10.w),
-              child: Column(
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 0),
-                      prefixIcon: const Icon(CupertinoIcons.search),
-                      hintText: language.Search,
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10.h),
-                  Padding(
-                    padding: EdgeInsets.all(10.w),
-                    child: const _HomeTabBar(),
-                  ),
-                  SizedBox(height: 10.h),
-                  Expanded(
-                    child: PageView(
-                      controller: homeBloc.pageController,
-                      onPageChanged: (value) {
-                        homeBloc.add(
-                          HomeEvent.swipePage(
-                            newPage: value,
-                          ),
-                        );
-                      },
-                      children: const [
-                        CommutesView(),
-                        SheduleView(),
-                        RequestsView(),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        );
+    final homeSlideBloc = BlocProvider.of<HomeSlidePanelCubit>(context);
+    final homeCubit = BlocProvider.of<HomeCubit>(context);
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        homeSlideBloc.controller.close();
       },
+      child: SafeArea(
+        child: Scaffold(
+          key: homeCubit.scaffoldKey,
+          onDrawerChanged: (isOpened) {},
+          drawer: const HomeDrawerView(),
+          body: const HomeSlideView(),
+        ),
+      ),
     );
   }
 }

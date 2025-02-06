@@ -1,47 +1,39 @@
-import 'package:commuter_driver/core/themes/app_theme_data.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../local_storage/local_storage_service.dart';
-import '../local_storage/models/app_settings_model.dart';
-import 'color_manger.dart';
+import '../utils/assets_manger.dart';
+part 'color_manger.dart';
+part 'app_theme.dart';
+part 'text_styles.dart';
 
 class AppThemeController {
-  static const font = 'Changa';
   final LocalStorageService _localStorageService;
-  late ThemeMode themeMode;
-  late AppSettingsModel _appSettingsModel;
+  static late ThemeMode _themeMode;
+  static late String _darkMapStyle;
   AppThemeController(this._localStorageService);
-  ThemeData get theme => ThemeData(
-        colorScheme: ColorManger.colorScheme,
-        fontFamily: font,
-        filledButtonTheme: AppThemeData.filledButtonThemeData,
-        outlinedButtonTheme: AppThemeData.outlinedButtonThemeData,
-        elevatedButtonTheme: AppThemeData.elevatedButtonThemeData,
-        textButtonTheme: AppThemeData.textButtonThemeData,
-        inputDecorationTheme: AppThemeData.inputDecorationTheme,
-        pageTransitionsTheme: AppThemeData.pageTransitionsTheme,
-        iconButtonTheme: AppThemeData.iconButtonThemeData,
-        segmentedButtonTheme: AppThemeData.segmentedButtonTheme,
-        floatingActionButtonTheme: AppThemeData.floatingActionButtonTheme,
-      );
-
   Future<void> init() async {
-    _appSettingsModel = await _localStorageService.getAppSettings;
-
-    if (_appSettingsModel.isDark != null) {
-      themeMode = _appSettingsModel.isDark! ? ThemeMode.dark : ThemeMode.light;
+    _darkMapStyle =
+        await rootBundle.loadString(AssetsManger.mapStylesNightStyle);
+    final appSettingsModel =
+        await _localStorageService.getAppSettings.then((value) => value);
+    if (appSettingsModel.isDark == true) {
+      _themeMode = ThemeMode.dark;
+    } else {
+      _themeMode = ThemeMode.light;
     }
   }
 
-  Future<void> changeTheme() async {
-    if (themeMode == ThemeMode.light) {
-      themeMode = ThemeMode.dark;
-    } else {
-      themeMode = ThemeMode.light;
-    }
-    _appSettingsModel = await _localStorageService.getAppSettings;
+  Future<void> changeThemeMode() async {
+    final appSettingsModel =
+        await _localStorageService.getAppSettings.then((value) => value);
+    _themeMode =
+        _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
     await _localStorageService.saveAppSettings(
-      appSettingsModel: _appSettingsModel.copyWith(
-        isDark: themeMode == ThemeMode.dark,
+      appSettingsModel: appSettingsModel.copyWith(
+        isDark: _themeMode == ThemeMode.dark,
       ),
     );
   }

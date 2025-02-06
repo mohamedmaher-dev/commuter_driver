@@ -35,8 +35,6 @@ class SignUpRebo {
   }) async {
     try {
       final userSecretDataModel = await _localStorageService.saveUserSecretData(
-        userEmail: email,
-        userPassword: password,
         userId: id,
         userToken: token,
       );

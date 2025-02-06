@@ -3,8 +3,7 @@ import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jiffy/jiffy.dart';
 
-import '../../../../core/themes/color_manger.dart';
-import '../../../../core/themes/text_styles.dart';
+import '../../../../core/themes/app_theme_controller.dart';
 
 class WalletView extends StatelessWidget {
   const WalletView({super.key});
@@ -43,29 +42,29 @@ class WalletView extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                child: Card(
-                  color: ColorManger.colorScheme.errorContainer,
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 75.h,
-                    child: ListTile(
-                      title: Text(
-                        '250 SAR',
-                        textAlign: TextAlign.center,
-                        style: TextStyles.ts25B.copyWith(),
-                      ),
-                      subtitle: Text(
-                        'Balance Used',
-                        textAlign: TextAlign.center,
-                        style: TextStyles.tsP10B.copyWith(
-                          color: ColorManger.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              // Expanded(
+              //   child: Card(
+              //     color: ColorManger.colorScheme.errorContainer,
+              //     child: Container(
+              //       alignment: Alignment.center,
+              //       height: 75.h,
+              //       child: ListTile(
+              //         title: Text(
+              //           '250 SAR',
+              //           textAlign: TextAlign.center,
+              //           style: TextStyles.ts25B.copyWith(),
+              //         ),
+              //         subtitle: Text(
+              //           'Balance Used',
+              //           textAlign: TextAlign.center,
+              //           style: TextStyles.tsP10B.copyWith(
+              //             color: ColorManger.white,
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -76,9 +75,10 @@ class WalletView extends StatelessWidget {
                 padding: EdgeInsets.all(10.w),
                 child: FilledButton.icon(
                   style: const ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Colors.transparent),
-                    foregroundColor: WidgetStatePropertyAll(Colors.green),
-                    side: WidgetStatePropertyAll(
+                    backgroundColor:
+                        MaterialStatePropertyAll(Colors.transparent),
+                    foregroundColor: MaterialStatePropertyAll(Colors.green),
+                    side: MaterialStatePropertyAll(
                       BorderSide(width: 2, color: Colors.green),
                     ),
                   ),
@@ -143,9 +143,9 @@ class WalletView extends StatelessWidget {
                 padding: EdgeInsets.all(10.w),
                 child: FilledButton.icon(
                   style: const ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Colors.green),
-                    foregroundColor: WidgetStatePropertyAll(Colors.black),
-                    side: WidgetStatePropertyAll(
+                    backgroundColor: MaterialStatePropertyAll(Colors.green),
+                    foregroundColor: MaterialStatePropertyAll(Colors.black),
+                    side: MaterialStatePropertyAll(
                       BorderSide(width: 2, color: Colors.green),
                     ),
                   ),
@@ -170,9 +170,9 @@ class WalletView extends StatelessWidget {
                 Jiffy.now().add(minutes: 15).toNow().toString(),
               ),
               trailing: Text(
-                '- 250 SAR',
+                '+ 250 SAR',
                 style: TextStyles.tsP12B.copyWith(
-                  color: ColorManger.colorScheme.error,
+                  color: ColorManger.colorScheme.primary,
                 ),
               ),
               children: const [],

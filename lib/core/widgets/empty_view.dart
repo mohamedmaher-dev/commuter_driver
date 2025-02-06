@@ -1,28 +1,22 @@
-import 'package:commuter_driver/core/themes/text_styles.dart';
-import 'package:commuter_driver/core/utils/assets_manger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class EmptyView extends StatelessWidget {
-  const EmptyView({super.key, this.text, this.showIcon = true});
-  final String? text;
-  final bool showIcon;
+  const EmptyView({super.key, required this.icon, required this.text});
+  final IconData icon;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        if (showIcon)
-          SvgPicture.asset(
-            AssetsManger.emptyIcon,
-            height: 100.h,
-            width: 100.w,
-          ),
+        Icon(icon, size: 50.w, color: Colors.grey),
         Text(
-          text ?? 'No data found',
-          style: TextStyles.tsP12B,
+          text,
+          style: TextStyle(fontSize: 10.sp, color: Colors.grey),
+          textAlign: TextAlign.center,
         ),
       ],
     );

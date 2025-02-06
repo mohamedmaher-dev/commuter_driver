@@ -12,9 +12,7 @@ class _ApiChatService implements ApiChatService {
   _ApiChatService(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://commuter-server-socket-io.onrender.com/';
-  }
+  });
 
   final Dio _dio;
 
@@ -22,10 +20,10 @@ class _ApiChatService implements ApiChatService {
 
   @override
   Future<List<ChatRoomModel>> getRooms(String id) async {
-    final _extra = <String, dynamic>{};
+    const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<ChatRoomModel>>(Options(
       method: 'GET',

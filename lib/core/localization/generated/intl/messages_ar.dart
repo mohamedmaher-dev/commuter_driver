@@ -22,90 +22,243 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "Already_Have_An_Account":
-            MessageLookupByLibrary.simpleMessage("لدي حساب بالفعل"),
-        "App_Name": MessageLookupByLibrary.simpleMessage("كوميوتر"),
-        "Car_No_Of_Seats":
-            MessageLookupByLibrary.simpleMessage("عدد اماكن السيارة"),
-        "Car_Pooling": MessageLookupByLibrary.simpleMessage("مشاركة السيارة"),
-        "Change_Password":
+        "add_commute": MessageLookupByLibrary.simpleMessage("إضافة رحلة"),
+        "add_schedules_trip":
+            MessageLookupByLibrary.simpleMessage("إضافة رحلة مجدولة"),
+        "added_to_balance":
+            MessageLookupByLibrary.simpleMessage("تمت الإضافة إلى الرصيد"),
+        "all": MessageLookupByLibrary.simpleMessage("الكل"),
+        "allow_permissions":
+            MessageLookupByLibrary.simpleMessage("السماح بالأذونات"),
+        "already_have_an_account":
+            MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل"),
+        "app_name": MessageLookupByLibrary.simpleMessage("Commuter"),
+        "approved_join": MessageLookupByLibrary.simpleMessage("المنضمين"),
+        "are_you_sure_you_want_to_delete_the_profile":
+            MessageLookupByLibrary.simpleMessage(
+                "هل أنت متأكد أنك تريد حذف الملف الشخصي؟"),
+        "balance_used": MessageLookupByLibrary.simpleMessage("الرصيد المستخدم"),
+        "best_match": MessageLookupByLibrary.simpleMessage("أفضل تطابق"),
+        "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+        "car_brand_Model":
+            MessageLookupByLibrary.simpleMessage("ماركة السيارة - الطراز"),
+        "carpooling": MessageLookupByLibrary.simpleMessage("مشاركة الركوب"),
+        "change_password":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
-        "Color": MessageLookupByLibrary.simpleMessage("اللون"),
-        "Confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
-        "Confrim_Password":
+        "change_range": MessageLookupByLibrary.simpleMessage("تغيير النطاق"),
+        "change_time_window":
+            MessageLookupByLibrary.simpleMessage("تغيير النافذة الزمنية"),
+        "charge": MessageLookupByLibrary.simpleMessage("شحن"),
+        "charge_balance": MessageLookupByLibrary.simpleMessage("شحن الرصيد"),
+        "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
+        "choose_your_picture":
+            MessageLookupByLibrary.simpleMessage("اختر صورتك"),
+        "choose_your_preference":
+            MessageLookupByLibrary.simpleMessage("اختر تفضيلاتك"),
+        "commute": MessageLookupByLibrary.simpleMessage("رحلة"),
+        "commute_deleted_successfully":
+            MessageLookupByLibrary.simpleMessage("تم حذف الرحلة بنجاح"),
+        "commute_id": MessageLookupByLibrary.simpleMessage("معرف الرحلة"),
+        "commute_location": MessageLookupByLibrary.simpleMessage("موقع الرحلة"),
+        "commute_name": MessageLookupByLibrary.simpleMessage("اسم الرحلة"),
+        "commuter_name": MessageLookupByLibrary.simpleMessage("اسم المسافر"),
+        "commutes": MessageLookupByLibrary.simpleMessage("الرحلات"),
+        "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "confrim_password":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
-        "Create_Account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
-        "Current_Language":
+        "contract_date": MessageLookupByLibrary.simpleMessage("تاريخ العقد"),
+        "contract_number": MessageLookupByLibrary.simpleMessage("رقم العقد"),
+        "contracts": MessageLookupByLibrary.simpleMessage("العقود"),
+        "country": MessageLookupByLibrary.simpleMessage("البلد"),
+        "create_account": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "create_contract": MessageLookupByLibrary.simpleMessage("إنشاء عقد"),
+        "current_balance":
+            MessageLookupByLibrary.simpleMessage("الرصيد الحالي"),
+        "current_language":
             MessageLookupByLibrary.simpleMessage("اللغة الحالية"),
-        "Delete_Account": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
-        "Enter_OTP_Code_Here":
-            MessageLookupByLibrary.simpleMessage("أدخل رمز OTP هنا"),
-        "Failure": MessageLookupByLibrary.simpleMessage("خطأ"),
-        "Females_Only": MessageLookupByLibrary.simpleMessage("نساء فقط"),
-        "Forgot_Password":
-            MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور"),
-        "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
-        "Language_Name": MessageLookupByLibrary.simpleMessage("العربية"),
-        "Mail": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
-        "Name": MessageLookupByLibrary.simpleMessage("الاسم"),
-        "Name_Field_Must_Not_Be_Empty": MessageLookupByLibrary.simpleMessage(
-            "حقل الاسم لا يجب ان يكون فارغ"),
-        "Night_Mode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
-        "Ok": MessageLookupByLibrary.simpleMessage("حسنا"),
-        "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
-        "Passwords_Must_Match":
-            MessageLookupByLibrary.simpleMessage("كلمات المرور يجب ان تتطابق"),
-        "Phone": MessageLookupByLibrary.simpleMessage("الهاتف"),
-        "Phone_Number_Not_Valid":
-            MessageLookupByLibrary.simpleMessage("رقم الهاتف غير صحيح"),
-        "Phone_Verification":
+        "current_language_value":
+            MessageLookupByLibrary.simpleMessage("العربية"),
+        "current_location":
+            MessageLookupByLibrary.simpleMessage("الموقع الحالي"),
+        "date_of_the_trip":
+            MessageLookupByLibrary.simpleMessage("تاريخ الرحلة"),
+        "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+        "delete_my_profile":
+            MessageLookupByLibrary.simpleMessage("حذف ملفي الشخصي"),
+        "dropoff": MessageLookupByLibrary.simpleMessage("الإنزال"),
+        "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+        "end_time": MessageLookupByLibrary.simpleMessage("وقت الانتهاء"),
+        "enter_amount": MessageLookupByLibrary.simpleMessage("أدخل المبلغ"),
+        "enter_landing_location":
+            MessageLookupByLibrary.simpleMessage("أدخل موقع الوصول"),
+        "enter_location": MessageLookupByLibrary.simpleMessage("أدخل الموقع"),
+        "enter_otp_code_here":
+            MessageLookupByLibrary.simpleMessage("أدخل رمز التحقق هنا"),
+        "enter_pickup_location":
+            MessageLookupByLibrary.simpleMessage("أدخل موقع الالتقاط"),
+        "enter_text": MessageLookupByLibrary.simpleMessage("أدخل النص"),
+        "enter_your_message":
+            MessageLookupByLibrary.simpleMessage("أدخل رسالتك"),
+        "failure": MessageLookupByLibrary.simpleMessage("فشل"),
+        "failure_to_update_profile":
+            MessageLookupByLibrary.simpleMessage("فشل في تحديث الملف الشخصي"),
+        "female_only": MessageLookupByLibrary.simpleMessage("للإناث فقط"),
+        "filter_by": MessageLookupByLibrary.simpleMessage("تصفية حسب"),
+        "forgot_password":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "from_camera": MessageLookupByLibrary.simpleMessage("من الكاميرا"),
+        "from_gallery": MessageLookupByLibrary.simpleMessage("من المعرض"),
+        "general": MessageLookupByLibrary.simpleMessage("عام"),
+        "go_online": MessageLookupByLibrary.simpleMessage("كن متصلًا"),
+        "join_commute":
+            MessageLookupByLibrary.simpleMessage("الانضمام إلى الرحلة"),
+        "joined_commute_successfully": MessageLookupByLibrary.simpleMessage(
+            "تم الانضمام إلى الرحلة بنجاح"),
+        "location": MessageLookupByLibrary.simpleMessage("الموقع"),
+        "location_of_the_trip":
+            MessageLookupByLibrary.simpleMessage("موقع الرحلة"),
+        "mail": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "matching": MessageLookupByLibrary.simpleMessage("المطابقة"),
+        "min": MessageLookupByLibrary.simpleMessage("دقيقة"),
+        "my_commutes": MessageLookupByLibrary.simpleMessage("رحلاتي"),
+        "my_location": MessageLookupByLibrary.simpleMessage("موقعي"),
+        "my_profile": MessageLookupByLibrary.simpleMessage("ملفي الشخصي"),
+        "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+        "name_field_must_not_be_empty": MessageLookupByLibrary.simpleMessage(
+            "حقل الاسم لا يجب أن يكون فارغًا"),
+        "nearby_commuters":
+            MessageLookupByLibrary.simpleMessage("المسافرون القريبون"),
+        "nearest_station": MessageLookupByLibrary.simpleMessage("أقرب محطة"),
+        "new_notifications":
+            MessageLookupByLibrary.simpleMessage("إشعارات جديدة"),
+        "night_mode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
+        "no_approved_requests":
+            MessageLookupByLibrary.simpleMessage("لا توجد طلبات موافقة"),
+        "no_chats_found":
+            MessageLookupByLibrary.simpleMessage("لم يتم العثور على محادثات"),
+        "no_commutes_found": MessageLookupByLibrary.simpleMessage(
+            "لم يتم العثور على رحلات، يرجى إضافة واحدة"),
+        "no_messages_yet": MessageLookupByLibrary.simpleMessage(
+            "لا توجد رسائل بعد، ابدأ محادثة"),
+        "no_nearby_commuters_right_now_try_again_later":
+            MessageLookupByLibrary.simpleMessage(
+                "لا يوجد مسافرون بالقرب منك الآن، حاول مرة أخرى لاحقًا"),
+        "no_notifications":
+            MessageLookupByLibrary.simpleMessage("لا توجد إشعارات"),
+        "no_requests_found":
+            MessageLookupByLibrary.simpleMessage("لم يتم العثور على طلبات"),
+        "no_schedules_trips_found_please_add_one":
+            MessageLookupByLibrary.simpleMessage(
+                "لم يتم العثور على رحلات مجدولة، يرجى إضافة واحدة"),
+        "not_available": MessageLookupByLibrary.simpleMessage("غير متوفر"),
+        "not_selected": MessageLookupByLibrary.simpleMessage("غير محدد"),
+        "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "number_of_months": MessageLookupByLibrary.simpleMessage("عدد الأشهر"),
+        "offline": MessageLookupByLibrary.simpleMessage("غير متصل"),
+        "ok": MessageLookupByLibrary.simpleMessage("حسنًا"),
+        "one_way": MessageLookupByLibrary.simpleMessage("اتجاه واحد"),
+        "online": MessageLookupByLibrary.simpleMessage("متصل"),
+        "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "passwords_must_match":
+            MessageLookupByLibrary.simpleMessage("يجب أن تتطابق كلمتا المرور"),
+        "phone": MessageLookupByLibrary.simpleMessage("الهاتف"),
+        "phone_number_not_valid":
+            MessageLookupByLibrary.simpleMessage("رقم الهاتف غير صالح"),
+        "phone_verification":
             MessageLookupByLibrary.simpleMessage("التحقق من الهاتف"),
-        "Please_Input_Your_Mail": MessageLookupByLibrary.simpleMessage(
-            "برجاء كتابة البريد الألكتروني"),
-        "Please_Input_Your_New_Password_And_Confirm_It":
+        "pickup": MessageLookupByLibrary.simpleMessage("الالتقاط"),
+        "pickup_and_dropoff":
+            MessageLookupByLibrary.simpleMessage("التقاط وإنزال"),
+        "pin": MessageLookupByLibrary.simpleMessage("تثبيت"),
+        "please_fill_all_fields":
+            MessageLookupByLibrary.simpleMessage("يرجى ملء جميع الحقول"),
+        "please_input_your_mail":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال بريدك الإلكتروني"),
+        "please_input_your_new_password_and_confirm_it":
             MessageLookupByLibrary.simpleMessage(
-                "برجاء قم بكتابة كلمة المرور الجديدة"),
-        "Please_Write_Your_Email_Correctly":
+                "يرجى إدخال كلمة المرور الجديدة وتأكيدها"),
+        "please_select_an_image":
+            MessageLookupByLibrary.simpleMessage("يرجى تحديد صورة"),
+        "please_verify_your_account":
+            MessageLookupByLibrary.simpleMessage("يرجى التحقق من حسابك"),
+        "please_write_your_email_correctly":
             MessageLookupByLibrary.simpleMessage(
-                "برجاء كتابة البريد الاكتروني بطريقه صحيحة"),
-        "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
-        "Resend_OTP_Code":
-            MessageLookupByLibrary.simpleMessage("إعادة إرسال رمز OTP"),
-        "Search": MessageLookupByLibrary.simpleMessage("بحث"),
-        "Seconds_Left": MessageLookupByLibrary.simpleMessage("ثواني متبقية"),
-        "Sign_In": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "Sign_In_With_Google":
-            MessageLookupByLibrary.simpleMessage("تسجيل بواسطة جوجل"),
-        "Sign_In_With_Your_Mail_And_Password":
+                "يرجى كتابة البريد الإلكتروني بشكل صحيح"),
+        "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "range": MessageLookupByLibrary.simpleMessage("النطاق"),
+        "read": MessageLookupByLibrary.simpleMessage("قراءة"),
+        "readed": MessageLookupByLibrary.simpleMessage("تمت القراءة"),
+        "requests": MessageLookupByLibrary.simpleMessage("الطلبات"),
+        "resend_otp_code":
+            MessageLookupByLibrary.simpleMessage("إعادة إرسال رمز التحقق"),
+        "round_trip": MessageLookupByLibrary.simpleMessage("رحلة ذهاب وعودة"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "scheduled_trips":
+            MessageLookupByLibrary.simpleMessage("الرحلات المجدولة"),
+        "schedules_trips":
+            MessageLookupByLibrary.simpleMessage("الرحلات المجدولة"),
+        "search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "search_for_place":
+            MessageLookupByLibrary.simpleMessage("ابحث عن مكان"),
+        "seconds_left": MessageLookupByLibrary.simpleMessage("ثوانٍ متبقية"),
+        "send_request": MessageLookupByLibrary.simpleMessage("إرسال طلب"),
+        "send_ride_request":
+            MessageLookupByLibrary.simpleMessage("إرسال طلب رحلة"),
+        "send_ride_request_failure":
+            MessageLookupByLibrary.simpleMessage("فشل في إرسال طلب الرحلة"),
+        "send_ride_request_success":
+            MessageLookupByLibrary.simpleMessage("تم إرسال طلب الرحلة بنجاح"),
+        "set_on_map": MessageLookupByLibrary.simpleMessage("تحديد على الخريطة"),
+        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "sign_in_with_google":
+            MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام جوجل"),
+        "sign_in_with_your_mail_and_password":
             MessageLookupByLibrary.simpleMessage(
-                "تسجيل الدخول بواسطة البريد الإلكتروني وكلمة المرور"),
-        "The_Password_Has_Been_Changed_Successfully":
+                "سجل الدخول باستخدام بريدك الإلكتروني وكلمة المرور"),
+        "sign_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "start_time": MessageLookupByLibrary.simpleMessage("وقت البدء"),
+        "street": MessageLookupByLibrary.simpleMessage("الشارع"),
+        "success": MessageLookupByLibrary.simpleMessage("نجاح"),
+        "the_password_has_been_changed_successfully":
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
-        "The_Password_Must_Be_Greater_Than_Or_Equal_To_6_Characters":
+        "the_password_must_be_greater_than_or_equal_to_6_characters":
             MessageLookupByLibrary.simpleMessage(
-                "يجب ان تكون كلمة المرور اكبر من او تساوي 6 احرف"),
-        "This_Account_Not_Active":
-            MessageLookupByLibrary.simpleMessage("هذا الحساب غير مفعل"),
-        "Timeout":
-            MessageLookupByLibrary.simpleMessage("انتهاء المدة المسموح بها"),
-        "Update_Profile":
+                "يجب أن تكون كلمة المرور 6 أحرف أو أكثر"),
+        "this_account_not_active":
+            MessageLookupByLibrary.simpleMessage("هذا الحساب غير نشط"),
+        "time_left": MessageLookupByLibrary.simpleMessage("الوقت المتبقي"),
+        "time_window": MessageLookupByLibrary.simpleMessage("نافذة زمنية"),
+        "timeout": MessageLookupByLibrary.simpleMessage("انتهت المهلة"),
+        "total_price": MessageLookupByLibrary.simpleMessage("السعر الإجمالي"),
+        "transaction_history":
+            MessageLookupByLibrary.simpleMessage("سجل المعاملات"),
+        "transactions": MessageLookupByLibrary.simpleMessage("المعاملات"),
+        "two_way": MessageLookupByLibrary.simpleMessage("اتجاهين"),
+        "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
+        "unpin": MessageLookupByLibrary.simpleMessage("إلغاء التثبيت"),
+        "upcoming": MessageLookupByLibrary.simpleMessage("القادمة"),
+        "update_profile":
             MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي"),
-        "Vehicle_Type": MessageLookupByLibrary.simpleMessage("نوع السيارة"),
-        "Verify_Code": MessageLookupByLibrary.simpleMessage("تاكيد الرمز"),
-        "Verify_Identity":
-            MessageLookupByLibrary.simpleMessage("التحقق من الهوية"),
-        "Warning": MessageLookupByLibrary.simpleMessage("تحذير"),
-        "Welcom_To_Commuter":
-            MessageLookupByLibrary.simpleMessage("أهلاً بك في Commuter"),
-        "Welcome_Back": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
-        "You_Cannot_Leave_The_Email_Empty":
+        "verify_code": MessageLookupByLibrary.simpleMessage("تحقق من الرمز"),
+        "wallet": MessageLookupByLibrary.simpleMessage("المحفظة"),
+        "warning": MessageLookupByLibrary.simpleMessage("تحذير"),
+        "welcom_to_commuter":
+            MessageLookupByLibrary.simpleMessage("مرحبًا بك في Commuter"),
+        "welcome_back": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
+        "whare_to_go": MessageLookupByLibrary.simpleMessage("إلى أين تذهب؟"),
+        "where_to": MessageLookupByLibrary.simpleMessage("إلى أين؟"),
+        "you_cannot_leave_the_email_empty":
             MessageLookupByLibrary.simpleMessage(
-                "لا يمكنك ترك البريد الاكتروني فارغ"),
-        "You_Cannot_Leave_The_Password_Empty":
+                "لا يمكنك ترك البريد الإلكتروني فارغًا"),
+        "you_cannot_leave_the_password_empty":
             MessageLookupByLibrary.simpleMessage(
                 "لا يمكنك ترك كلمة المرور فارغة"),
-        "You_Cannot_Verify_The_Code_Because_Timeout":
+        "you_cannot_verify_the_code_because_timeout":
             MessageLookupByLibrary.simpleMessage(
-                "لا تستطيع تأكيد الرمز بسبب انتهاء المدة المسموح بها")
+                "لا يمكنك التحقق من الرمز لأن المهلة انتهت"),
+        "you_have_pending_requests":
+            MessageLookupByLibrary.simpleMessage("لديك طلبات معلقة"),
+        "you_online": MessageLookupByLibrary.simpleMessage("أنت متصل")
       };
 }

@@ -13,10 +13,10 @@ class GoogleBTN extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
       icon: SvgPicture.asset(
-        AssetsManger.googleIcon,
+        AssetsManger.svgsGoogleIcon,
         height: 30.h,
       ),
-      label: Text(language.Sign_In_With_Google),
+      label: Text(language.sign_in_with_google),
       onPressed: onPressed,
     );
   }

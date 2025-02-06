@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:commuter_driver/modules/pick_location/data/rebos/pick_location_rebo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../../data/rebos/pick_location_rebo.dart';
 
 part 'pick_location_event.dart';
 part 'pick_location_state.dart';

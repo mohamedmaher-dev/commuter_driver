@@ -1,34 +1,37 @@
+import 'package:commuter_driver/core/localization/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/themes/text_styles.dart';
+import '../../../../../core/themes/app_theme_controller.dart';
 
 class CreateContractBody extends StatelessWidget {
   const CreateContractBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final Language language = Language.of(context);
     return Padding(
       padding: EdgeInsets.all(10.w),
       child: ListView(
         shrinkWrap: true,
         children: [
           Text(
-            'Create Contract',
+            language.create_contract,
             style: TextStyles.tsP15B,
           ),
           const Divider(),
           Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: TextField(
-                  decoration: InputDecoration(hintText: 'Total Price'),
+                  decoration: InputDecoration(hintText: language.total_price),
                 ),
               ),
               SizedBox(width: 10.w),
-              const Expanded(
+              Expanded(
                 child: TextField(
-                  decoration: InputDecoration(hintText: 'Number of months'),
+                  decoration:
+                      InputDecoration(hintText: language.number_of_months),
                 ),
               ),
             ],
@@ -56,9 +59,9 @@ class CreateContractBody extends StatelessWidget {
             ],
           ),
           SizedBox(height: 10.h),
-          FilledButton.icon(
+          FilledButton(
             onPressed: () {},
-            label: const Text('Confirm'),
+            child: const Text('Confirm'),
           )
         ],
       ),

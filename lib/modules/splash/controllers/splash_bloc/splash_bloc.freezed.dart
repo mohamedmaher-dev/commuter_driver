@@ -19,38 +19,32 @@ mixin _$SplashEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() login,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? login,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? login,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(Login value) login,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(Login value)? login,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(Login value)? login,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +107,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() login,
   }) {
     return started();
   }
@@ -122,7 +115,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? login,
   }) {
     return started?.call();
   }
@@ -131,7 +123,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? login,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -144,7 +135,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(Login value) login,
   }) {
     return started(this);
   }
@@ -153,7 +143,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(Login value)? login,
   }) {
     return started?.call(this);
   }
@@ -162,7 +151,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(Login value)? login,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -177,136 +165,34 @@ abstract class _Started implements SplashEvent {
 }
 
 /// @nodoc
-abstract class _$$LoginImplCopyWith<$Res> {
-  factory _$$LoginImplCopyWith(
-          _$LoginImpl value, $Res Function(_$LoginImpl) then) =
-      __$$LoginImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoginImplCopyWithImpl<$Res>
-    extends _$SplashEventCopyWithImpl<$Res, _$LoginImpl>
-    implements _$$LoginImplCopyWith<$Res> {
-  __$$LoginImplCopyWithImpl(
-      _$LoginImpl _value, $Res Function(_$LoginImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoginImpl implements Login {
-  const _$LoginImpl();
-
-  @override
-  String toString() {
-    return 'SplashEvent.login()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() login,
-  }) {
-    return login();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? login,
-  }) {
-    return login?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? login,
-    required TResult orElse(),
-  }) {
-    if (login != null) {
-      return login();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(Login value) login,
-  }) {
-    return login(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(Login value)? login,
-  }) {
-    return login?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(Login value)? login,
-    required TResult orElse(),
-  }) {
-    if (login != null) {
-      return login(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Login implements SplashEvent {
-  const factory Login() = _$LoginImpl;
-}
-
-/// @nodoc
 mixin _$SplashState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLogin,
-    required TResult Function() notLogin,
-    required TResult Function() loginSuccess,
+    required TResult Function() loading,
+    required TResult Function() noLogin,
     required TResult Function() noPermission,
+    required TResult Function() success,
     required TResult Function(String error, int code) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLogin,
-    TResult? Function()? notLogin,
-    TResult? Function()? loginSuccess,
+    TResult? Function()? loading,
+    TResult? Function()? noLogin,
     TResult? Function()? noPermission,
+    TResult? Function()? success,
     TResult? Function(String error, int code)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLogin,
-    TResult Function()? notLogin,
-    TResult Function()? loginSuccess,
+    TResult Function()? loading,
+    TResult Function()? noLogin,
     TResult Function()? noPermission,
+    TResult Function()? success,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) =>
@@ -314,30 +200,30 @@ mixin _$SplashState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(IsLogin value) isLogin,
-    required TResult Function(NotLogin value) notLogin,
-    required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(Loading value) loading,
+    required TResult Function(NoLogin value) noLogin,
     required TResult Function(NoPermission value) noPermission,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(IsLogin value)? isLogin,
-    TResult? Function(NotLogin value)? notLogin,
-    TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(NoLogin value)? noLogin,
     TResult? Function(NoPermission value)? noPermission,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(IsLogin value)? isLogin,
-    TResult Function(NotLogin value)? notLogin,
-    TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(Loading value)? loading,
+    TResult Function(NoLogin value)? noLogin,
     TResult Function(NoPermission value)? noPermission,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) =>
@@ -401,10 +287,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLogin,
-    required TResult Function() notLogin,
-    required TResult Function() loginSuccess,
+    required TResult Function() loading,
+    required TResult Function() noLogin,
     required TResult Function() noPermission,
+    required TResult Function() success,
     required TResult Function(String error, int code) failure,
   }) {
     return initial();
@@ -414,10 +300,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLogin,
-    TResult? Function()? notLogin,
-    TResult? Function()? loginSuccess,
+    TResult? Function()? loading,
+    TResult? Function()? noLogin,
     TResult? Function()? noPermission,
+    TResult? Function()? success,
     TResult? Function(String error, int code)? failure,
   }) {
     return initial?.call();
@@ -427,10 +313,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLogin,
-    TResult Function()? notLogin,
-    TResult Function()? loginSuccess,
+    TResult Function()? loading,
+    TResult Function()? noLogin,
     TResult Function()? noPermission,
+    TResult Function()? success,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
@@ -444,10 +330,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(IsLogin value) isLogin,
-    required TResult Function(NotLogin value) notLogin,
-    required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(Loading value) loading,
+    required TResult Function(NoLogin value) noLogin,
     required TResult Function(NoPermission value) noPermission,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
   }) {
     return initial(this);
@@ -457,10 +343,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(IsLogin value)? isLogin,
-    TResult? Function(NotLogin value)? notLogin,
-    TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(NoLogin value)? noLogin,
     TResult? Function(NoPermission value)? noPermission,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
   }) {
     return initial?.call(this);
@@ -470,10 +356,10 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(IsLogin value)? isLogin,
-    TResult Function(NotLogin value)? notLogin,
-    TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(Loading value)? loading,
+    TResult Function(NoLogin value)? noLogin,
     TResult Function(NoPermission value)? noPermission,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -489,35 +375,35 @@ abstract class _Initial implements SplashState {
 }
 
 /// @nodoc
-abstract class _$$IsLoginImplCopyWith<$Res> {
-  factory _$$IsLoginImplCopyWith(
-          _$IsLoginImpl value, $Res Function(_$IsLoginImpl) then) =
-      __$$IsLoginImplCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$IsLoginImplCopyWithImpl<$Res>
-    extends _$SplashStateCopyWithImpl<$Res, _$IsLoginImpl>
-    implements _$$IsLoginImplCopyWith<$Res> {
-  __$$IsLoginImplCopyWithImpl(
-      _$IsLoginImpl _value, $Res Function(_$IsLoginImpl) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$SplashStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$IsLoginImpl implements IsLogin {
-  const _$IsLoginImpl();
+class _$LoadingImpl implements Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
-    return 'SplashState.isLogin()';
+    return 'SplashState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$IsLoginImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -527,41 +413,41 @@ class _$IsLoginImpl implements IsLogin {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLogin,
-    required TResult Function() notLogin,
-    required TResult Function() loginSuccess,
+    required TResult Function() loading,
+    required TResult Function() noLogin,
     required TResult Function() noPermission,
+    required TResult Function() success,
     required TResult Function(String error, int code) failure,
   }) {
-    return isLogin();
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLogin,
-    TResult? Function()? notLogin,
-    TResult? Function()? loginSuccess,
+    TResult? Function()? loading,
+    TResult? Function()? noLogin,
     TResult? Function()? noPermission,
+    TResult? Function()? success,
     TResult? Function(String error, int code)? failure,
   }) {
-    return isLogin?.call();
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLogin,
-    TResult Function()? notLogin,
-    TResult Function()? loginSuccess,
+    TResult Function()? loading,
+    TResult Function()? noLogin,
     TResult Function()? noPermission,
+    TResult Function()? success,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
-    if (isLogin != null) {
-      return isLogin();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -570,80 +456,80 @@ class _$IsLoginImpl implements IsLogin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(IsLogin value) isLogin,
-    required TResult Function(NotLogin value) notLogin,
-    required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(Loading value) loading,
+    required TResult Function(NoLogin value) noLogin,
     required TResult Function(NoPermission value) noPermission,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
   }) {
-    return isLogin(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(IsLogin value)? isLogin,
-    TResult? Function(NotLogin value)? notLogin,
-    TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(NoLogin value)? noLogin,
     TResult? Function(NoPermission value)? noPermission,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
   }) {
-    return isLogin?.call(this);
+    return loading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(IsLogin value)? isLogin,
-    TResult Function(NotLogin value)? notLogin,
-    TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(Loading value)? loading,
+    TResult Function(NoLogin value)? noLogin,
     TResult Function(NoPermission value)? noPermission,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {
-    if (isLogin != null) {
-      return isLogin(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
 }
 
-abstract class IsLogin implements SplashState {
-  const factory IsLogin() = _$IsLoginImpl;
+abstract class Loading implements SplashState {
+  const factory Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$NotLoginImplCopyWith<$Res> {
-  factory _$$NotLoginImplCopyWith(
-          _$NotLoginImpl value, $Res Function(_$NotLoginImpl) then) =
-      __$$NotLoginImplCopyWithImpl<$Res>;
+abstract class _$$NoLoginImplCopyWith<$Res> {
+  factory _$$NoLoginImplCopyWith(
+          _$NoLoginImpl value, $Res Function(_$NoLoginImpl) then) =
+      __$$NoLoginImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NotLoginImplCopyWithImpl<$Res>
-    extends _$SplashStateCopyWithImpl<$Res, _$NotLoginImpl>
-    implements _$$NotLoginImplCopyWith<$Res> {
-  __$$NotLoginImplCopyWithImpl(
-      _$NotLoginImpl _value, $Res Function(_$NotLoginImpl) _then)
+class __$$NoLoginImplCopyWithImpl<$Res>
+    extends _$SplashStateCopyWithImpl<$Res, _$NoLoginImpl>
+    implements _$$NoLoginImplCopyWith<$Res> {
+  __$$NoLoginImplCopyWithImpl(
+      _$NoLoginImpl _value, $Res Function(_$NoLoginImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NotLoginImpl implements NotLogin {
-  const _$NotLoginImpl();
+class _$NoLoginImpl implements NoLogin {
+  const _$NoLoginImpl();
 
   @override
   String toString() {
-    return 'SplashState.notLogin()';
+    return 'SplashState.noLogin()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NotLoginImpl);
+        (other.runtimeType == runtimeType && other is _$NoLoginImpl);
   }
 
   @override
@@ -653,41 +539,41 @@ class _$NotLoginImpl implements NotLogin {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLogin,
-    required TResult Function() notLogin,
-    required TResult Function() loginSuccess,
+    required TResult Function() loading,
+    required TResult Function() noLogin,
     required TResult Function() noPermission,
+    required TResult Function() success,
     required TResult Function(String error, int code) failure,
   }) {
-    return notLogin();
+    return noLogin();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLogin,
-    TResult? Function()? notLogin,
-    TResult? Function()? loginSuccess,
+    TResult? Function()? loading,
+    TResult? Function()? noLogin,
     TResult? Function()? noPermission,
+    TResult? Function()? success,
     TResult? Function(String error, int code)? failure,
   }) {
-    return notLogin?.call();
+    return noLogin?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLogin,
-    TResult Function()? notLogin,
-    TResult Function()? loginSuccess,
+    TResult Function()? loading,
+    TResult Function()? noLogin,
     TResult Function()? noPermission,
+    TResult Function()? success,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
-    if (notLogin != null) {
-      return notLogin();
+    if (noLogin != null) {
+      return noLogin();
     }
     return orElse();
   }
@@ -696,174 +582,48 @@ class _$NotLoginImpl implements NotLogin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(IsLogin value) isLogin,
-    required TResult Function(NotLogin value) notLogin,
-    required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(Loading value) loading,
+    required TResult Function(NoLogin value) noLogin,
     required TResult Function(NoPermission value) noPermission,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
   }) {
-    return notLogin(this);
+    return noLogin(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(IsLogin value)? isLogin,
-    TResult? Function(NotLogin value)? notLogin,
-    TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(NoLogin value)? noLogin,
     TResult? Function(NoPermission value)? noPermission,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
   }) {
-    return notLogin?.call(this);
+    return noLogin?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(IsLogin value)? isLogin,
-    TResult Function(NotLogin value)? notLogin,
-    TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(Loading value)? loading,
+    TResult Function(NoLogin value)? noLogin,
     TResult Function(NoPermission value)? noPermission,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {
-    if (notLogin != null) {
-      return notLogin(this);
+    if (noLogin != null) {
+      return noLogin(this);
     }
     return orElse();
   }
 }
 
-abstract class NotLogin implements SplashState {
-  const factory NotLogin() = _$NotLoginImpl;
-}
-
-/// @nodoc
-abstract class _$$LoginSuccessImplCopyWith<$Res> {
-  factory _$$LoginSuccessImplCopyWith(
-          _$LoginSuccessImpl value, $Res Function(_$LoginSuccessImpl) then) =
-      __$$LoginSuccessImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoginSuccessImplCopyWithImpl<$Res>
-    extends _$SplashStateCopyWithImpl<$Res, _$LoginSuccessImpl>
-    implements _$$LoginSuccessImplCopyWith<$Res> {
-  __$$LoginSuccessImplCopyWithImpl(
-      _$LoginSuccessImpl _value, $Res Function(_$LoginSuccessImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoginSuccessImpl implements LoginSuccess {
-  const _$LoginSuccessImpl();
-
-  @override
-  String toString() {
-    return 'SplashState.loginSuccess()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginSuccessImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() isLogin,
-    required TResult Function() notLogin,
-    required TResult Function() loginSuccess,
-    required TResult Function() noPermission,
-    required TResult Function(String error, int code) failure,
-  }) {
-    return loginSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? isLogin,
-    TResult? Function()? notLogin,
-    TResult? Function()? loginSuccess,
-    TResult? Function()? noPermission,
-    TResult? Function(String error, int code)? failure,
-  }) {
-    return loginSuccess?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? isLogin,
-    TResult Function()? notLogin,
-    TResult Function()? loginSuccess,
-    TResult Function()? noPermission,
-    TResult Function(String error, int code)? failure,
-    required TResult orElse(),
-  }) {
-    if (loginSuccess != null) {
-      return loginSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(IsLogin value) isLogin,
-    required TResult Function(NotLogin value) notLogin,
-    required TResult Function(LoginSuccess value) loginSuccess,
-    required TResult Function(NoPermission value) noPermission,
-    required TResult Function(Failure value) failure,
-  }) {
-    return loginSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(IsLogin value)? isLogin,
-    TResult? Function(NotLogin value)? notLogin,
-    TResult? Function(LoginSuccess value)? loginSuccess,
-    TResult? Function(NoPermission value)? noPermission,
-    TResult? Function(Failure value)? failure,
-  }) {
-    return loginSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(IsLogin value)? isLogin,
-    TResult Function(NotLogin value)? notLogin,
-    TResult Function(LoginSuccess value)? loginSuccess,
-    TResult Function(NoPermission value)? noPermission,
-    TResult Function(Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (loginSuccess != null) {
-      return loginSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginSuccess implements SplashState {
-  const factory LoginSuccess() = _$LoginSuccessImpl;
+abstract class NoLogin implements SplashState {
+  const factory NoLogin() = _$NoLoginImpl;
 }
 
 /// @nodoc
@@ -905,10 +665,10 @@ class _$NoPermissionImpl implements NoPermission {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLogin,
-    required TResult Function() notLogin,
-    required TResult Function() loginSuccess,
+    required TResult Function() loading,
+    required TResult Function() noLogin,
     required TResult Function() noPermission,
+    required TResult Function() success,
     required TResult Function(String error, int code) failure,
   }) {
     return noPermission();
@@ -918,10 +678,10 @@ class _$NoPermissionImpl implements NoPermission {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLogin,
-    TResult? Function()? notLogin,
-    TResult? Function()? loginSuccess,
+    TResult? Function()? loading,
+    TResult? Function()? noLogin,
     TResult? Function()? noPermission,
+    TResult? Function()? success,
     TResult? Function(String error, int code)? failure,
   }) {
     return noPermission?.call();
@@ -931,10 +691,10 @@ class _$NoPermissionImpl implements NoPermission {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLogin,
-    TResult Function()? notLogin,
-    TResult Function()? loginSuccess,
+    TResult Function()? loading,
+    TResult Function()? noLogin,
     TResult Function()? noPermission,
+    TResult Function()? success,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
@@ -948,10 +708,10 @@ class _$NoPermissionImpl implements NoPermission {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(IsLogin value) isLogin,
-    required TResult Function(NotLogin value) notLogin,
-    required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(Loading value) loading,
+    required TResult Function(NoLogin value) noLogin,
     required TResult Function(NoPermission value) noPermission,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
   }) {
     return noPermission(this);
@@ -961,10 +721,10 @@ class _$NoPermissionImpl implements NoPermission {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(IsLogin value)? isLogin,
-    TResult? Function(NotLogin value)? notLogin,
-    TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(NoLogin value)? noLogin,
     TResult? Function(NoPermission value)? noPermission,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
   }) {
     return noPermission?.call(this);
@@ -974,10 +734,10 @@ class _$NoPermissionImpl implements NoPermission {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(IsLogin value)? isLogin,
-    TResult Function(NotLogin value)? notLogin,
-    TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(Loading value)? loading,
+    TResult Function(NoLogin value)? noLogin,
     TResult Function(NoPermission value)? noPermission,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -990,6 +750,132 @@ class _$NoPermissionImpl implements NoPermission {
 
 abstract class NoPermission implements SplashState {
   const factory NoPermission() = _$NoPermissionImpl;
+}
+
+/// @nodoc
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$SplashStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SuccessImpl implements Success {
+  const _$SuccessImpl();
+
+  @override
+  String toString() {
+    return 'SplashState.success()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() noLogin,
+    required TResult Function() noPermission,
+    required TResult Function() success,
+    required TResult Function(String error, int code) failure,
+  }) {
+    return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? noLogin,
+    TResult? Function()? noPermission,
+    TResult? Function()? success,
+    TResult? Function(String error, int code)? failure,
+  }) {
+    return success?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? noLogin,
+    TResult Function()? noPermission,
+    TResult Function()? success,
+    TResult Function(String error, int code)? failure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(NoLogin value) noLogin,
+    required TResult Function(NoPermission value) noPermission,
+    required TResult Function(Success value) success,
+    required TResult Function(Failure value) failure,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(NoLogin value)? noLogin,
+    TResult? Function(NoPermission value)? noPermission,
+    TResult? Function(Success value)? success,
+    TResult? Function(Failure value)? failure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(NoLogin value)? noLogin,
+    TResult Function(NoPermission value)? noPermission,
+    TResult Function(Success value)? success,
+    TResult Function(Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Success implements SplashState {
+  const factory Success() = _$SuccessImpl;
 }
 
 /// @nodoc
@@ -1065,10 +951,10 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() isLogin,
-    required TResult Function() notLogin,
-    required TResult Function() loginSuccess,
+    required TResult Function() loading,
+    required TResult Function() noLogin,
     required TResult Function() noPermission,
+    required TResult Function() success,
     required TResult Function(String error, int code) failure,
   }) {
     return failure(error, code);
@@ -1078,10 +964,10 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? isLogin,
-    TResult? Function()? notLogin,
-    TResult? Function()? loginSuccess,
+    TResult? Function()? loading,
+    TResult? Function()? noLogin,
     TResult? Function()? noPermission,
+    TResult? Function()? success,
     TResult? Function(String error, int code)? failure,
   }) {
     return failure?.call(error, code);
@@ -1091,10 +977,10 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? isLogin,
-    TResult Function()? notLogin,
-    TResult Function()? loginSuccess,
+    TResult Function()? loading,
+    TResult Function()? noLogin,
     TResult Function()? noPermission,
+    TResult Function()? success,
     TResult Function(String error, int code)? failure,
     required TResult orElse(),
   }) {
@@ -1108,10 +994,10 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(IsLogin value) isLogin,
-    required TResult Function(NotLogin value) notLogin,
-    required TResult Function(LoginSuccess value) loginSuccess,
+    required TResult Function(Loading value) loading,
+    required TResult Function(NoLogin value) noLogin,
     required TResult Function(NoPermission value) noPermission,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
   }) {
     return failure(this);
@@ -1121,10 +1007,10 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(IsLogin value)? isLogin,
-    TResult? Function(NotLogin value)? notLogin,
-    TResult? Function(LoginSuccess value)? loginSuccess,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(NoLogin value)? noLogin,
     TResult? Function(NoPermission value)? noPermission,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
   }) {
     return failure?.call(this);
@@ -1134,10 +1020,10 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(IsLogin value)? isLogin,
-    TResult Function(NotLogin value)? notLogin,
-    TResult Function(LoginSuccess value)? loginSuccess,
+    TResult Function(Loading value)? loading,
+    TResult Function(NoLogin value)? noLogin,
     TResult Function(NoPermission value)? noPermission,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
     required TResult orElse(),
   }) {

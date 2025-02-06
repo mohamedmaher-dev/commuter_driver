@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/themes/color_manger.dart';
+import '../../../../core/themes/app_theme_controller.dart';
 import '../../contracts/views/contracts_view.dart';
 import '../../wallet/views/wallet_view.dart';
 
@@ -18,12 +18,12 @@ class _RidesViewState extends State<RidesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Transactions')),
       body: ListView(
         children: [
           Padding(
             padding: EdgeInsets.all(10.w),
             child: CupertinoSlidingSegmentedControl(
-              backgroundColor: ColorManger.textFormbBackground,
               thumbColor: ColorManger.primaryContainer,
               groupValue: currentIndex,
               children: const {

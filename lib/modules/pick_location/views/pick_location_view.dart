@@ -1,15 +1,17 @@
-import 'package:commuter_driver/core/di/di.dart';
-import 'package:commuter_driver/core/routes/app_route.dart';
-import 'package:commuter_driver/core/themes/text_styles.dart';
-import 'package:commuter_driver/core/widgets/app_map_view.dart';
-import 'package:commuter_driver/core/widgets/circle_loading.dart';
-import 'package:commuter_driver/core/widgets/pop_loading.dart';
-import 'package:commuter_driver/modules/pick_location/controllers/pick_location_bloc/pick_location_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../../../core/di/di.dart';
+import '../../../core/localization/generated/l10n.dart';
+import '../../../core/routes/app_route.dart';
+import '../../../core/themes/app_theme_controller.dart';
+import '../../../core/widgets/loading_view.dart';
+import '../../../core/widgets/pop_loading.dart';
+import '../../app_map/view/app_map_view.dart';
+import '../controllers/pick_location_bloc/pick_location_bloc.dart';
 
 class PickLocationView extends StatelessWidget {
   const PickLocationView({super.key, required this.onPickLocation});
@@ -36,7 +38,7 @@ class _PickLocationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pickLocationBloc = BlocProvider.of<PickLocationBloc>(context);
-
+    final language = Language.of(context);
     return BlocConsumer<PickLocationBloc, PickLocationState>(
       listener: (context, state) {
         PopLoading.dismiss();
@@ -49,18 +51,10 @@ class _PickLocationView extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           initial: () {
-            return const Scaffold(
-              body: Center(
-                child: CircleLoading(),
-              ),
-            );
+            return const LoadingView();
           },
           loading: () {
-            return const Scaffold(
-              body: Center(
-                child: CircleLoading(),
-              ),
-            );
+            return const LoadingView();
           },
           orElse: () {
             return Stack(
@@ -76,9 +70,7 @@ class _PickLocationView extends StatelessWidget {
                           );
                         },
                         icon: const Icon(Icons.location_history_rounded),
-                        label: const Text(
-                          'موقعي',
-                        ),
+                        label: Text(language.my_location),
                       ),
                       SizedBox(height: 10.h),
                       FloatingActionButton.extended(
@@ -90,25 +82,17 @@ class _PickLocationView extends StatelessWidget {
                           AppRouter.pop(context: context);
                         },
                         icon: const Icon(Icons.done_all_rounded),
-                        label: const Text(
-                          'تأكيد',
-                        ),
+                        label: Text(language.confirm),
                       )
                     ],
                   ),
                   body: AppMapView(
-                    target: pickLocationBloc.cameraPosition.target,
                     markers: pickLocationBloc.marker,
-                    onMapCreated: (controller) {
-                      pickLocationBloc.add(
-                        PickLocationEvent.onMapCreated(controller),
-                      );
-                    },
-                    onTap: (argument) {
-                      pickLocationBloc.add(
-                        PickLocationEvent.onMapTap(argument),
-                      );
-                    },
+                    onMapCreated: (controller) => pickLocationBloc.add(
+                      PickLocationEvent.onMapCreated(controller),
+                    ),
+                    onTap: (argument) => pickLocationBloc
+                        .add(PickLocationEvent.onMapTap(argument)),
                   ),
                 ),
                 Column(
@@ -124,7 +108,7 @@ class _PickLocationView extends StatelessWidget {
                                 pickLocationBloc.placemark.country.toString(),
                                 style: TextStyles.tsP12B,
                               ),
-                              subtitle: const Text('الدولة'),
+                              subtitle: Text(language.country),
                             ),
                             const Divider(),
                             ListTile(
@@ -132,7 +116,7 @@ class _PickLocationView extends StatelessWidget {
                                 pickLocationBloc.placemark.street.toString(),
                                 style: TextStyles.tsP12B,
                               ),
-                              subtitle: const Text('الشارع'),
+                              subtitle: Text(language.street),
                             )
                           ],
                         ),

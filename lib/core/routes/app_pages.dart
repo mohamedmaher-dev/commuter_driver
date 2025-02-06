@@ -2,29 +2,27 @@ part of 'app_route.dart';
 
 enum Pages {
   initPage(view: SplashView()),
-  navPage(view: NavPage()),
   signIn(view: SignInView()),
   otpForgotPassword(view: OtpForgotPasswordView()),
   changePassword(view: ChangePasswordView()),
-  profile(view: ProfileView()),
+  profile(view: MyProfileView()),
   addCommute(view: AddCommuteView()),
-  addRoundTrip(view: AddRoundTripView()),
   splash(view: SplashView()),
   notifi(view: NotifiView()),
   chats(view: ChatRooms()),
   oneChat(view: OneChatView()),
-  shedule(view: SheduleView()),
-  addShedule(view: AddSheduleView()),
-  requests(view: RequestsView()),
+  schedules(view: SchedulesView()),
   settings(view: SettingsView()),
-  oneCommute(view: OneCommute()),
+  oneCommute(view: OneCommuteView()),
   commutes(view: CommutesView()),
   nearbyRides(view: NearbyRidesView()),
   oneNearbyRide(view: OneNearbyRideView()),
   noPermission(view: CheckPermissionView()),
   transactions(view: RidesView()),
-
-  signUp(view: SignUpView());
+  home(view: HomeView()),
+  signUp(view: SignUpView()),
+  onBoarding(view: OnBoardingPage()),
+  ;
 
   final Widget view;
   const Pages({required this.view});

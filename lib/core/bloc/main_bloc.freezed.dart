@@ -19,7 +19,7 @@ mixin _$MainEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() changeLanguage,
+    required TResult Function(Locale locale) changeLanguage,
     required TResult Function() changeTheme,
     required TResult Function(bool isConnected) changeConnectivity,
   }) =>
@@ -27,7 +27,7 @@ mixin _$MainEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? changeLanguage,
+    TResult? Function(Locale locale)? changeLanguage,
     TResult? Function()? changeTheme,
     TResult? Function(bool isConnected)? changeConnectivity,
   }) =>
@@ -35,7 +35,7 @@ mixin _$MainEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? changeLanguage,
+    TResult Function(Locale locale)? changeLanguage,
     TResult Function()? changeTheme,
     TResult Function(bool isConnected)? changeConnectivity,
     required TResult orElse(),
@@ -124,7 +124,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() changeLanguage,
+    required TResult Function(Locale locale) changeLanguage,
     required TResult Function() changeTheme,
     required TResult Function(bool isConnected) changeConnectivity,
   }) {
@@ -135,7 +135,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? changeLanguage,
+    TResult? Function(Locale locale)? changeLanguage,
     TResult? Function()? changeTheme,
     TResult? Function(bool isConnected)? changeConnectivity,
   }) {
@@ -146,7 +146,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? changeLanguage,
+    TResult Function(Locale locale)? changeLanguage,
     TResult Function()? changeTheme,
     TResult Function(bool isConnected)? changeConnectivity,
     required TResult orElse(),
@@ -204,6 +204,8 @@ abstract class _$$ChangeLanguageImplCopyWith<$Res> {
   factory _$$ChangeLanguageImplCopyWith(_$ChangeLanguageImpl value,
           $Res Function(_$ChangeLanguageImpl) then) =
       __$$ChangeLanguageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Locale locale});
 }
 
 /// @nodoc
@@ -213,60 +215,85 @@ class __$$ChangeLanguageImplCopyWithImpl<$Res>
   __$$ChangeLanguageImplCopyWithImpl(
       _$ChangeLanguageImpl _value, $Res Function(_$ChangeLanguageImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? locale = null,
+  }) {
+    return _then(_$ChangeLanguageImpl(
+      null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ChangeLanguageImpl implements ChangeLanguage {
-  const _$ChangeLanguageImpl();
+  const _$ChangeLanguageImpl(this.locale);
+
+  @override
+  final Locale locale;
 
   @override
   String toString() {
-    return 'MainEvent.changeLanguage()';
+    return 'MainEvent.changeLanguage(locale: $locale)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChangeLanguageImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeLanguageImpl &&
+            (identical(other.locale, locale) || other.locale == locale));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, locale);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeLanguageImplCopyWith<_$ChangeLanguageImpl> get copyWith =>
+      __$$ChangeLanguageImplCopyWithImpl<_$ChangeLanguageImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() changeLanguage,
+    required TResult Function(Locale locale) changeLanguage,
     required TResult Function() changeTheme,
     required TResult Function(bool isConnected) changeConnectivity,
   }) {
-    return changeLanguage();
+    return changeLanguage(locale);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? changeLanguage,
+    TResult? Function(Locale locale)? changeLanguage,
     TResult? Function()? changeTheme,
     TResult? Function(bool isConnected)? changeConnectivity,
   }) {
-    return changeLanguage?.call();
+    return changeLanguage?.call(locale);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? changeLanguage,
+    TResult Function(Locale locale)? changeLanguage,
     TResult Function()? changeTheme,
     TResult Function(bool isConnected)? changeConnectivity,
     required TResult orElse(),
   }) {
     if (changeLanguage != null) {
-      return changeLanguage();
+      return changeLanguage(locale);
     }
     return orElse();
   }
@@ -310,7 +337,12 @@ class _$ChangeLanguageImpl implements ChangeLanguage {
 }
 
 abstract class ChangeLanguage implements MainEvent {
-  const factory ChangeLanguage() = _$ChangeLanguageImpl;
+  const factory ChangeLanguage(final Locale locale) = _$ChangeLanguageImpl;
+
+  Locale get locale;
+  @JsonKey(ignore: true)
+  _$$ChangeLanguageImplCopyWith<_$ChangeLanguageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -352,7 +384,7 @@ class _$ChangeThemeImpl implements ChangeTheme {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() changeLanguage,
+    required TResult Function(Locale locale) changeLanguage,
     required TResult Function() changeTheme,
     required TResult Function(bool isConnected) changeConnectivity,
   }) {
@@ -363,7 +395,7 @@ class _$ChangeThemeImpl implements ChangeTheme {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? changeLanguage,
+    TResult? Function(Locale locale)? changeLanguage,
     TResult? Function()? changeTheme,
     TResult? Function(bool isConnected)? changeConnectivity,
   }) {
@@ -374,7 +406,7 @@ class _$ChangeThemeImpl implements ChangeTheme {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? changeLanguage,
+    TResult Function(Locale locale)? changeLanguage,
     TResult Function()? changeTheme,
     TResult Function(bool isConnected)? changeConnectivity,
     required TResult orElse(),
@@ -494,7 +526,7 @@ class _$ChangeConnectivityImpl implements ChangeConnectivity {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() changeLanguage,
+    required TResult Function(Locale locale) changeLanguage,
     required TResult Function() changeTheme,
     required TResult Function(bool isConnected) changeConnectivity,
   }) {
@@ -505,7 +537,7 @@ class _$ChangeConnectivityImpl implements ChangeConnectivity {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? changeLanguage,
+    TResult? Function(Locale locale)? changeLanguage,
     TResult? Function()? changeTheme,
     TResult? Function(bool isConnected)? changeConnectivity,
   }) {
@@ -516,7 +548,7 @@ class _$ChangeConnectivityImpl implements ChangeConnectivity {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? changeLanguage,
+    TResult Function(Locale locale)? changeLanguage,
     TResult Function()? changeTheme,
     TResult Function(bool isConnected)? changeConnectivity,
     required TResult orElse(),
