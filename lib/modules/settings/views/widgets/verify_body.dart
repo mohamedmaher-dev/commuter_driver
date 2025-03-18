@@ -11,7 +11,9 @@ class _VerifyBody extends StatelessWidget {
       child: Padding(
         padding: EdgeInsetsDirectional.all(10.w),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            AppRouter.push(context: context, page: Pages.verifyAccount);
+          },
           child: DottedBorder(
             borderType: BorderType.RRect,
             radius: Radius.circular(10.r),
@@ -31,10 +33,14 @@ class _VerifyBody extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.all(10.w),
-                  child: Text(
-                    language.please_verify_your_account,
-                    textAlign: TextAlign.center,
-                    style: TextStyles.tsP15B,
+                  child: BlocBuilder<MainBloc, MainState>(
+                    builder: (context, state) {
+                      return Text(
+                        language.please_verify_your_account,
+                        textAlign: TextAlign.center,
+                        style: TextStyles.tsP15B,
+                      );
+                    },
                   ),
                 )
               ],

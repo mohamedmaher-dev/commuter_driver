@@ -3,8 +3,9 @@ part of 'app_theme_controller.dart';
 class AppTheme {
   static const String fontFamily = 'Changa';
   static ThemeMode get themeMode => AppThemeController._themeMode;
-  static String? get mapStyle =>
-      themeMode == ThemeMode.dark ? AppThemeController._darkMapStyle : null;
+  static String? get mapStyle => themeMode == ThemeMode.dark
+      ? AppThemeController._darkMapStyle
+      : AppThemeController._lightMapStyle;
   static ThemeData get theme => ThemeData(
         colorScheme: ColorManger.colorScheme,
         fontFamily: fontFamily,

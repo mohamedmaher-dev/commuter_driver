@@ -24,23 +24,12 @@ class NearbyRidesBloc extends Bloc<NearbyRidesEvent, NearbyRidesState> {
             emit(const NearbyRidesState.getRidesLoading());
             currentLocation = await _nearbyRidesRebo.getCurrentPosition();
             if (currentLocation != null) {
-              final updateLocationResult =
-                  await _nearbyRidesRebo.updateLocation(currentLocation!);
-              await updateLocationResult.when(
+              final getRidesResult = await _nearbyRidesRebo.getNearbyRides();
+              await getRidesResult.when(
                 success: (data) async {
-                  final getRidesResult =
-                      await _nearbyRidesRebo.getNearbyRides();
-                  await getRidesResult.when(
-                    success: (data) async {
-                      nearbyRides = data;
-                      polylines = await _nearbyRidesRebo.getRoutes(data);
-                      markers = await setMarkers(data);
-                      emit(const NearbyRidesState.getRidesSuccess());
-                    },
-                    failure: (apiErrorModel) {
-                      emit(const NearbyRidesState.getRidesFailure());
-                    },
-                  );
+                  nearbyRides = data;
+                  markers = await setMarkers(data);
+                  emit(const NearbyRidesState.getRidesSuccess());
                 },
                 failure: (apiErrorModel) {
                   emit(const NearbyRidesState.getRidesFailure());

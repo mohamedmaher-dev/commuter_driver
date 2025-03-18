@@ -13,10 +13,13 @@ class AppThemeController {
   final LocalStorageService _localStorageService;
   static late ThemeMode _themeMode;
   static late String _darkMapStyle;
+  static late String _lightMapStyle;
   AppThemeController(this._localStorageService);
   Future<void> init() async {
     _darkMapStyle =
         await rootBundle.loadString(AssetsManger.mapStylesNightStyle);
+    _lightMapStyle =
+        await rootBundle.loadString(AssetsManger.mapStylesLightStyle);
     final appSettingsModel =
         await _localStorageService.getAppSettings.then((value) => value);
     if (appSettingsModel.isDark == true) {

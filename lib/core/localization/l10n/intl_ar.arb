@@ -159,5 +159,9 @@
     "change_range": "تغيير النطاق",
     "no_requests_found": "لم يتم العثور على طلبات",
     "please_verify_your_account" : "يرجى التحقق من حسابك",
-    "scheduled_trips": "الرحلات المجدولة"
+    "scheduled_trips": "الرحلات المجدولة",
+    "km" : "كيلومتر",
+    "please_choose_the_range" : "يرجى تحديد النطاق",
+    "please_choose_the_time_window" : "يرجى تحديد نافذة زمنية",
+    "default_text" : "افتراضي"
 }

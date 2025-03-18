@@ -35,18 +35,8 @@ class _HomeAppBarBody extends StatefulWidget {
   State<_HomeAppBarBody> createState() => _HomeAppBarBodyState();
 }
 
-class _HomeAppBarBodyState extends State<_HomeAppBarBody>
-    with TickerProviderStateMixin {
+class _HomeAppBarBodyState extends State<_HomeAppBarBody> {
   late AnimationController animationController;
-
-  @override
-  void initState() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 500),
-    );
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -107,7 +107,10 @@ class _CommutesView extends StatelessWidget {
                       ),
                       onTap: () async {
                         AppRouter.push(
-                            context: context, page: Pages.oneCommute);
+                          context: context,
+                          page: Pages.oneCommute,
+                          arguments: commutesBloc.commutes[index],
+                        );
                       },
                     ),
                     itemCount: commutesBloc.commutes.length,

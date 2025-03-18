@@ -16,6 +16,7 @@ import '../../modules/auth/sign_in/views/sign_in_view.dart';
 import '../../modules/auth/sign_up/views/sign_up_view.dart';
 import '../../modules/chat/one_chat/views/one_chat_view.dart';
 import '../../modules/commutes/my_commutes/views/commutes_view.dart';
+import '../../modules/verify_account/views/verify_account_view.dart';
 import '../../trash/nearby_rides/views/nearby_rides_view.dart';
 import '../../modules/onBoarding/views/onBoarding_view.dart';
 import '../../modules/commutes/one_commute/views/one_commute.dart';

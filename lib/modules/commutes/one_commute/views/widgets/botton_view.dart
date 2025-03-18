@@ -1,5 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:commuter_driver/core/routes/app_route.dart';
+import 'package:commuter_driver/core/widgets/pop_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +20,9 @@ class OneCommuteActionBottonView extends StatelessWidget {
 
     return BlocListener<SetCommuteOnlineCubit, SetCommuteOnlineState>(
       listener: (context, state) {
+        PopLoading.dismiss();
         state.whenOrNull(
+          loading: () => PopLoading.show(),
           success: () {
             AppSnackBar.show(
               title: language.success,
@@ -27,20 +30,7 @@ class OneCommuteActionBottonView extends StatelessWidget {
               context: context,
               type: ContentType.success,
             );
-            AppRouter.pushReplacement(
-              context: context,
-              page: Pages.oneCommute,
-              arguments: CommuteModel(
-                id: commuteModel.id,
-                isActive: true,
-                commuteName: commuteModel.commuteName,
-                days: commuteModel.days,
-                isRoundTrip: commuteModel.isRoundTrip,
-                landing: commuteModel.landing,
-                pickup: commuteModel.pickup,
-                roundTrip: commuteModel.roundTrip,
-              ),
-            );
+            AppRouter.pop(context: context);
           },
           error: () {
             AppSnackBar.show(

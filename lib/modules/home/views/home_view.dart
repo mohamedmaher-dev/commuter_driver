@@ -3,7 +3,7 @@ import 'package:commuter_driver/modules/home/controllers/home_cubit/home_cubit.d
 import 'package:commuter_driver/modules/home/controllers/home_slide_panel/home_slide_panel_cubit.dart';
 import 'package:commuter_driver/modules/home/controllers/home_slide_tabs/home_slide_tabs_cubit.dart';
 import 'package:commuter_driver/modules/home/views/widgets/home_drawer_view.dart';
-import 'package:commuter_driver/modules/home/views/widgets/home_slide_view.dart';
+import 'package:commuter_driver/modules/home/views/widgets/home_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,6 +21,12 @@ class HomeView extends StatelessWidget {
           BlocProvider(
             create: (context) => di<HomeSlideTabsCubit>(),
           ),
+          // BlocProvider(
+          //   create: (context) => di<NearbyRidesBloc>()
+          //     ..add(
+          //       const NearbyRidesEvent.started(),
+          //     ),
+          // ),
           BlocProvider(
             create: (context) => di<HomeSlidePanelCubit>(),
           ),
@@ -45,19 +51,16 @@ class _HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<_HomeViewBody> {
   @override
   Widget build(BuildContext context) {
-    final homeSlideBloc = BlocProvider.of<HomeSlidePanelCubit>(context);
     final homeCubit = BlocProvider.of<HomeCubit>(context);
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) {
-        homeSlideBloc.controller.close();
-      },
+      onPopInvoked: (didPop) {},
       child: SafeArea(
         child: Scaffold(
           key: homeCubit.scaffoldKey,
           onDrawerChanged: (isOpened) {},
           drawer: const HomeDrawerView(),
-          body: const HomeSlideView(),
+          body: const HomeBody(),
         ),
       ),
     );

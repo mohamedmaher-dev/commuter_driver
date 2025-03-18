@@ -260,7 +260,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'rideRequests/nearby/rides/${driverId}',
+              'driver/rideRequests/nearby/rides/${driverId}',
               queryParameters: queryParameters,
               data: _data,
             )

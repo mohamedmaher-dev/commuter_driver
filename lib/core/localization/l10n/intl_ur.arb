@@ -153,5 +153,9 @@
     "go_online": "آن لائن جائیں",
     "home": "ہوم",
     "scheduled_trips": "شیڈول شدہ سفر",
-    "please_verify_your_account" : "براہ کرم اپنے اکاؤنٹ کی تصدیق کریں"
+    "please_verify_your_account" : "براہ کرم اپنے اکاؤنٹ کی تصدیق کریں",
+    "km" : "کیلومیٹر",
+    "please_choose_the_range" : "براہ کرم حد منتخب کریں",
+    "please_choose_the_time_window" : "براہ کرم نافذہ زمانی منتخب کریں",
+    "default_text" : "افتراضی"
 }

@@ -164,5 +164,9 @@
     "reject" : "Reject",
     "home" : "Home",
     "scheduled_trips" : "Scheduled trips",
-    "please_verify_your_account" : "Please verify your account"
+    "please_verify_your_account" : "Please verify your account",
+    "km" : "KM",
+    "please_choose_the_range" : "Please choose the range",
+    "please_choose_the_time_window" : "Please choose the time window",
+    "default_text" : "Default"
 }

@@ -79,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "current_location": MessageLookupByLibrary.simpleMessage("موجودہ مقام"),
         "date_of_the_trip":
             MessageLookupByLibrary.simpleMessage("سفر کی تاریخ"),
+        "default_text": MessageLookupByLibrary.simpleMessage("افتراضی"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف کریں"),
         "delete_my_profile":
             MessageLookupByLibrary.simpleMessage("میرا پروفائل حذف کریں"),
@@ -112,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("سفر میں شامل ہوں"),
         "joined_commute_successfully": MessageLookupByLibrary.simpleMessage(
             "سفر میں کامیابی سے شامل ہو گئے"),
+        "km": MessageLookupByLibrary.simpleMessage("کیلومیٹر"),
         "location": MessageLookupByLibrary.simpleMessage("مقام"),
         "location_of_the_trip":
             MessageLookupByLibrary.simpleMessage("سفر کی جگہ"),
@@ -167,6 +169,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "pickup_and_dropoff":
             MessageLookupByLibrary.simpleMessage("پک اپ اور اتارنا"),
         "pin": MessageLookupByLibrary.simpleMessage("پن"),
+        "please_choose_the_range":
+            MessageLookupByLibrary.simpleMessage("براہ کرم حد منتخب کریں"),
+        "please_choose_the_time_window": MessageLookupByLibrary.simpleMessage(
+            "براہ کرم نافذہ زمانی منتخب کریں"),
         "please_fill_all_fields":
             MessageLookupByLibrary.simpleMessage("براہ کرم تمام خانے بھریں"),
         "please_input_your_mail":

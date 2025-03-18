@@ -22,6 +22,7 @@ enum Pages {
   home(view: HomeView()),
   signUp(view: SignUpView()),
   onBoarding(view: OnBoardingPage()),
+  verifyAccount(view: VerifyAccountView()),
   ;
 
   final Widget view;

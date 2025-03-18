@@ -18,7 +18,7 @@ class AddCommuteRequestModel {
     required this.landing,
     required this.roundTrip,
     required this.commuteName,
-    required this.isActive,
+    this.isActive = false,
     required this.isRoundTrip,
     required this.days,
   });

@@ -1,10 +1,9 @@
-import 'package:commuter_driver/core/routes/app_route.dart';
 import 'package:commuter_driver/core/themes/app_theme_controller.dart';
 import 'package:commuter_driver/core/widgets/loading_view.dart';
+import 'package:commuter_driver/core/widgets/popup_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/localization/generated/l10n.dart';
 import '../../../../../core/widgets/error_view.dart';
 import '../../../my_commutes/data/models/get_commutes_response_model.dart';
@@ -16,12 +15,13 @@ class OneCommuteBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const _OneCommuteBodyWidget();
+    return _OneCommuteBodyWidget(commuteModel: commuteModel);
   }
 }
 
 class _OneCommuteBodyWidget extends StatefulWidget {
-  const _OneCommuteBodyWidget();
+  const _OneCommuteBodyWidget({required this.commuteModel});
+  final CommuteModel commuteModel;
 
   @override
   State<_OneCommuteBodyWidget> createState() => _OneCommuteBodyWidgetState();
@@ -39,7 +39,7 @@ class _OneCommuteBodyWidgetState extends State<_OneCommuteBodyWidget> {
           return state.maybeWhen(
             orElse: () => const LoadingView(),
             success: () => Padding(
-              padding: EdgeInsets.all(10.w),
+              padding: EdgeInsets.all(5.w),
               child: Column(
                 children: [
                   Card(
@@ -47,14 +47,20 @@ class _OneCommuteBodyWidgetState extends State<_OneCommuteBodyWidget> {
                       children: [
                         ListTile(
                           title: Text(language.pickup),
-                          subtitle:
-                              Text(style: TextStyles.tsP10N, cubit.pickup),
+                          subtitle: Text(
+                            style: TextStyles.tsP10N,
+                            cubit.pickup,
+                            maxLines: 1,
+                          ),
                         ),
                         const Divider(),
                         ListTile(
                           title: Text(language.dropoff),
-                          subtitle:
-                              Text(style: TextStyles.tsP10N, cubit.dropoff),
+                          subtitle: Text(
+                            style: TextStyles.tsP10N,
+                            cubit.dropoff,
+                            maxLines: 1,
+                          ),
                         ),
                       ],
                     ),
@@ -69,34 +75,29 @@ class _OneCommuteBodyWidgetState extends State<_OneCommuteBodyWidget> {
                             subtitle: Text(
                               '${cubit.timeWindow} ${language.min}',
                               style: TextStyles.tsP10B,
+                              maxLines: 1,
                             ),
                             title: Text(language.time_window, maxLines: 1),
                             trailing: IconButton.outlined(
-                              onPressed: () {
-                                TextEditingController controller =
-                                    TextEditingController();
-                                showDialog(
+                              onPressed: () async {
+                                await showChangerPopUpSlider(
                                   context: context,
-                                  builder: (context) => AlertDialog(
-                                    content: TextField(
-                                      controller: controller,
-                                      decoration: InputDecoration(
-                                        hintText: language.change_time_window,
-                                      ),
-                                    ),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          AppRouter.pop(context: context);
-                                          cubit.timeWindow =
-                                              int.parse(controller.text);
-                                          setState(() {});
-                                        },
-                                        child: Text(language.save),
-                                      ),
-                                    ],
-                                  ),
+                                  title: language.change_time_window,
+                                  subtitle:
+                                      language.please_choose_the_time_window,
+                                  label: cubit.timeWindow.toString(),
+                                  unit: language.min,
+                                  divisions: 60,
+                                  max: 60,
+                                  value: cubit.timeWindow,
+                                  defaultValue: widget
+                                      .commuteModel.pickup.timeWindow
+                                      .toMinutes(),
+                                  onChanged: (value) {
+                                    cubit.timeWindow = value.toInt();
+                                  },
                                 );
+                                setState(() {});
                               },
                               icon: const Icon(
                                 Icons.edit,
@@ -110,36 +111,29 @@ class _OneCommuteBodyWidgetState extends State<_OneCommuteBodyWidget> {
                           child: ListTile(
                             leading: const Icon(Icons.circle_outlined),
                             subtitle: Text(
-                              '${cubit.range} KM',
+                              '${cubit.range} ${language.km}',
                               style: TextStyles.tsP10B,
+                              maxLines: 1,
                             ),
                             title: Text(language.range, maxLines: 1),
                             trailing: IconButton.outlined(
-                              onPressed: () {
-                                TextEditingController controller =
-                                    TextEditingController();
-                                showDialog(
+                              onPressed: () async {
+                                await showChangerPopUpSlider(
                                   context: context,
-                                  builder: (context) => AlertDialog(
-                                    content: TextField(
-                                      controller: controller,
-                                      decoration: InputDecoration(
-                                        hintText: language.change_range,
-                                      ),
-                                    ),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          AppRouter.pop(context: context);
-                                          cubit.range =
-                                              int.parse(controller.text);
-                                          setState(() {});
-                                        },
-                                        child: Text(language.save),
-                                      ),
-                                    ],
-                                  ),
+                                  title: language.change_range,
+                                  subtitle: language.please_choose_the_range,
+                                  label: cubit.range.toString(),
+                                  unit: language.km,
+                                  divisions: 5,
+                                  max: 5,
+                                  value: cubit.range,
+                                  defaultValue:
+                                      widget.commuteModel.pickup.range,
+                                  onChanged: (value) {
+                                    cubit.range = value.toInt();
+                                  },
                                 );
+                                setState(() {});
                               },
                               icon: const Icon(
                                 Icons.edit,

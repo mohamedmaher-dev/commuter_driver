@@ -148,13 +148,23 @@ class OneCommuteTabsView extends StatelessWidget {
           return CupertinoSlidingSegmentedControl(
             thumbColor: ColorManger.primaryContainer,
             children: {
-              OneCommuteGeneralTabs.commute: Text(language.commute),
+              OneCommuteGeneralTabs.commute: Text(
+                language.commute,
+                maxLines: 1,
+              ),
               OneCommuteGeneralTabs.aprovedJoin: Text(
                 language.approved_join,
                 textAlign: TextAlign.center,
+                maxLines: 1,
               ),
-              OneCommuteGeneralTabs.requests: Text(language.requests),
-              OneCommuteGeneralTabs.contracts: Text(language.contracts),
+              OneCommuteGeneralTabs.requests: Text(
+                language.requests,
+                maxLines: 1,
+              ),
+              OneCommuteGeneralTabs.contracts: Text(
+                language.contracts,
+                maxLines: 1,
+              ),
             },
             groupValue: cubit.currentGeneralTab,
             onValueChanged: (value) {

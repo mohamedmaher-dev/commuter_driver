@@ -11,6 +11,7 @@ class AppMapView extends StatelessWidget {
   const AppMapView({
     super.key,
     this.autoMove = false,
+    this.isTrafficEnabled = true,
     this.onMapCreated,
     this.onCameraMove,
     this.onTap,
@@ -18,6 +19,7 @@ class AppMapView extends StatelessWidget {
     this.circles = const {},
   });
   final bool autoMove;
+  final bool isTrafficEnabled;
   final Function(GoogleMapController)? onMapCreated;
   final Function(CameraPosition)? onCameraMove;
   final Function(LatLng)? onTap;
@@ -33,6 +35,7 @@ class AppMapView extends StatelessWidget {
           ),
         ),
       child: _AppMapViewBody(
+        isTrafficEnabled: isTrafficEnabled,
         autoMove: autoMove,
         onMapCreated: onMapCreated,
         onCameraMove: onCameraMove,
@@ -52,8 +55,10 @@ class _AppMapViewBody extends StatelessWidget {
     required this.onTap,
     required this.markers,
     required this.circles,
+    required this.isTrafficEnabled,
   });
   final bool autoMove;
+  final bool isTrafficEnabled;
   final Function(GoogleMapController)? onMapCreated;
   final Function(CameraPosition)? onCameraMove;
   final Function(LatLng)? onTap;
@@ -73,7 +78,7 @@ class _AppMapViewBody extends StatelessWidget {
             buildingsEnabled: false,
             compassEnabled: false,
             indoorViewEnabled: false,
-            trafficEnabled: true,
+            trafficEnabled: isTrafficEnabled,
             myLocationEnabled: true,
             myLocationButtonEnabled: false,
             zoomControlsEnabled: false,

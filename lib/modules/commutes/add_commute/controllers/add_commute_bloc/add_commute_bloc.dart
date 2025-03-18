@@ -146,7 +146,6 @@ class AddCommuteBloc extends Bloc<AddCommuteEvent, AddCommuteState> {
         ),
       ),
       commuteName: commuteName.text,
-      isActive: true,
       isRoundTrip: isRoundTrip,
       days: days.toList(),
     );

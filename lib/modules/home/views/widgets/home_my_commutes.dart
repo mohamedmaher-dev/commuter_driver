@@ -1,3 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:blur/blur.dart';
 import 'package:commuter_driver/core/routes/app_route.dart';
 import 'package:commuter_driver/core/widgets/loading_view.dart';
 import 'package:flutter/material.dart';
@@ -22,21 +25,61 @@ class _HomeMyCommutesBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<CommutesBloc>(context);
-    return BlocBuilder<CommutesBloc, CommutesState>(
-      builder: (context, state) {
-        return state.maybeWhen(
-          getCommuteLoading: () => const LoadingView(),
-          initial: () => const LoadingView(),
-          orElse: () => ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => MyCommuteChip(
-              commuteModel: bloc.commutes[index],
-            ),
-            itemCount: bloc.commutes.length,
+    return SizedBox(
+      height: 75.h,
+      child: Padding(
+        padding: EdgeInsets.all(10.w),
+        child: Card(
+          color: ColorManger.transparent,
+          elevation: 0,
+          child: Row(
+            children: [
+              Expanded(
+                child: BlocBuilder<CommutesBloc, CommutesState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      getCommuteLoading: () => const LoadingView(),
+                      initial: () => const LoadingView(),
+                      orElse: () => Container(
+                        alignment: Alignment.center,
+                        width: MediaQuery.sizeOf(context).width,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) => MyCommuteChip(
+                            commuteModel: bloc.commutes[index],
+                          ),
+                          itemCount: bloc.commutes.length,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              VerticalDivider(
+                color: ColorManger.primary,
+                indent: 10.w,
+                endIndent: 10.w,
+              ),
+              SizedBox(width: 10.w),
+              IconButton.filled(
+                onPressed: () async {
+                  await AppRouter.push(
+                      context: context, page: Pages.addCommute);
+                  BlocProvider.of<CommutesBloc>(context)
+                      .add(const CommutesEvent.started());
+                },
+                icon: const Icon(Icons.add),
+              ),
+              SizedBox(width: 10.w),
+            ],
           ),
-        );
-      },
+        ).frosted(
+          blur: 2,
+          borderRadius: BorderRadius.circular(15.r),
+          frostColor: ColorManger.background,
+        ),
+      ),
     );
   }
 }
@@ -57,7 +100,6 @@ class MyCommuteChip extends StatelessWidget {
             page: Pages.oneCommute,
             arguments: commuteModel,
           );
-          // ignore: use_build_context_synchronously
           BlocProvider.of<CommutesBloc>(context)
               .add(const CommutesEvent.started());
         },

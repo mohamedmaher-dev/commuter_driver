@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart' as locationimport;
 
 import '../env/env.dart';
+import '../utils/assets_manger.dart';
 import 'location_permission.dart';
 import 'models/routes_model/get_routes_request_model.dart';
 import 'models/routes_model/get_routes_response_model.dart';
@@ -15,6 +17,7 @@ class LocationService {
   final Dio _dio;
   final CheckLocationPermission _locationPermission;
   final PolylinePoints _polylinePoints = PolylinePoints();
+  static BitmapDescriptor personIcon = BitmapDescriptor.defaultMarker;
   late LatLng currentLatLng;
   static const defaultLatLng = LatLng(24.713538839859417, 46.675304269015406);
   Future<void> locationServiceInit() async {
@@ -28,6 +31,10 @@ class LocationService {
         }
       },
       onError: (e) => currentLatLng = defaultLatLng,
+    );
+    personIcon = await BitmapDescriptor.fromAssetImage(
+      const ImageConfiguration(),
+      AssetsManger.imagesCarIcon,
     );
   }
 

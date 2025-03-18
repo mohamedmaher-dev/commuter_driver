@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الموقع الحالي"),
         "date_of_the_trip":
             MessageLookupByLibrary.simpleMessage("تاريخ الرحلة"),
+        "default_text": MessageLookupByLibrary.simpleMessage("افتراضي"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "delete_my_profile":
             MessageLookupByLibrary.simpleMessage("حذف ملفي الشخصي"),
@@ -114,6 +115,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الانضمام إلى الرحلة"),
         "joined_commute_successfully": MessageLookupByLibrary.simpleMessage(
             "تم الانضمام إلى الرحلة بنجاح"),
+        "km": MessageLookupByLibrary.simpleMessage("كيلومتر"),
         "location": MessageLookupByLibrary.simpleMessage("الموقع"),
         "location_of_the_trip":
             MessageLookupByLibrary.simpleMessage("موقع الرحلة"),
@@ -170,6 +172,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "pickup_and_dropoff":
             MessageLookupByLibrary.simpleMessage("التقاط وإنزال"),
         "pin": MessageLookupByLibrary.simpleMessage("تثبيت"),
+        "please_choose_the_range":
+            MessageLookupByLibrary.simpleMessage("يرجى تحديد النطاق"),
+        "please_choose_the_time_window":
+            MessageLookupByLibrary.simpleMessage("يرجى تحديد نافذة زمنية"),
         "please_fill_all_fields":
             MessageLookupByLibrary.simpleMessage("يرجى ملء جميع الحقول"),
         "please_input_your_mail":

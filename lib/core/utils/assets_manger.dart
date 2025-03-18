@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class AssetsManger {
   AssetsManger._();
-
+  
   /// Assets for fontsChangaRegular
   /// assets/fonts/Changa-Regular.ttf
   static const String fontsChangaRegular = "assets/fonts/Changa-Regular.ttf";
@@ -42,6 +42,14 @@ class AssetsManger {
   /// assets/images/logo.png
   static const String imagesLogo = "assets/images/logo.png";
 
+  /// Assets for imagesWeAreHere
+  /// assets/images/we_are_here.png
+  static const String imagesWeAreHere = "assets/images/we_are_here.png";
+
+  /// Assets for mapStylesLightStyle
+  /// assets/mapStyles/light_style.json
+  static const String mapStylesLightStyle = "assets/mapStyles/light_style.json";
+
   /// Assets for mapStylesNightStyle
   /// assets/mapStyles/night_style.json
   static const String mapStylesNightStyle = "assets/mapStyles/night_style.json";
@@ -58,3 +66,4 @@ class AssetsManger {
   /// assets/svgs/google_icon.svg
   static const String svgsGoogleIcon = "assets/svgs/google_icon.svg";
 }
+

@@ -1709,6 +1709,46 @@ class Language {
       args: [],
     );
   }
+
+  /// `KM`
+  String get km {
+    return Intl.message(
+      'KM',
+      name: 'km',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please choose the range`
+  String get please_choose_the_range {
+    return Intl.message(
+      'Please choose the range',
+      name: 'please_choose_the_range',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please choose the time window`
+  String get please_choose_the_time_window {
+    return Intl.message(
+      'Please choose the time window',
+      name: 'please_choose_the_time_window',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Default`
+  String get default_text {
+    return Intl.message(
+      'Default',
+      name: 'default_text',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Language> {

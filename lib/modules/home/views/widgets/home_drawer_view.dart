@@ -1,9 +1,12 @@
-import 'package:commuter_driver/modules/home/views/widgets/home_drawer_item.dart';
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/localization/generated/l10n.dart';
 import '../../../../core/routes/app_route.dart';
 import '../../../../core/themes/app_theme_controller.dart';
+import '../../../commutes/my_commutes/controllers/commutes_bloc/commutes_bloc.dart';
 
 class HomeDrawerView extends StatelessWidget {
   const HomeDrawerView({super.key});
@@ -67,6 +70,38 @@ class HomeDrawerView extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class HomeDrawerItem extends StatelessWidget {
+  const HomeDrawerItem({
+    super.key,
+    required this.title,
+    required this.icon,
+    this.isSelected = false,
+    required this.page,
+  });
+  final String title;
+  final IconData icon;
+  final bool isSelected;
+  final Pages page;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0,
+      color: isSelected ? ColorManger.primaryContainer : ColorManger.background,
+      child: ListTile(
+        style: ListTileStyle.drawer,
+        leading: Icon(icon),
+        title: Text(title, maxLines: 1),
+        onTap: () async {
+          await AppRouter.push(context: context, page: page);
+          BlocProvider.of<CommutesBloc>(context)
+              .add(const CommutesEvent.started());
+        },
       ),
     );
   }

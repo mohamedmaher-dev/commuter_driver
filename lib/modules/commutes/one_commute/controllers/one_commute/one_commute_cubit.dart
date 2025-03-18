@@ -20,6 +20,7 @@ class OneCommuteCubit extends Cubit<OneCommuteState> {
     range = commuteModel.pickup.range;
     pickup = await _rebo.getLocationName(
         latLng: commuteModel.pickup.location.toLatLng());
+    print("================= ${commuteModel.pickup.location.toLatLng()}");
     dropoff = await _rebo.getLocationName(
         latLng: commuteModel.landing.location.toLatLng());
     emit(OneCommuteState.success());

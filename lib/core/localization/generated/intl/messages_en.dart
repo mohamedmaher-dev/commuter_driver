@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Current location"),
         "date_of_the_trip":
             MessageLookupByLibrary.simpleMessage("Date of the trip"),
+        "default_text": MessageLookupByLibrary.simpleMessage("Default"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "delete_my_profile":
             MessageLookupByLibrary.simpleMessage("Delete my profile"),
@@ -123,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "join_commute": MessageLookupByLibrary.simpleMessage("Join commute"),
         "joined_commute_successfully":
             MessageLookupByLibrary.simpleMessage("Joined commute successfully"),
+        "km": MessageLookupByLibrary.simpleMessage("KM"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
         "location_of_the_trip":
             MessageLookupByLibrary.simpleMessage("Location of the trip"),
@@ -181,6 +183,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "pickup_and_dropoff":
             MessageLookupByLibrary.simpleMessage("Pickup and dropoff"),
         "pin": MessageLookupByLibrary.simpleMessage("Pin"),
+        "please_choose_the_range":
+            MessageLookupByLibrary.simpleMessage("Please choose the range"),
+        "please_choose_the_time_window": MessageLookupByLibrary.simpleMessage(
+            "Please choose the time window"),
         "please_fill_all_fields":
             MessageLookupByLibrary.simpleMessage("Please fill all fields"),
         "please_input_your_mail":

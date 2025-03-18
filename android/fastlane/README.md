@@ -23,10 +23,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Lane for  Android App Distribution
 
-### android stage
+### android test
 
 ```sh
-[bundle exec] fastlane android stage
+[bundle exec] fastlane android test
 ```
 
 
